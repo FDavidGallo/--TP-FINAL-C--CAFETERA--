@@ -41,6 +41,8 @@ C_SRCS +=  \
 ../i2c.c \
 ../LCD_I2C.c \
 ../main.c \
+../MCP3421.c \
+../pines.c \
 ../UART.c
 
 
@@ -55,6 +57,8 @@ ADC.o \
 i2c.o \
 LCD_I2C.o \
 main.o \
+MCP3421.o \
+pines.o \
 UART.o
 
 OBJS_AS_ARGS +=  \
@@ -62,6 +66,8 @@ ADC.o \
 i2c.o \
 LCD_I2C.o \
 main.o \
+MCP3421.o \
+pines.o \
 UART.o
 
 C_DEPS +=  \
@@ -69,6 +75,8 @@ ADC.d \
 i2c.d \
 LCD_I2C.d \
 main.d \
+MCP3421.d \
+pines.d \
 UART.d
 
 C_DEPS_AS_ARGS +=  \
@@ -76,6 +84,8 @@ ADC.d \
 i2c.d \
 LCD_I2C.d \
 main.d \
+MCP3421.d \
+pines.d \
 UART.d
 
 OUTPUT_FILE_PATH +=tP.elf
@@ -114,6 +124,20 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./main.o: .././main.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./MCP3421.o: .././MCP3421.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./pines.o: .././pines.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

@@ -169,6 +169,18 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCP3421.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCP3421.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pines.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pines.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="UART.c">
       <SubType>compile</SubType>
     </Compile>

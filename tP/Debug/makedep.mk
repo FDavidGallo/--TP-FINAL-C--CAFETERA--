@@ -10,5 +10,9 @@ LCD_I2C.c
 
 main.c
 
+MCP3421.c
+
+pines.c
+
 UART.c
 
