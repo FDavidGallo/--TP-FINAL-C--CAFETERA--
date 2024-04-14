@@ -1,3 +1,4 @@
+#include "mcp9800.h"
 #include "MCP3421.h"
 #include "pcf857.h"
 #include <avr/io.h>
@@ -34,14 +35,16 @@ unsigned char valor;
 #define EEPROM_ADDR 0 
 int main(void)
 {
-	
-	 if (p == 2) {
-		 // Establece PC0 en 0
-		 PORTC &= ~(1 << PC0);
-		 } else {
-		 // Establece PC0 en 1
-		 PORTC |= (1 << PC0);
-	 }
+	while(1){
+		ImprimirTemperatura();
+		int pepis=LeerTemperatura();
+		char pepi[16];
+		sprintf(pepi, "%d", pepis); // Convierte el entero a una cadena
+		uart_send_string("pepi: ");
+		uart_send_string(pepi);
+		
+	}
+	/*
 	ConfigurarPinesSensores();
 	DDRC |= (1 << PC0);
 	uart_init();
@@ -65,21 +68,26 @@ int main(void)
    escribirEnLCD(" Hola yo");
      limpiar_LCD();
 	   char charToStore = 'A';
-
+p=88;
 	   // Escribir el carácter en la EEPROM
 	   eeprom_write_byte((uint8_t*)EEPROM_ADDR, charToStore);
 
 	   // Leer el carácter desde la EEPROM
 	   char readChar = eeprom_read_byte((uint8_t*)EEPROM_ADDR);
 
-	   // Convertir el carácter leído en una cadena de caracteres
-	   char VALOR[2]; // Espacio para el carácter y el terminador nulo
-	   sprintf(VALOR, "%c", readChar);
+if (p == 2) {
+	// Establece PC0 en 0
+	PORTC &= ~(1 << PC0);
+	} else {
+	// Establece PC0 en 1
+	PORTC |= (1 << PC0);
+}
+	   
 
 	   // Tu código adicional aquí (si es necesario)
 
 	   // Enviar la cadena de caracteres a través de UART
-	   uart_send_string(VALOR);
+	  
  i2c_init(); // Inicializar el bus I2C
 
  while(p==0) {
@@ -88,17 +96,18 @@ int main(void)
 
 	 ApagarTodo(); // Apagar todas las salidas
 	 _delay_ms(1000); // Esperar un segundo
+	 p=p+2;
  }
    while (1) {
 	   char buffer[10]; // Espacio para la cadena de caracteres
 	   sprintf(buffer, "%d", p); // Convierte el entero a una cadena
 	   escribirEnLCD(buffer); // Muestra la cadena en la pantalla LCD
-	   _delay_ms(5475);
+	   _delay_ms(1000);
 	   limpiar_LCD();
 	   escribirEnLCD(" Hola yo");
 	   p++; // Incrementa el valor de p
 	   escribirEnLCD(buffer); // Muestra la cadena en la pantalla LCD
-	   _delay_ms(5475);
+	   _delay_ms(1000);
 	   limpiar_LCD();
 	  uart_send_string(" Hola mundo");
 	  SensorTaza = (PIND & (1 << PD3)) ? 1 : 0;
@@ -110,7 +119,6 @@ int main(void)
 	     escribirEnLCD(buffer); // Muestra la cadena en la pantalla LCD
 	   _delay_ms(5475);
 	   limpiar_LCD();
-	   uart_send_string(VALOR);
 	  _delay_ms(5475);
 	   i2c_init();
 	   sprintf(buffer, "%d", resultado); // Convierte el entero a una cadena
@@ -136,15 +144,19 @@ int main(void)
 		  MCP3421_read();
 		   resultado = (((int)a1 << 10) | ((int)a2 << 2) | ((int)a3 >> 6))-2;
 		  TWI_Stop();
-		  main();
 		  
 		  
 	  }
 	  Temp1=Temp1+1;
+	  int pepis=LeerTemperatura();
+	  char pepi[16];
+	  sprintf(pepi, "%d", pepis); // Convierte el entero a una cadena
+	  uart_send_string("pepi: ");
+	uart_send_string(pepi);
 	
 	  }
 
-	
+	*/
 
 }
 

@@ -148,12 +148,6 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ADC.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ADC.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="i2c.c">
       <SubType>compile</SubType>
     </Compile>
@@ -173,6 +167,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="MCP3421.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mcp9800.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="mcp9800.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="pcf857.h">
