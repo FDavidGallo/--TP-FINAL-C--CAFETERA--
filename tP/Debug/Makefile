@@ -42,6 +42,7 @@ C_SRCS +=  \
 ../LCD_I2C.c \
 ../main.c \
 ../MCP3421.c \
+../pcf8575.c \
 ../pines.c \
 ../UART.c
 
@@ -58,6 +59,7 @@ i2c.o \
 LCD_I2C.o \
 main.o \
 MCP3421.o \
+pcf8575.o \
 pines.o \
 UART.o
 
@@ -67,6 +69,7 @@ i2c.o \
 LCD_I2C.o \
 main.o \
 MCP3421.o \
+pcf8575.o \
 pines.o \
 UART.o
 
@@ -76,6 +79,7 @@ i2c.d \
 LCD_I2C.d \
 main.d \
 MCP3421.d \
+pcf8575.d \
 pines.d \
 UART.d
 
@@ -85,6 +89,7 @@ i2c.d \
 LCD_I2C.d \
 main.d \
 MCP3421.d \
+pcf8575.d \
 pines.d \
 UART.d
 
@@ -131,6 +136,13 @@ LINKER_SCRIPT_DEP+=
 	
 
 ./MCP3421.o: .././MCP3421.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./pcf8575.o: .././pcf8575.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

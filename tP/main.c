@@ -1,6 +1,8 @@
 #include "MCP3421.h"
+#include "pcf857.h"
 #include <avr/io.h>
 #define cpu_1600000
+#define PCA8575_ADDRESS 0x20
 // Definición de pines para los sensores
 #define PD3 3 // Pin 3 (PD3) -- Sensor Taza 
 #define PD4 4 // Pin 4 (PD4) -- Sensor Puerta 
@@ -16,22 +18,32 @@
 #define BAUD_RATE 9600
 //#define F_CPU 16000000UL
 // Definición de variables para los sensores
-
+int Temp1=0;
+int resultado=12;
+long int a1,a2,a3;
+char sign;//???? ??????????? ???????? ??????????
+float a;//?????????? ??? ?????????????? ? ??????
+char str[12];//?????? ??? ?????? ?????????? ?? ???????
+int p=0;
  uint8_t SensorTaza = 0; // Estado del sensor de la taza (0 o 1)
  uint8_t SensorPuerta = 0; // Estado del sensor de la puerta (0 o 1)
 
 unsigned char valor;
 #include <avr/eeprom.h>
 // Dirección en la EEPROM donde se almacenará el carácter
-#define EEPROM_ADDR 0
-
-
-
-
+#define EEPROM_ADDR 0 
 int main(void)
 {
+	
+	 if (p == 2) {
+		 // Establece PC0 en 0
+		 PORTC &= ~(1 << PC0);
+		 } else {
+		 // Establece PC0 en 1
+		 PORTC |= (1 << PC0);
+	 }
 	ConfigurarPinesSensores();
-	int p=0;
+	DDRC |= (1 << PC0);
 	uart_init();
 	uart_send_string("	Hola mundo");
 	Carpy();
@@ -68,7 +80,15 @@ int main(void)
 
 	   // Enviar la cadena de caracteres a través de UART
 	   uart_send_string(VALOR);
+ i2c_init(); // Inicializar el bus I2C
 
+ while(p==0) {
+	 PrenderTodo();
+	 _delay_ms(1000); // Esperar un segundo
+
+	 ApagarTodo(); // Apagar todas las salidas
+	 _delay_ms(1000); // Esperar un segundo
+ }
    while (1) {
 	   char buffer[10]; // Espacio para la cadena de caracteres
 	   sprintf(buffer, "%d", p); // Convierte el entero a una cadena
@@ -92,8 +112,37 @@ int main(void)
 	   limpiar_LCD();
 	   uart_send_string(VALOR);
 	  _delay_ms(5475);
-	  
-   }
+	   i2c_init();
+	   sprintf(buffer, "%d", resultado); // Convierte el entero a una cadena
+	   escribirEnLCD(buffer);
+	  _delay_ms(5475);
+	   limpiar_LCD();
+	   
+	   if (p == 2) {
+		   // Establece PC0 en 0
+		   PORTC &= ~(1 << PC0);
+		   	   escribirEnLCD(" UWU");
+
+		   _delay_ms(2266);
+		   } else {
+		   // Establece PC0 en 1
+		   PORTC |= (1 << PC0);
+	   }
+
+	  if (Temp1==2){
+		  Temp1=0;
+		  TWI_ini(); //INCIALIZA EL TWI (TIENE UNA CONFIGURACIÓN ESPECIAL, NO HAY QUE TOCAR)
+		  MCP3421_config(); //configura el sensor MCP3421
+		  MCP3421_read();
+		   resultado = (((int)a1 << 10) | ((int)a2 << 2) | ((int)a3 >> 6))-2;
+		  TWI_Stop();
+		  main();
+		  
+		  
+	  }
+	  Temp1=Temp1+1;
+	
+	  }
 
 	
 

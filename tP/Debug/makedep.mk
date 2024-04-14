@@ -12,6 +12,8 @@ main.c
 
 MCP3421.c
 
+pcf8575.c
+
 pines.c
 
 UART.c

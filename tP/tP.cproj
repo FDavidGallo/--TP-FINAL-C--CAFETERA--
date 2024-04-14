@@ -175,6 +175,12 @@
     <Compile Include="MCP3421.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="pcf857.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="pcf8575.c">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="pines.c">
       <SubType>compile</SubType>
     </Compile>

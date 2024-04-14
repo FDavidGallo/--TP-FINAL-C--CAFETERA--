@@ -1,4 +1,4 @@
-main.d main.o: .././main.c .././MCP3421.h \
+pcf8575.d pcf8575.o: .././pcf8575.c \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -10,20 +10,14 @@ main.d main.o: .././main.c .././MCP3421.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
- .././pcf857.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././i2c.h \
+ .././pcf857.h .././i2c.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
- c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
- .././LCD_I2C.h .././UART.h .././pines.h
-
-.././MCP3421.h:
+ c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -47,13 +41,13 @@ c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
-.././pcf857.h:
-
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+
+.././pcf857.h:
 
 .././i2c.h:
 
@@ -64,13 +58,3 @@ c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
-
-c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
-
-c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
-
-.././LCD_I2C.h:
-
-.././UART.h:
-
-.././pines.h:

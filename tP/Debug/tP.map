@@ -32,14 +32,14 @@ c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/mic
 Allocating common symbols
 Common symbol       size              file
 
-sign                0x1               MCP3421.o
-a1                  0x4               MCP3421.o
+sign                0x1               main.o
+a1                  0x4               main.o
 valor               0x1               main.o
-a3                  0x4               MCP3421.o
-a2                  0x4               MCP3421.o
-str                 0xc               MCP3421.o
+a3                  0x4               main.o
+a2                  0x4               main.o
+str                 0xc               main.o
 recibido            0x1               main.o
-a                   0x4               MCP3421.o
+a                   0x4               main.o
 
 Discarded input sections
 
@@ -65,8 +65,6 @@ Discarded input sections
  .text          0x00000000        0x0 i2c.o
  .data          0x00000000        0x0 i2c.o
  .bss           0x00000000        0x0 i2c.o
- .text.i2c_stop
-                0x00000000       0x10 i2c.o
  .data.ejecucionUnica
                 0x00000000        0x2 i2c.o
  .text          0x00000000        0x0 LCD_I2C.o
@@ -75,34 +73,12 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- COMMON         0x00000000        0x2 main.o
  .text          0x00000000        0x0 MCP3421.o
  .data          0x00000000        0x0 MCP3421.o
  .bss           0x00000000        0x0 MCP3421.o
- .text.TWI_ini  0x00000000        0x8 MCP3421.o
- .text.TWI_Start
-                0x00000000       0x10 MCP3421.o
- .text.TWI_Sendbyte
-                0x00000000       0x14 MCP3421.o
- .text.TWI_Receivebytes
-                0x00000000       0x7a MCP3421.o
- .text.TWI_Stop
-                0x00000000        0x8 MCP3421.o
- .text.MCP3421_config
-                0x00000000       0x16 MCP3421.o
- .text.MCP3421_read
-                0x00000000       0x14 MCP3421.o
- .debug_info    0x00000000      0x219 MCP3421.o
- .debug_abbrev  0x00000000       0xd2 MCP3421.o
- .debug_loc     0x00000000       0x2d MCP3421.o
- .debug_aranges
-                0x00000000       0x50 MCP3421.o
- .debug_ranges  0x00000000       0x40 MCP3421.o
- .debug_line    0x00000000      0x1ea MCP3421.o
- .debug_str     0x00000000      0x1e2 MCP3421.o
- .comment       0x00000000       0x31 MCP3421.o
- .debug_frame   0x00000000       0x84 MCP3421.o
- COMMON         0x00000000       0x1d MCP3421.o
+ .text          0x00000000        0x0 pcf8575.o
+ .data          0x00000000        0x0 pcf8575.o
+ .bss           0x00000000        0x0 pcf8575.o
  .text          0x00000000        0x0 pines.o
  .data          0x00000000        0x0 pines.o
  .bss           0x00000000        0x0 pines.o
@@ -250,6 +226,7 @@ LOAD i2c.o
 LOAD LCD_I2C.o
 LOAD main.o
 LOAD MCP3421.o
+LOAD pcf8575.o
 LOAD pines.o
 LOAD UART.o
 START GROUP
@@ -361,7 +338,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0xc20
+.text           0x00000000      0xea0
  *(.vectors)
  .vectors       0x00000000       0x68 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -457,82 +434,114 @@ END GROUP
  .text.i2c_write
                 0x000000c2       0x14 i2c.o
                 0x000000c2                i2c_write
+ .text.i2c_stop
+                0x000000d6       0x10 i2c.o
+                0x000000d6                i2c_stop
  .text.enviarPulsoEnable
-                0x000000d6       0x3e LCD_I2C.o
-                0x000000d6                enviarPulsoEnable
+                0x000000e6       0x3e LCD_I2C.o
+                0x000000e6                enviarPulsoEnable
  .text.enviarComando4Bits
-                0x00000114       0x50 LCD_I2C.o
-                0x00000114                enviarComando4Bits
+                0x00000124       0x50 LCD_I2C.o
+                0x00000124                enviarComando4Bits
  .text.enviarComando
-                0x00000164       0x94 LCD_I2C.o
-                0x00000164                enviarComando
+                0x00000174       0x94 LCD_I2C.o
+                0x00000174                enviarComando
  .text.escribirDato
-                0x000001f8       0x94 LCD_I2C.o
-                0x000001f8                escribirDato
+                0x00000208       0x94 LCD_I2C.o
+                0x00000208                escribirDato
  .text.lcd_init
-                0x0000028c       0x56 LCD_I2C.o
-                0x0000028c                lcd_init
+                0x0000029c       0x56 LCD_I2C.o
+                0x0000029c                lcd_init
  .text.escribirEnLCD
-                0x000002e2       0x1a LCD_I2C.o
-                0x000002e2                escribirEnLCD
+                0x000002f2       0x1a LCD_I2C.o
+                0x000002f2                escribirEnLCD
  .text.limpiar_LCD
-                0x000002fc       0x16 LCD_I2C.o
-                0x000002fc                limpiar_LCD
- .text.main     0x00000312      0x1a4 main.o
-                0x00000312                main
+                0x0000030c       0x16 LCD_I2C.o
+                0x0000030c                limpiar_LCD
+ .text.main     0x00000322      0x300 main.o
+                0x00000322                main
+ .text.TWI_ini  0x00000622        0x8 MCP3421.o
+                0x00000622                TWI_ini
+ .text.TWI_Start
+                0x0000062a       0x10 MCP3421.o
+                0x0000062a                TWI_Start
+ .text.TWI_Sendbyte
+                0x0000063a       0x14 MCP3421.o
+                0x0000063a                TWI_Sendbyte
+ .text.TWI_Receivebytes
+                0x0000064e       0x7a MCP3421.o
+                0x0000064e                TWI_Receivebytes
+ .text.TWI_Stop
+                0x000006c8        0x8 MCP3421.o
+                0x000006c8                TWI_Stop
+ .text.MCP3421_config
+                0x000006d0       0x16 MCP3421.o
+                0x000006d0                MCP3421_config
+ .text.MCP3421_read
+                0x000006e6       0x14 MCP3421.o
+                0x000006e6                MCP3421_read
+ .text.EscribirPcf8575
+                0x000006fa       0x28 pcf8575.o
+                0x000006fa                EscribirPcf8575
+ .text.PrenderTodo
+                0x00000722        0xa pcf8575.o
+                0x00000722                PrenderTodo
+ .text.ApagarTodo
+                0x0000072c        0xa pcf8575.o
+                0x0000072c                ApagarTodo
  .text.ConfigurarPinesSensores
-                0x000004b6        0xe pines.o
-                0x000004b6                ConfigurarPinesSensores
+                0x00000736        0xe pines.o
+                0x00000736                ConfigurarPinesSensores
  .text.uart_init
-                0x000004c4       0x18 UART.o
-                0x000004c4                uart_init
+                0x00000744       0x18 UART.o
+                0x00000744                uart_init
  .text.uart_send_char
-                0x000004dc        0xe UART.o
-                0x000004dc                uart_send_char
+                0x0000075c        0xe UART.o
+                0x0000075c                uart_send_char
  .text.uart_send_string
-                0x000004ea       0x1a UART.o
-                0x000004ea                uart_send_string
+                0x0000076a       0x1a UART.o
+                0x0000076a                uart_send_string
  .text.uart_send_newline
-                0x00000504        0xe UART.o
-                0x00000504                uart_send_newline
- .text.Carpy    0x00000512      0x10a UART.o
-                0x00000512                Carpy
+                0x00000784        0xe UART.o
+                0x00000784                uart_send_newline
+ .text.Carpy    0x00000792      0x10a UART.o
+                0x00000792                Carpy
  .text.avr-libc
-                0x0000061c       0x44 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                0x0000061c                sprintf
+                0x0000089c       0x44 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x0000089c                sprintf
  .text.avr-libc
-                0x00000660      0x3c2 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00000660                vfprintf
+                0x000008e0      0x3c2 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x000008e0                vfprintf
  .text.avr-libc
-                0x00000a22       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x00000a22                strnlen_P
+                0x00000ca2       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x00000ca2                strnlen_P
  .text.avr-libc
-                0x00000a38       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00000a38                strnlen
+                0x00000cb8       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x00000cb8                strnlen
  .text.avr-libc
-                0x00000a4e       0x78 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x00000a4e                fputc
+                0x00000cce       0x78 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x00000cce                fputc
  .text.avr-libc
-                0x00000ac6       0xbc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00000ac6                __ultoa_invert
+                0x00000d46       0xbc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x00000d46                __ultoa_invert
  .text.avr-libc
-                0x00000b82       0x10 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
-                0x00000b82                eeprom_read_byte
+                0x00000e02       0x10 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+                0x00000e02                eeprom_read_byte
  .text.avr-libc
-                0x00000b92       0x1c C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
-                0x00000b92                eeprom_write_byte
-                0x00000b94                eeprom_write_r18
+                0x00000e12       0x1c C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
+                0x00000e12                eeprom_write_byte
+                0x00000e14                eeprom_write_r18
  .text.libgcc.prologue
-                0x00000bae       0x38 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x00000bae                __prologue_saves__
+                0x00000e2e       0x38 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x00000e2e                __prologue_saves__
  .text.libgcc.prologue
-                0x00000be6       0x36 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x00000be6                __epilogue_restores__
-                0x00000c1c                . = ALIGN (0x2)
+                0x00000e66       0x36 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x00000e66                __epilogue_restores__
+                0x00000e9c                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000c1c        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x00000c1c                _exit
-                0x00000c1c                exit
+ .fini9         0x00000e9c        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00000e9c                _exit
+                0x00000e9c                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -551,46 +560,63 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000c1c        0x4 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000e9c        0x4 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00000c20                _etext = .
+                0x00000ea0                _etext = .
 
-.data           0x00800100      0x6fc load address 0x00000c20
+.data           0x00800100      0x704 load address 0x00000ea0
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
+ .data.resultado
+                0x00800100        0x2 main.o
+                0x00800100                resultado
  *(.gnu.linkonce.d*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800100       0x37 main.o
+                0x00800102       0x3c main.o
  .rodata.str1.1
-                0x00800137      0x6c5 UART.o
+                0x0080013e      0x6c5 UART.o
  *(.gnu.linkonce.r*)
-                0x008007fc                . = ALIGN (0x2)
-                0x008007fc                _edata = .
-                0x008007fc                PROVIDE (__data_end, .)
+                0x00800804                . = ALIGN (0x2)
+ *fill*         0x00800803        0x1 
+                0x00800804                _edata = .
+                0x00800804                PROVIDE (__data_end, .)
 
-.bss            0x008007fc        0x2
-                0x008007fc                PROVIDE (__bss_start, .)
+.bss            0x00800804       0x25
+                0x00800804                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.SensorPuerta
-                0x008007fc        0x1 main.o
-                0x008007fc                SensorPuerta
+                0x00800804        0x1 main.o
+                0x00800804                SensorPuerta
  .bss.SensorTaza
-                0x008007fd        0x1 main.o
-                0x008007fd                SensorTaza
+                0x00800805        0x1 main.o
+                0x00800805                SensorTaza
+ .bss.p         0x00800806        0x2 main.o
+                0x00800806                p
+ .bss.Temp1     0x00800808        0x2 main.o
+                0x00800808                Temp1
  *(COMMON)
-                0x008007fe                PROVIDE (__bss_end, .)
-                0x00000c20                __data_load_start = LOADADDR (.data)
-                0x0000131c                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080080a       0x1f main.o
+                0x0080080a                sign
+                0x0080080b                a1
+                0x0080080f                valor
+                0x00800810                a3
+                0x00800814                a2
+                0x00800818                str
+                0x00800824                recibido
+                0x00800825                a
+                0x00800829                PROVIDE (__bss_end, .)
+                0x00000ea0                __data_load_start = LOADADDR (.data)
+                0x000015a4                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008007fe        0x0
+.noinit         0x00800829        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008007fe                _end = .
+                0x00800829                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -636,6 +662,8 @@ END GROUP
                                  0x31 (size before relaxing)
  .comment       0x00000030       0x31 LCD_I2C.o
  .comment       0x00000030       0x31 main.o
+ .comment       0x00000030       0x31 MCP3421.o
+ .comment       0x00000030       0x31 pcf8575.o
  .comment       0x00000030       0x31 pines.o
  .comment       0x00000030       0x31 UART.o
  .comment       0x00000030       0x31 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
@@ -663,7 +691,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x170
+.debug_aranges  0x00000000      0x1f0
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x38 i2c.o
@@ -672,79 +700,97 @@ END GROUP
  .debug_aranges
                 0x00000088       0x20 main.o
  .debug_aranges
-                0x000000a8       0x28 pines.o
+                0x000000a8       0x50 MCP3421.o
  .debug_aranges
-                0x000000d0       0x60 UART.o
+                0x000000f8       0x30 pcf8575.o
  .debug_aranges
-                0x00000130       0x20 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+                0x00000128       0x28 pines.o
  .debug_aranges
-                0x00000150       0x20 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
+                0x00000150       0x60 UART.o
+ .debug_aranges
+                0x000001b0       0x20 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+ .debug_aranges
+                0x000001d0       0x20 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1842
+.debug_info     0x00000000     0x1e42
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_info    0x000005f4       0xed i2c.o
  .debug_info    0x000006e1      0x3fc LCD_I2C.o
- .debug_info    0x00000add      0x584 main.o
- .debug_info    0x00001061       0xea pines.o
- .debug_info    0x0000114b      0x5c3 UART.o
- .debug_info    0x0000170e       0x9a C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
- .debug_info    0x000017a8       0x9a C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
+ .debug_info    0x00000add      0x7fb main.o
+ .debug_info    0x000012d8      0x219 MCP3421.o
+ .debug_info    0x000014f1      0x170 pcf8575.o
+ .debug_info    0x00001661       0xea pines.o
+ .debug_info    0x0000174b      0x5c3 UART.o
+ .debug_info    0x00001d0e       0x9a C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+ .debug_info    0x00001da8       0x9a C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
 
-.debug_abbrev   0x00000000      0xb6a
+.debug_abbrev   0x00000000      0xcee
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_abbrev  0x000005a2       0x89 i2c.o
  .debug_abbrev  0x0000062b      0x19e LCD_I2C.o
- .debug_abbrev  0x000007c9      0x17d main.o
- .debug_abbrev  0x00000946       0xa1 pines.o
- .debug_abbrev  0x000009e7      0x15b UART.o
- .debug_abbrev  0x00000b42       0x14 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
- .debug_abbrev  0x00000b56       0x14 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
+ .debug_abbrev  0x000007c9      0x174 main.o
+ .debug_abbrev  0x0000093d       0xd2 MCP3421.o
+ .debug_abbrev  0x00000a0f       0xbb pcf8575.o
+ .debug_abbrev  0x00000aca       0xa1 pines.o
+ .debug_abbrev  0x00000b6b      0x15b UART.o
+ .debug_abbrev  0x00000cc6       0x14 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+ .debug_abbrev  0x00000cda       0x14 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
 
-.debug_line     0x00000000      0xfe2
+.debug_line     0x00000000     0x138f
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_line    0x00000134      0x155 i2c.o
  .debug_line    0x00000289      0x3e1 LCD_I2C.o
- .debug_line    0x0000066a      0x3a7 main.o
- .debug_line    0x00000a11      0x196 pines.o
- .debug_line    0x00000ba7      0x323 UART.o
- .debug_line    0x00000eca       0x7a C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
- .debug_line    0x00000f44       0x9e C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
+ .debug_line    0x0000066a      0x43a main.o
+ .debug_line    0x00000aa4      0x1ea MCP3421.o
+ .debug_line    0x00000c8e      0x130 pcf8575.o
+ .debug_line    0x00000dbe      0x196 pines.o
+ .debug_line    0x00000f54      0x323 UART.o
+ .debug_line    0x00001277       0x7a C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eerd_byte.o)
+ .debug_line    0x000012f1       0x9e C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5\libatmega328p.a(eewr_byte.o)
 
-.debug_frame    0x00000000      0x21c
+.debug_frame    0x00000000      0x2f0
  *(.debug_frame)
  .debug_frame   0x00000000       0x54 i2c.o
  .debug_frame   0x00000054       0xa0 LCD_I2C.o
  .debug_frame   0x000000f4       0x34 main.o
- .debug_frame   0x00000128       0x34 pines.o
- .debug_frame   0x0000015c       0xc0 UART.o
+ .debug_frame   0x00000128       0x84 MCP3421.o
+ .debug_frame   0x000001ac       0x50 pcf8575.o
+ .debug_frame   0x000001fc       0x34 pines.o
+ .debug_frame   0x00000230       0xc0 UART.o
 
-.debug_str      0x00000000      0x5b1
+.debug_str      0x00000000      0x674
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_str     0x00000208      0x16c i2c.o
                                 0x1a5 (size before relaxing)
  .debug_str     0x00000374       0xcc LCD_I2C.o
                                 0x231 (size before relaxing)
- .debug_str     0x00000440       0xd9 main.o
-                                0x2c9 (size before relaxing)
- .debug_str     0x00000519       0x41 pines.o
+ .debug_str     0x00000440      0x138 main.o
+                                0x328 (size before relaxing)
+ .debug_str     0x00000578       0x37 MCP3421.o
+                                0x1e2 (size before relaxing)
+ .debug_str     0x000005af       0x2d pcf8575.o
+                                0x1be (size before relaxing)
+ .debug_str     0x000005dc       0x41 pines.o
                                 0x1b9 (size before relaxing)
- .debug_str     0x0000055a       0x57 UART.o
+ .debug_str     0x0000061d       0x57 UART.o
                                 0x1f8 (size before relaxing)
 
-.debug_loc      0x00000000      0x635
+.debug_loc      0x00000000      0x7b3
  *(.debug_loc)
  .debug_loc     0x00000000       0x2d i2c.o
  .debug_loc     0x0000002d      0x259 LCD_I2C.o
- .debug_loc     0x00000286      0x21a main.o
- .debug_loc     0x000004a0       0x6c pines.o
- .debug_loc     0x0000050c      0x129 UART.o
+ .debug_loc     0x00000286      0x316 main.o
+ .debug_loc     0x0000059c       0x2d MCP3421.o
+ .debug_loc     0x000005c9       0x55 pcf8575.o
+ .debug_loc     0x0000061e       0x6c pines.o
+ .debug_loc     0x0000068a      0x129 UART.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -764,13 +810,15 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000       0xe0
+.debug_ranges   0x00000000      0x140
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x28 i2c.o
  .debug_ranges  0x00000028       0x40 LCD_I2C.o
  .debug_ranges  0x00000068       0x10 main.o
- .debug_ranges  0x00000078       0x18 pines.o
- .debug_ranges  0x00000090       0x50 UART.o
+ .debug_ranges  0x00000078       0x40 MCP3421.o
+ .debug_ranges  0x000000b8       0x20 pcf8575.o
+ .debug_ranges  0x000000d8       0x18 pines.o
+ .debug_ranges  0x000000f0       0x50 UART.o
 
 .debug_macro
  *(.debug_macro)
