@@ -1,7 +1,13 @@
-#include "mcp9800.h"
-#include "MCP3421.h"
-#include "pcf857.h"
+// Inclusión de Librerias
+#include "Librerias/mcp9800.h"
+#include "Librerias/MCP3421.h"
+#include "Librerias/pcf857.h"
 #include <avr/io.h>
+#include "Librerias/LCD_I2C.h"
+#include "Librerias/i2c.h"
+#include "Librerias/UART.h"
+#include "Librerias/pines.h"
+//
 #define cpu_1600000
 #define PCA8575_ADDRESS 0x20
 // Definición de pines para los sensores
@@ -11,10 +17,6 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 #include  <avr/eeprom.h>
-#include "LCD_I2C.h"
-#include "i2c.h"
-#include "UART.h"
-#include "pines.h"
 // Configuración de la UART (para AVR)
 #define BAUD_RATE 9600
 //#define F_CPU 16000000UL
@@ -35,128 +37,10 @@ unsigned char valor;
 #define EEPROM_ADDR 0 
 int main(void)
 {
-	while(1){
-		ImprimirTemperatura();
-		int pepis=LeerTemperatura();
-		char pepi[16];
-		sprintf(pepi, "%d", pepis); // Convierte el entero a una cadena
-		uart_send_string("pepi: ");
-		uart_send_string(pepi);
-		
-	}
-	/*
-	ConfigurarPinesSensores();
-	DDRC |= (1 << PC0);
-	uart_init();
-	uart_send_string("	Hola mundo");
-	Carpy();
-	//uart_send_newline();
-	//uart_send_string("1- Editar valores ");
-	//uart_send_newline();
-	//uart_send_string("2- Ver estadisticas");
-	//uart_send_newline();
-	//uart_send_string("3-Datos del proyecto");
-	uart_send_newline();
-	//echo_serial();
-    i2c_init();
-    i2c_start();
-    i2c_write(0x40);
-    lcd_init();
-    escribirEnLCD(" Hola Mundo");
-   _delay_ms(1000);
-    limpiar_LCD();
-   escribirEnLCD(" Hola yo");
-     limpiar_LCD();
-	   char charToStore = 'A';
-p=88;
-	   // Escribir el carácter en la EEPROM
-	   eeprom_write_byte((uint8_t*)EEPROM_ADDR, charToStore);
-
-	   // Leer el carácter desde la EEPROM
-	   char readChar = eeprom_read_byte((uint8_t*)EEPROM_ADDR);
-
-if (p == 2) {
-	// Establece PC0 en 0
-	PORTC &= ~(1 << PC0);
-	} else {
-	// Establece PC0 en 1
-	PORTC |= (1 << PC0);
-}
-	   
-
-	   // Tu código adicional aquí (si es necesario)
-
-	   // Enviar la cadena de caracteres a través de UART
-	  
- i2c_init(); // Inicializar el bus I2C
-
- while(p==0) {
-	 PrenderTodo();
-	 _delay_ms(1000); // Esperar un segundo
-
-	 ApagarTodo(); // Apagar todas las salidas
-	 _delay_ms(1000); // Esperar un segundo
-	 p=p+2;
- }
-   while (1) {
-	   char buffer[10]; // Espacio para la cadena de caracteres
-	   sprintf(buffer, "%d", p); // Convierte el entero a una cadena
-	   escribirEnLCD(buffer); // Muestra la cadena en la pantalla LCD
-	   _delay_ms(1000);
-	   limpiar_LCD();
-	   escribirEnLCD(" Hola yo");
-	   p++; // Incrementa el valor de p
-	   escribirEnLCD(buffer); // Muestra la cadena en la pantalla LCD
-	   _delay_ms(1000);
-	   limpiar_LCD();
-	  uart_send_string(" Hola mundo");
-	  SensorTaza = (PIND & (1 << PD3)) ? 1 : 0;
-	  SensorPuerta = (PIND & (1 << PD4)) ? 1 : 0;
-	  sprintf(buffer, "%d", SensorTaza); // Convierte el entero a una cadena
-	   escribirEnLCD(buffer); // Muestra la cadena en la pantalla LCD
-	   escribirEnLCD(" >>");
-	     sprintf(buffer, "%d", SensorPuerta); // Convierte el entero a una cadena
-	     escribirEnLCD(buffer); // Muestra la cadena en la pantalla LCD
-	   _delay_ms(5475);
-	   limpiar_LCD();
-	  _delay_ms(5475);
-	   i2c_init();
-	   sprintf(buffer, "%d", resultado); // Convierte el entero a una cadena
-	   escribirEnLCD(buffer);
-	  _delay_ms(5475);
-	   limpiar_LCD();
-	   
-	   if (p == 2) {
-		   // Establece PC0 en 0
-		   PORTC &= ~(1 << PC0);
-		   	   escribirEnLCD(" UWU");
-
-		   _delay_ms(2266);
-		   } else {
-		   // Establece PC0 en 1
-		   PORTC |= (1 << PC0);
-	   }
-
-	  if (Temp1==2){
-		  Temp1=0;
-		  TWI_ini(); //INCIALIZA EL TWI (TIENE UNA CONFIGURACIÓN ESPECIAL, NO HAY QUE TOCAR)
-		  MCP3421_config(); //configura el sensor MCP3421
-		  MCP3421_read();
-		   resultado = (((int)a1 << 10) | ((int)a2 << 2) | ((int)a3 >> 6))-2;
-		  TWI_Stop();
-		  
-		  
-	  }
-	  Temp1=Temp1+1;
-	  int pepis=LeerTemperatura();
-	  char pepi[16];
-	  sprintf(pepi, "%d", pepis); // Convierte el entero a una cadena
-	  uart_send_string("pepi: ");
-	uart_send_string(pepi);
 	
-	  }
+	  
 
-	*/
+	
 
 }
 

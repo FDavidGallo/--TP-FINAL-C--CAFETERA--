@@ -1,7 +1,7 @@
 
 #include <avr/io.h>
 #include <util/delay.h>
-
+#include "i2c.h"
 #include "LCD_I2C.h"
 
 
@@ -76,6 +76,9 @@ enviarPulsoEnable();
 }
 
 void lcd_init() {
+i2c_init(); //inciamos la comunicación i2c
+i2c_start(); //Iniciamos el i2c
+i2c_write(0x40); //Dirección del PCF8574
 // Inicialización del LCD de 20x4 en modo 4 bits.
 _delay_ms(5);
 enviarComando4Bits(0x30); // 3 veces

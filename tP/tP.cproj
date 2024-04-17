@@ -148,51 +148,60 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="i2c.c">
+    <Compile Include="Librerias\ADC.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="i2c.h">
+    <Compile Include="Librerias\ADC.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="LCD_I2C.c">
+    <Compile Include="Librerias\i2c.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="LCD_I2C.h">
+    <Compile Include="Librerias\i2c.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\LCD_I2C.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\LCD_I2C.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\MCP3421.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\MCP3421.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\mcp9800.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\mcp9800.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\pcf857.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\pcf8575.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\pines.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\pines.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\UART.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\UART.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="MCP3421.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="MCP3421.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mcp9800.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="mcp9800.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="pcf857.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="pcf8575.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="pines.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="pines.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="UART.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="UART.h">
-      <SubType>compile</SubType>
-    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Librerias" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
 </Project>

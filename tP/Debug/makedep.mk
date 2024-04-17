@@ -2,19 +2,21 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-i2c.c
+Librerias\ADC.c
 
-LCD_I2C.c
+Librerias\i2c.c
+
+Librerias\LCD_I2C.c
+
+Librerias\MCP3421.c
+
+Librerias\mcp9800.c
+
+Librerias\pcf8575.c
+
+Librerias\pines.c
+
+Librerias\UART.c
 
 main.c
-
-MCP3421.c
-
-mcp9800.c
-
-pcf8575.c
-
-pines.c
-
-UART.c
 

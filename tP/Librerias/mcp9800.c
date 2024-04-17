@@ -267,13 +267,19 @@ void ImprimirTemperatura(void){
 	mcp_init();
 	mcp_set_adc_resolution(MCP_ADC_RES_12);
 	mcp_set_power_mode(MCP_POWER_UP);
-	float temp = mcp_read_temp_float();
-	int temp_whole = (int)temp; // Extract whole number part
-	int temp_frac = (int)((temp - temp_whole) * 10000); // Extract fractional part with desired precision
-	if(temp_frac < 0) temp_frac = -temp_frac; // Ensure the fractional part is positive
-	// Now print both parts separately
-	sprintf(buf, "%d.%04d", temp_whole, temp_frac);
-	// Send the temperature string over UART
+	int i;
+	for (i=1; i<=250; i++)
+	{
+		float temp = mcp_read_temp_float();
+		int temp_whole = (int)temp; // Extract whole number part
+		int temp_frac = (int)((temp - temp_whole) * 10000); // Extract fractional part with desired precision
+		if(temp_frac < 0) temp_frac = -temp_frac; // Ensure the fractional part is positive
+		// Now print both parts separately
+		sprintf(buf, "%d.%04d", temp_whole, temp_frac);
+		// Send the temperature string over UART
+		uart_send_string("-");
+	}
+    uart_send_newline();
 	uart_send_string("Temperatura: ");
 	uart_send_string(buf);
 	uart_send_newline();
@@ -285,16 +291,32 @@ void ImprimirTemperatura(void){
 	;
 };
 int LeerTemperatura(void){
-	char buf[32];
-	mcp_init();
-	mcp_set_adc_resolution(MCP_ADC_RES_12);
-	mcp_set_power_mode(MCP_POWER_UP);
+	int i=1;
+char buf[32];
+uart_init();
+//init MCP9800 sensor
+mcp_init();
+mcp_set_adc_resolution(MCP_ADC_RES_12);
+mcp_set_power_mode(MCP_POWER_UP);
+for (i=1; i<=250; i++)
+{
 	float temp = mcp_read_temp_float();
 	int temp_whole = (int)temp; // Extract whole number part
 	int temp_frac = (int)((temp - temp_whole) * 10000); // Extract fractional part with desired precision
 	if(temp_frac < 0) temp_frac = -temp_frac; // Ensure the fractional part is positive
 	// Now print both parts separately
 	sprintf(buf, "%d.%04d", temp_whole, temp_frac);
-	int MedicionTemperatura = atoi(buf);
-    return MedicionTemperatura;
+	// Send the temperature string over UART
+	uart_send_string(" ");
 }
+uart_send_newline();
+//uart_send_string("Temperatura: ");
+//uart_send_string(buf);
+//uart_send_newline();
+// Convert the formatted string to an integer
+int MedicionTemperatura = atoi(buf);
+char buffer[10]; // Espacio para la cadena de caracteres
+sprintf(buffer, "%d", MedicionTemperatura); // Convierte el entero a una cadena
+uart_send_string(buffer);
+    return MedicionTemperatura;}
+	
