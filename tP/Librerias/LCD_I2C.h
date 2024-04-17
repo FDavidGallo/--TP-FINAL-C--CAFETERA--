@@ -9,6 +9,7 @@ void enviarComando(char);
 void escribirDato(char);
 void escribirEnLCD(char *c);
 void limpiar_LCD();
+void SiguienteTextoLCD(void);
 
 extern int ejecucionUnica;
 #endif

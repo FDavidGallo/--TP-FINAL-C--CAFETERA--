@@ -2,7 +2,7 @@
 
 #include "ADC.h"
 
-void iniciar_ADC(){
+void iniciar_ADC(void){
 ADMUX |= (1 << REFS0); // Voltaje de referencia AVCC con capacitor externo en AREF (tension de referencia)
 ADMUX &= ~(1 << ADLAR); // ADC derecho justificado, los bits mas significativos se ubicaran en los bits mas altos del registo de resultado ADC
 ADCSRA |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0); //Prescaler en 128, divide la frecuencia del ADC por 128, esto hace que la conversion sea mas lenta pero precisa.

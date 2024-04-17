@@ -9,6 +9,11 @@ void TWI_Sendbyte(unsigned char byte);
 void TWI_Receivebytes(void);
 void TWI_Stop(void);
 void MCP3421_config(void);
+<<<<<<< Updated upstream
 void MCP3421_read(void);
+=======
+int MCP3421_read(void);
+int PesarAgua(void);
+>>>>>>> Stashed changes
 
 #endif // MCP3421_H

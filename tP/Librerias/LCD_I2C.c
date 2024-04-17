@@ -3,7 +3,7 @@
 #include <util/delay.h>
 #include "i2c.h"
 #include "LCD_I2C.h"
-
+#include <util/delay.h>
 
 void enviarPulsoEnable()
 {
@@ -108,3 +108,10 @@ _delay_us(100);
 enviarComando (0x80);	//Setea el cursor en la posicion cero
 }
 
+void SiguienteTextoLCD(void){
+	_delay_ms(5500);
+	//limpiar_LCD();
+	limpiar_LCD();
+	escribirEnLCD(" ");
+	_delay_ms(10);
+}
