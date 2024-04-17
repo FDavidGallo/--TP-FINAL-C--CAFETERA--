@@ -20,11 +20,7 @@
 // Configuración de la UART (para AVR)
 #define BAUD_RATE 9600
 //#define F_CPU 16000000UL
-<<<<<<< Updated upstream
-=======
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
+
 // Definición de variables para los sensores
 int Temp1=0;
 int resultado=12;
@@ -35,65 +31,26 @@ char str[12];//?????? ??? ?????? ?????????? ?? ???????
 int p=0;
  uint8_t SensorTaza = 0; // Estado del sensor de la taza (0 o 1)
  uint8_t SensorPuerta = 0; // Estado del sensor de la puerta (0 o 1)
-<<<<<<< Updated upstream
+
 
 unsigned char valor;
 #include <avr/eeprom.h>
 // Dirección en la EEPROM donde se almacenará el carácter
 #define EEPROM_ADDR 0 
-int main(void)
-{
+
 	
 	  
-=======
+
 int NivelPolvo1,NivelPolvo2, NivelPolvo3,NivelPolvo4; 
 unsigned char valor;
 #include <avr/eeprom.h>
 // Dirección en la EEPROM donde se almacenará el carácter
 #define EEPROM_ADDR 0 
->>>>>>> Stashed changes
 
 
 
 
-<<<<<<< Updated upstream
 
-
-int main(void)
-{
-	int p=0;
-	uart_init();
-	uart_send_string("	Hola mundo");
-	Carpy();
-	//uart_send_newline();
-	//uart_send_string("1- Editar valores ");
-	//uart_send_newline();
-	//uart_send_string("2- Ver estadisticas");
-	//uart_send_newline();
-	//uart_send_string("3-Datos del proyecto");
-	uart_send_newline();
-	//echo_serial();
-    i2c_init();
-    i2c_start();
-    i2c_write(0x40);
-    lcd_init();
-    escribirEnLCD(" Hola Mundo");
-   _delay_ms(1000);
-    limpiar_LCD();
-   escribirEnLCD(" Hola yo");
-     limpiar_LCD();
-   	// Eco del usuario
-   while (1) {
-	   char buffer[10]; // Espacio para la cadena de caracteres
-	   sprintf(buffer, "%d", p); // Convierte el entero a una cadena
-	   escribirEnLCD(buffer); // Muestra la cadena en la pantalla LCD
-	   _delay_ms(5475);
-	   limpiar_LCD();
-	   escribirEnLCD(" Hola yo");
-	   p++; // Incrementa el valor de p
-	  uart_send_string(" Hola mundo");
-   }
-=======
 void MedicionPolvos(void){
 	int Auxiliar = 0; // Declara la variable pepe
 	char buffer[10]; // Declara la variable buffer
@@ -125,11 +82,9 @@ void MedicionPolvos(void){
 	void MedirVariables(void){
 		MedicionPolvos();
 	}
-int main(void)
-{
-	while(1){
-	
-		 
+   
+   int main(void){
+	while(1){	 
 	int Temperatura=LeerTemperatura();
 	char buffer[22];
 	  sprintf(buffer, "%d", Temperatura); // Convierte el entero a una cadena
@@ -151,12 +106,6 @@ int main(void)
 	  _delay_ms(5000);
 	   MedirVariables();
 	  i2c_stop();
-	
-	  
 	}
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-
-	
-
+	return 0;
 }

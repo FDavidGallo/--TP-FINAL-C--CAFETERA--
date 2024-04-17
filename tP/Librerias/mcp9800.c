@@ -317,10 +317,6 @@ uart_send_newline();
 int MedicionTemperatura = atoi(buf);
 char buffer[10]; // Espacio para la cadena de caracteres
 sprintf(buffer, "%d", MedicionTemperatura); // Convierte el entero a una cadena
-<<<<<<< Updated upstream
-uart_send_string(buffer);
-=======
 MedicionTemperatura = atoi(buffer);
->>>>>>> Stashed changes
     return MedicionTemperatura;}
 	
