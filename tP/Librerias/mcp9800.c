@@ -307,7 +307,7 @@ for (i=1; i<=250; i++)
 	// Now print both parts separately
 	sprintf(buf, "%d.%04d", temp_whole, temp_frac);
 	// Send the temperature string over UART
-	uart_send_string(" ");
+	uart_send_string("");
 }
 uart_send_newline();
 //uart_send_string("Temperatura: ");
