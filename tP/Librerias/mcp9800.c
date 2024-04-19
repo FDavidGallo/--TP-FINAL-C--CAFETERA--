@@ -309,7 +309,7 @@ for (i=1; i<=250; i++)
 	// Send the temperature string over UART
 	uart_send_string("");
 }
-uart_send_newline();
+uart_send_string("");
 //uart_send_string("Temperatura: ");
 //uart_send_string(buf);
 //uart_send_newline();
