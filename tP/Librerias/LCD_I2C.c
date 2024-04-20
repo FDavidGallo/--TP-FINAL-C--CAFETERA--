@@ -109,9 +109,10 @@ enviarComando (0x80);	//Setea el cursor en la posicion cero
 }
 
 void SiguienteTextoLCD(void){
-	_delay_ms(5500);
+	_delay_ms(44000);
 	//limpiar_LCD();
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	_delay_ms(10);
+	 //ControlarTemperatura(); 
 }

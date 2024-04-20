@@ -111,6 +111,6 @@ int MCP3421_read(void)
 }
 int PesarAgua(void){
 int valorLeido = MCP3421_read();
-int Peso = ((((float)valorLeido + 2)*1000) / 2047 )* 20; //esto da en cm3
+int Peso = ((((float)valorLeido + 2)*1000) / 2047 )* 20; //esto da en cm3 o ml, cambiese el numero luego por TamañoBidon (10 l o 20 l).
 return Peso;}
 //???????? ?????????
