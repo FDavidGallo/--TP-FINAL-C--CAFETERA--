@@ -16,6 +16,8 @@ Librerias\pcf8575.c
 
 Librerias\pines.c
 
+Librerias\PWM.c
+
 Librerias\UART.c
 
 main.c

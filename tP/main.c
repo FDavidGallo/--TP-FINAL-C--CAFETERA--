@@ -6,6 +6,7 @@
 	#include "Librerias/i2c.h"
 	#include "Librerias/UART.h"
 	#include "Librerias/pines.h"
+	#include "Librerias/PWM.h"
 	#include <util/delay.h>
 	#include <avr/interrupt.h>
 	#include  <avr/eeprom.h>
@@ -190,9 +191,19 @@ void ConfiguracionIncial(void){
 	   ConfigurarPinesSensores();		//Configuramos los pines de los sensores 
 	   ConfigurarBotones();				//Configuramos los botones.
 	   IniciarTemporizador();           // Configuramos el timer.
+	   PWM_init();                      // Configuramos el PWM
 	   sei();                           // Habilitar interrupciones globales
    }
-  
+void ControlarTemperatura (void){
+	int Auxiliar=0;
+	while (Auxiliar!=10) // Esto es para tener 10 ciclos de control por cada vez que se lo invoca
+	{   Auxiliar++;
+		int Kp=10;
+		int Error=TemperaturaBidon-90;
+		PWM_update(Kp,Error);
+	}
+	
+}
 /*
 ==============================
 vvvvvv   Función main  vvvvvvv

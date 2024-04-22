@@ -190,6 +190,12 @@
     <Compile Include="Librerias\pines.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Librerias\PWM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\PWM.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Librerias\UART.c">
       <SubType>compile</SubType>
     </Compile>
