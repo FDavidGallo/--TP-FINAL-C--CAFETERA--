@@ -7,6 +7,7 @@
 	#include "Librerias/UART.h"
 	#include "Librerias/pines.h"
 	#include "Librerias/PWM.h"
+	#include "Librerias/ADC.h"
 	#include <util/delay.h>
 	#include <avr/interrupt.h>
 	#include  <avr/eeprom.h>
@@ -48,45 +49,71 @@
         uint8_t Simultaneidad = 0; // ¿Hay simultaneidad de presionamiento de los botones por más de 5 segundos? (0 o 1)
 											
 // Configurar el Timer1 para que interrumpa 
-
+void MedirBidon(void){
+	TWI_ini(); //INCIALIZA EL i2c del mcp3421 (TIENE UNA CONFIGURACIÓN ESPECIAL, NO HAY QUE TOCAR)
+	MCP3421_config(); //configura el sensor MCP3421
+	PesoBidon=PesarAgua();
+	TWI_Stop(); //cerramos
+	TemperaturaBidon=LeerTemperatura();
+}
+void ControlarTemperatura (void){
+	int Auxiliar=0;
+	while (Auxiliar!=10) // Esto es para tener 10 ciclos de control por cada vez que se lo invoca
+	{   TemperaturaBidon=LeerTemperatura();
+		Auxiliar++;
+		int Kp=1;
+		int Error=90-TemperaturaBidon;
+		PWM_update(Kp,Error);
+	}
+	
+}
 void MenuNivelesLcd(void){ //Esto se ejecuta só´lo si se han presionado "Seleccionar" y "Aceptar" por más de 5 segundos
 	escribirEnLCD(" Medidas");
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	escribirEnLCD("Niveles de");
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	escribirEnLCD("Polvos %");
 	SiguienteTextoLCD();
 	escribirEnLCD("( en %)");
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	 sprintf(Buffer, "%d", NivelPolvo1);
 	escribirEnLCD(Buffer);
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	sprintf(Buffer, "%d", NivelPolvo2);
 	escribirEnLCD(Buffer);
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	sprintf(Buffer, "%d", NivelPolvo3);
 	escribirEnLCD(Buffer);
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	sprintf(Buffer, "%d", NivelPolvo4);
 	escribirEnLCD(Buffer);
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	escribirEnLCD("Bidon:");
 	SiguienteTextoLCD();
 	escribirEnLCD(">Temperatura");
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	sprintf(Buffer, "%d", TemperaturaBidon);
 	escribirEnLCD(Buffer);
 	escribirEnLCD("*C");
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	escribirEnLCD(">Volumen");
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 	sprintf(Buffer, "%d", PesoBidon);
 	escribirEnLCD(Buffer);
 	escribirEnLCD("ml");
-	uart_send_newline();
-	uart_send_string(Buffer);
 	_delay_ms(1212);
 	SiguienteTextoLCD();
+	 ControlarTemperatura();
 }
 void IniciarTemporizador(void) {
 	TCCR1B |= (1 << WGM12); // Modo CTC
@@ -94,20 +121,20 @@ void IniciarTemporizador(void) {
 	TIMSK1 |= (1 << OCIE1A); // Habilitar interrupción por comparación
 	TCCR1B |= (1 << CS11) | (1 << CS10); // 
 }
-
 // Rutina de servicio de interrupción para EL TEMPORIZADOR
 ISR(TIMER1_COMPA_vect) {
 	if ((BotonSeleccionarr == 1) && (BotonAceptarr == 1)) {
 	     ContadorTiempo++;
 		 Simultaneidad=0;
-		 
+		 ControlarTemperatura(); // Para no perder control tanto tiempo
 		} else {
 		 // Reiniciar contador si el botón no está presionado
 		ContadorTiempo=0;
 		Simultaneidad=0;
 	}
      if (ContadorTiempo == 3800) { //cada 1 segundo
-		 //ControlarTemperatura();
+		 MedirBidon(); // Se mide el bidón automaticamente cada un segundo, porque  
+					   //  allí están nuestras variables controladas
 	 }
 		 // Incrementar el contador de tiempo
 
@@ -122,7 +149,6 @@ ISR(TIMER1_COMPA_vect) {
 		 i2c_stop();
 	}
 }
-
 void LeerBotones(void) {
 	BotonSeleccionarr = LeerBotonSeleccionar();
 	BotonAceptarr = LeerBotonAceptar();
@@ -172,13 +198,7 @@ void MedicionPolvos(void){
 	leer_ADC(3); // Lee el valor del pin PC0
 	 NivelPolvo4 = ((float)ADC/1023)*100; // Guarda el valor del ADC en porcentaje (por eso dividimos por la resolución y por 100)
 	};	
-void MedirBidon(void){
-	TWI_ini(); //INCIALIZA EL i2c del mcp3421 (TIENE UNA CONFIGURACIÓN ESPECIAL, NO HAY QUE TOCAR)
-	MCP3421_config(); //configura el sensor MCP3421
-	PesoBidon=PesarAgua();
-	TWI_Stop(); //cerramos 
-	TemperaturaBidon=LeerTemperatura();
-	}
+
 void MedirVariables(void){
 		MedicionPolvos();
 		MedirBidon();
@@ -194,16 +214,113 @@ void ConfiguracionIncial(void){
 	   PWM_init();                      // Configuramos el PWM
 	   sei();                           // Habilitar interrupciones globales
    }
-void ControlarTemperatura (void){
-	int Auxiliar=0;
-	while (Auxiliar!=10) // Esto es para tener 10 ciclos de control por cada vez que se lo invoca
-	{   Auxiliar++;
-		int Kp=10;
-		int Error=TemperaturaBidon-90;
-		PWM_update(Kp,Error);
+void MenuUart(void) {
+	char DecisionMenuUart = echo_serial();
+	uart_send_newline();
+	switch (DecisionMenuUart) {
+		case '1':
+		MenuMediciones(PesoBidon,TemperaturaBidon,NivelPolvo1,NivelPolvo2,NivelPolvo3,NivelPolvo4);
+		DecisionMenuUart=","; // Esto se va a repetir de ahora en adelante, es sólo para "limpiar" la variable.
+		break;
+		case '2':
+		MenuConfiguraciones();
+		DecisionMenuUart=",";
+		break;
+		case '3':
+		Carpy();
+		DecisionMenuUart=",";
+		break;
+		DecisionMenuUart=",";
+		case '4':
+		uart_send_newline();
+		uart_send_string(">> Del siguiente listado, escoja que configurar:");
+		MenuConfiguraciones();
+		// Recibir Configuracion
+		DecisionMenuUart=",";
+		break;
+		case 'A':
+		DecisionMenuUart=",";
+		break;
+		case 'B':
+		DecisionMenuUart=",";
+		break;
+		case 'C':
+		DecisionMenuUart=",";
+		break;
+		DecisionMenuUart=",";
+		case 'D':
+		DecisionMenuUart=",";
+		break;
+		case 'E':
+		Carpy();
+		DecisionMenuUart=",";
+		break;
+		case 'F':
+		DecisionMenuUart=",";
+		break;
+		case 'G':
+		DecisionMenuUart=",";
+		break;
+		DecisionMenuUart=",";
+		case 'H':
+		DecisionMenuUart=",";
+		break;
+		case 'I':
+		Carpy();
+		break;
+		case 'J':
+		DecisionMenuUart=",";
+		break;
+		case 'K':
+		DecisionMenuUart=",";
+		break;
+		DecisionMenuUart=",";
+		case 'M':
+		DecisionMenuUart=",";
+		break;
+		case 'L':
+		Carpy();
+		DecisionMenuUart=",";
+		break;
+		case 'O':
+		DecisionMenuUart=",";
+		break;
+		case 'P':
+		DecisionMenuUart=",";
+		break;
+		DecisionMenuUart=",";
+		case 'Q':
+		DecisionMenuUart=",";
+		break;
+		case 'R':
+		DecisionMenuUart=",";
+		break;
+		case 'S':
+		DecisionMenuUart=",";
+		break;
+		DecisionMenuUart=",";
+		case 'T':
+		DecisionMenuUart=",";
+		break;
+		case 'U':
+		DecisionMenuUart=",";
+		break;
+		case 'V':
+		DecisionMenuUart=",";
+		break;
+		case 'W':
+		DecisionMenuUart=",";
+		break;
+		case 'X':
+		MenuInicial();
+		DecisionMenuUart=",";
+		break;
+		default:
+		// Ninguna opción válida, continuar
+		break;
 	}
-	
 }
+
 /*
 ==============================
 vvvvvv   Función main  vvvvvvv
@@ -211,11 +328,17 @@ vvvvvv   Función main  vvvvvvv
 */
    
 int main(void){ 
+	
 	   ConfiguracionIncial();//Configuramos todo
+	   Bienvenida();
+	   EnviarTextoSeleccionarOpcion();
+	   MenuInicial();
 	while(1){	 
 	MedirVariables();// Sensamos todas nuestras variables
+	ControlarTemperatura(); //Controlamos la Temperatura
+	MenuUart();
+   
 	
-
 	}
 	return 0;
 } 
