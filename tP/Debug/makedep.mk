@@ -4,6 +4,8 @@
 
 Librerias\ADC.c
 
+Librerias\FuncionesEeprom.c
+
 Librerias\i2c.c
 
 Librerias\LCD_I2C.c
