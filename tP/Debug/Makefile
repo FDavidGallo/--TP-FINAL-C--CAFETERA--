@@ -39,7 +39,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Librerias/ADC.c \
-../Librerias/FuncionesEeprom.c \
+../Librerias/FuncionesEprom.c \
 ../Librerias/i2c.c \
 ../Librerias/LCD_I2C.c \
 ../Librerias/MCP3421.c \
@@ -59,7 +59,7 @@ ASM_SRCS +=
 
 OBJS +=  \
 Librerias/ADC.o \
-Librerias/FuncionesEeprom.o \
+Librerias/FuncionesEprom.o \
 Librerias/i2c.o \
 Librerias/LCD_I2C.o \
 Librerias/MCP3421.o \
@@ -72,7 +72,7 @@ main.o
 
 OBJS_AS_ARGS +=  \
 Librerias/ADC.o \
-Librerias/FuncionesEeprom.o \
+Librerias/FuncionesEprom.o \
 Librerias/i2c.o \
 Librerias/LCD_I2C.o \
 Librerias/MCP3421.o \
@@ -85,7 +85,7 @@ main.o
 
 C_DEPS +=  \
 Librerias/ADC.d \
-Librerias/FuncionesEeprom.d \
+Librerias/FuncionesEprom.d \
 Librerias/i2c.d \
 Librerias/LCD_I2C.d \
 Librerias/MCP3421.d \
@@ -98,7 +98,7 @@ main.d
 
 C_DEPS_AS_ARGS +=  \
 Librerias/ADC.d \
-Librerias/FuncionesEeprom.d \
+Librerias/FuncionesEprom.d \
 Librerias/i2c.d \
 Librerias/LCD_I2C.d \
 Librerias/MCP3421.d \
@@ -130,7 +130,7 @@ Librerias/ADC.o: ../Librerias/ADC.c
 	@echo Finished building: $<
 	
 
-Librerias/FuncionesEeprom.o: ../Librerias/FuncionesEeprom.c
+Librerias/FuncionesEprom.o: ../Librerias/FuncionesEprom.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Users\Usuario\Desktop\clases\UADER\4to cuatrimestre\Sistemas digitales IV\microchipstudio\7.0\Packs\Atmel\ATmega_DFP\2.0.401\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

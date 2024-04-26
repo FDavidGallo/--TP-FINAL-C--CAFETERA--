@@ -217,6 +217,7 @@ void Bienvenida(void) {
 	uart_send_newline();
 	MandarStringdesdePrograma(Bienvenida8);
 	uart_send_newline();
+	uart_send_newline(); // Espaciado queda más bonito UwU
 }
 
 void Carpy() {

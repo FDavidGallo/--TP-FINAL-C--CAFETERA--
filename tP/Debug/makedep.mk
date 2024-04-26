@@ -4,7 +4,7 @@
 
 Librerias\ADC.c
 
-Librerias\FuncionesEeprom.c
+Librerias\FuncionesEprom.c
 
 Librerias\i2c.c
 

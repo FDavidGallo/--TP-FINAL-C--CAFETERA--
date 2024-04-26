@@ -154,10 +154,10 @@
     <Compile Include="Librerias\ADC.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Librerias\FuncionesEeprom.c">
+    <Compile Include="Librerias\FuncionesEprom.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Librerias\FuncionesEeprom.h">
+    <Compile Include="Librerias\FuncionesEprom.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="Librerias\i2c.c">
