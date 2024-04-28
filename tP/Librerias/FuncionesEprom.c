@@ -1,6 +1,7 @@
 #include "FuncionesEprom.h"
 #include <avr/io.h> 
 #include <stdlib.h>
+#include <avr/interrupt.h>
 /*
    Funciones Eprom es una librería pensada para un atmega328p, la misma esta pensada para trabajar con chars
    y strings. Para su uso con otros tipos de datos, podés usar la librería estandarizada  "stdlib.h
@@ -24,11 +25,13 @@
 
 // Escribe un byte en una dirección específica de la EEPROM
 void EPROM_Write(uint16_t uiAddress, uint8_t ucData) {
+	cli();                   // Desactivamos interrupciones
 	while(EECR & (1<<EEPE)); // Espera a que se complete la escritura anterior
 	EEAR = uiAddress;        // Configura el registro de dirección
 	EEDR = ucData;           // Configura el registro de datos
 	EECR |= (1<<EEMPE);      // Habilita la escritura maestra de la EEPROM
 	EECR |= (1<<EEPE);       // Comienza la escritura en la EEPROM
+	sei();                   // Volvemos a activar interrupciones
 }
 
 // Lee un byte de una dirección específica de la EEPROM

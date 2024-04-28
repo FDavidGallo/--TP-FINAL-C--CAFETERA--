@@ -9,6 +9,7 @@
 	#include "Librerias/PWM.h"
 	#include "Librerias/ADC.h"
 	#include "Librerias/FuncionesEeprom.h"
+    #include "Librerias/timer.h"
 	#include <util/delay.h>
 	#include <avr/interrupt.h>
 	#include  <avr/eeprom.h>
@@ -56,12 +57,10 @@
         uint8_t SelectorMenuLCD=0; // Menús de selección de bebidas
 		uint8_t BotonSeleccionarr = 0; // Estado del sensor de la taza (0 o 1)
 		uint8_t BotonAceptarr = 0; // Estado del sensor de la puerta (0 o 1)
-		volatile int ContadorAuxiliar=0; // Esto va a contar cuanto tiempo vienen presionado en simultaneo los botones "Aceptar" y "Seleccionar"
-		                                    // ATENCION: es del tipo volatile ya que cambien por interrupción
-         volatile int ContadorTiempo=0; // Esto va a contar cuanto tiempo vienen presionado en simultaneo los botones "Aceptar" y "Seleccionar"
-										// ATENCION: es del tipo volatile ya que cambien por interrupción
-        uint8_t Simultaneidad = 0; // ¿Hay simultaneidad de presionamiento de los botones por más de 5 segundos? (0 o 1)
-		char DecisionMenuUart ;
+		volatile uint8_t pinState = 0;
+		volatile uint32_t timerCounter = 0;
+        volatile int  Simultaneidad = 0; // ¿Hay simultaneidad de presionamiento de los botones por más de 5 segundos? (0 o 1)
+		volatile char DecisionMenuUart ;
 
 /***
  *                                                                                                                             
@@ -166,58 +165,91 @@ void ControlarTemperatura (void){
 	
 }
 void MenuNivelesLcd(void){ //Esto se ejecuta só´lo si se han presionado "Seleccionar" y "Aceptar" por más de 5 segundos
+	cli();
 	escribirEnLCD(" Medidas");
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
-	escribirEnLCD("Niveles de");
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
-	escribirEnLCD("Polvos %");
-	SiguienteTextoLCD();
-	escribirEnLCD("( en %)");
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
+	_delay_ms(2111);
+	limpiar_LCD();
+	escribirEnLCD(" Niveles de");
+	_delay_ms(2111);
+	limpiar_LCD();
+	escribirEnLCD(" Polvos %");
+	_delay_ms(2111);
+	limpiar_LCD();
+	escribirEnLCD(" ( en %)");
+	_delay_ms(4111);
+	limpiar_LCD();
+	escribirEnLCD(" ");
+	EPROM_Read_String(NombreB1, Buffer, 10);//
+	escribirEnLCD(Buffer);
+	_delay_ms(4111);
+	limpiar_LCD();
+	escribirEnLCD(" ");
 	 sprintf(Buffer, "%d", NivelPolvo1);
 	escribirEnLCD(Buffer);
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
+	_delay_ms(4111);
+	limpiar_LCD();
+	escribirEnLCD(" ");
+	EPROM_Read_String(NombreB2, Buffer, 10);//
+	escribirEnLCD(Buffer);
+	_delay_ms(4111);
+	limpiar_LCD();
+	limpiar_LCD();
+	escribirEnLCD(" ");
 	sprintf(Buffer, "%d", NivelPolvo2);
 	escribirEnLCD(Buffer);
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
+_delay_ms(4111);
+limpiar_LCD();
+escribirEnLCD(" ");
+EPROM_Read_String(NombreB3, Buffer, 10);//
+escribirEnLCD(Buffer);
+_delay_ms(4111);
+limpiar_LCD();
+escribirEnLCD(" ");
 	sprintf(Buffer, "%d", NivelPolvo3);
 	escribirEnLCD(Buffer);
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
+	_delay_ms(4111);
+	limpiar_LCD();
+	escribirEnLCD(" ");
+	EPROM_Read_String(NombreB4, Buffer, 10);//
+	escribirEnLCD(Buffer);
+	_delay_ms(4111);
+	limpiar_LCD();
+	limpiar_LCD();
+	escribirEnLCD(" ");
 	sprintf(Buffer, "%d", NivelPolvo4);
 	escribirEnLCD(Buffer);
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
-	escribirEnLCD("Bidon:");
-	SiguienteTextoLCD();
+	_delay_ms(4111);
+	limpiar_LCD();
+	escribirEnLCD(" Bidon:");
+	_delay_ms(4111);
+	limpiar_LCD();
+	escribirEnLCD(" ");
 	escribirEnLCD(">Temperatura");
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
+	_delay_ms(4111);
+	limpiar_LCD();
+	escribirEnLCD(" ");
 	sprintf(Buffer, "%d", TemperaturaBidon);
 	escribirEnLCD(Buffer);
 	escribirEnLCD("*C");
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
+	_delay_ms(4111);
+	limpiar_LCD();
+	escribirEnLCD(" ");
 	escribirEnLCD(">Volumen");
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
+	_delay_ms(4111);
+	limpiar_LCD();
+	escribirEnLCD(" ");
 	sprintf(Buffer, "%d", PesoBidon);
 	escribirEnLCD(Buffer);
 	escribirEnLCD("ml");
 	_delay_ms(1212);
-	SiguienteTextoLCD();
-	 ControlarTemperatura();
+	_delay_ms(4111);
+	limpiar_LCD();
 }
 void IniciarTemporizador(void) {
-	TCCR1B |= (1 << WGM12); // Modo CTC
-	OCR1A = 64; // 
-	TIMSK1 |= (1 << OCIE1A); // Habilitar interrupción por comparación
-	TCCR1B |= (1 << CS11) | (1 << CS10); // 
+	//TCCR1B |= (1 << WGM12); // Modo CTC
+	//OCR1A = 64; // 
+	//TIMSK1 |= (1 << OCIE1A); // Habilitar interrupción por comparación
+	//TCCR1B |= (1 << CS11) | (1 << CS10); // 
 }
 // Rutina de servicio de interrupción para EL TEMPORIZADOR
 
@@ -236,6 +268,11 @@ void LeerBotones(void) {
 			BotonSeleccionarr = LeerBotonSeleccionar();}  // Esperar a que se suelte el botón
 		}*/
 			lcd_init(); // Inicializar el LCD
+			 
+			 if (Simultaneidad==1){
+				MenuNivelesLcd();
+			 Simultaneidad=0;
+		 }
 			switch (SelectorMenuLCD) {
 			case 1:
 			escribirEnLCD(" Bebida 1");
@@ -253,6 +290,7 @@ void LeerBotones(void) {
 			SelectorMenuLCD=1;
 			escribirEnLCD(" Bebida 1");
 			break;
+			
 		i2c_stop();}
 	}
 }
@@ -278,6 +316,7 @@ void MedirVariables(void){
 		LeerBotones();
 	}
 void ConfiguracionIncial(void){
+	cli();
 	   iniciar_ADC();					// Inicializamos el ADC
        uart_init();						//Inicializamos la uart
 	   ConfigurarPinesSensores();		//Configuramos los pines de los sensores 
@@ -287,11 +326,13 @@ void ConfiguracionIncial(void){
 	   Bienvenida();
 	   ConfiguracionIncialEeprom();     // Verificamos que la configuración inicial esté en la eprom, caso contrario la configuramos
 	   MenuInicial();                   // Menu de inicio owo
-	  
-	   sei();                           // Habilitar interrupciones globales
+	   Timer0_init();
+	   setupTimer1();
    }
 void MenuUart(void) {
-	DecisionMenuUart=echo_serial();
+	uart_send_newline();
+	uart_send_string(">>");
+	
 	switch (DecisionMenuUart) {
 		case '1':
 		MenuMediciones(PesoBidon,TemperaturaBidon,NivelPolvo1,NivelPolvo2,NivelPolvo3,NivelPolvo4);
@@ -410,6 +451,7 @@ void MenuUart(void) {
 
    
 int main(void){ 
+	   cli();
 	    char data_to_write[2]="03";
 	   	EPROM_Write_String(TamagnoBidon, data_to_write);
 	   ConfiguracionIncial();//Configuramos todo
@@ -417,8 +459,11 @@ int main(void){
 	  
 
 	
-	while(1){	 
+	while(1){
+	sei();
+	MedirVariables();	 
 	MenuUart();
+	
    
 	
 	}
@@ -438,40 +483,25 @@ int main(void){
  */
 	
 ISR(TIMER1_COMPA_vect) {
-	ContadorAuxiliar++;
-		
-	if (ContadorAuxiliar==60){
-		MedirVariables();
-	}
-	if (ContadorAuxiliar==120){
-		ControlarTemperatura();
-		ContadorAuxiliar=0;
-	}
-	if ((BotonSeleccionarr == 1) && (BotonAceptarr == 1)) {
-		ContadorTiempo++;
-		Simultaneidad=0;
-		ControlarTemperatura(); // Para no perder control tanto tiempo
-		} else {
-		// Reiniciar contador si el botón no está presionado
-		ContadorTiempo=0;
-		Simultaneidad=0;
-	}
-	if (ContadorTiempo == 3800) { //cada 1 segundo
-		MedirBidon(); // Se mide el bidón automaticamente cada un segundo, porque
-		//  allí están nuestras variables controladas
-	}
-	// Incrementar el contador de tiempo
-
-	if (ContadorTiempo == 18999) { // 4978 m ~5 seg
-		Simultaneidad=1; //
-		//ControlarTemperatura(); //para evitar que se pierda mucho tiempo el control
-		ContadorTiempo = 0; // Reiniciar el contador de tiempo
-		sprintf(Buffer, "%d", Simultaneidad); // Convierte el entero a una cadena
-		uart_send_string(Buffer);
-		lcd_init();
-		MenuNivelesLcd();
-		i2c_stop();
-	}
+	 // Esto arregla un buggg
+	// Cambiar el valor de myChar aquí
+	DecisionMenuUart=echo_serial();
+	ControlarTemperatura();
 }
+ISR(TIMER0_COMPA_vect) {
+	// Incrementar contador de tiempo
+	timerCounter++;
+	// Leer estado de los pines PD3 y PD4
+	pinState = PIND & ((1 << PD3) | (1 << PD4));
 
+	// Si ambos pines están en bajo y el contador ha alcanzado 2500 (5 segundos)
+	if (pinState != 0 && timerCounter >= 2500) {
+		// Aquí se coloca el código a ejecutar cuando se cumple la condición
+		// ...
+		Simultaneidad=1;
+		// Reiniciar contador
+		timerCounter = 0;
+	}
+	cli();
+}
 	

@@ -20,6 +20,8 @@ Librerias\pines.c
 
 Librerias\PWM.c
 
+Librerias\timer.c
+
 Librerias\UART.c
 
 main.c

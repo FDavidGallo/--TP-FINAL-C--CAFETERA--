@@ -56,28 +56,28 @@ const char Bienvenida8[] PROGMEM =" +XXXXXXX    XX+   XXXXXXX+  +Xx   xXX:    +X
  
  
  
-const char Carpyy[] PROGMEM="                         90  400     TPFI... CATEDRA:    SISTEMAS DIGITALES IV";
-const char Carpyy0[] PROGMEM="                    1232800000000                    PROFESORES: ING EDUARDO VELAZQUEZ";
-const char Carpyy1[] PROGMEM="                400000000000000007                                LIC JULIAN MINATEL   ";
-const char Carpyy2[] PROGMEM="           400000000000  300000005      NOMBRE: FABRICIO DAVID GALLO                 ";
-const char Carpyy3[] PROGMEM="           0000 800000000000000000000                                    ";
-const char Carpyy4[] PROGMEM="           40000000000000000000000000000            'CAFETERA' ES UN PROYECTO DONDE SE " ;
-const char Carpyy5[] PROGMEM="           700000000000000000000000000000007              PUEDEN CONTROLAR TEMPERATURA, ";
-const char Carpyy6[] PROGMEM="            00000000000000000000000000000000000000000004      CANTIDAD DE PREMEZCLA,ETC  ";
-const char Carpyy7[] PROGMEM="             800000000000000000000000000000000000000000000001      PARA MODIFICAR ESTOS  ";
-const char Carpyy8[] PROGMEM="                  000000000000000000000000000000000000000000006            UTILICE ESTA   ";
-const char Carpyy9[] PROGMEM="                     10000000000000000000000000000000000000000001              CONSOLA";
-const char Carpyy10[] PROGMEM="                      00000000000000000000000000000000000000000000 ";
-const char Carpyy11[] PROGMEM="                        900000000000000000000000000000000000000000000 ";
-const char Carpyy12[] PROGMEM="       1  1             9000000000000000000000000000000000000000000000 ";
-const char Carpyy13[] PROGMEM="        1  1             000000000000000000000000000000000000000000000";
-const char Carpyy14[] PROGMEM="       1  1              9000000000000000000000000000000000000000000008 ";
-const char Carpyy15[] PROGMEM="     00000000037          600000000000000000000000000000000000000000005 ";
-const char Carpyy16[] PROGMEM="     000000009  9          0000000000000000000000000000000000000000000  ";
-const char Carpyy17[] PROGMEM="     0000000002            900000000000000000000000000000000000000000  ";
-const char Carpyy18[] PROGMEM="     000000009             900 00002 50000000000000000000000000000000   ";
-const char Carpyy19[] PROGMEM="     000000006             900 8006       70000000000000000000000000  ";
-const char Carpyy20[] PROGMEM="  444666666666445         30006000                50000000000000000   ";
+const char Carpyy[] PROGMEM="                    90  400     TPFI... CATEDRA:    SISTEMAS DIGITALES IV";
+const char Carpyy0[] PROGMEM="               1232800000000                    PROFESORES: ING EDUARDO VELAZQUEZ";
+const char Carpyy1[] PROGMEM="            400000000000000007                                LIC JULIAN MINATEL";
+const char Carpyy2[] PROGMEM="         400000000000  300000005      NOMBRE: FABRICIO DAVID GALLO";
+const char Carpyy3[] PROGMEM="         0000 80000000000000000000";
+const char Carpyy4[] PROGMEM="         4000000000000000000000000000             'CAFETERA' ES UN PROYECTO DONDE SE " ;
+const char Carpyy5[] PROGMEM="         70000000000000000000000000000000               PUEDEN CONTROLAR TEMPERATURA, ";
+const char Carpyy6[] PROGMEM="          00000000000000000000000000000000000000000004      CANTIDAD DE PREMEZCLA,ETC  ";
+const char Carpyy7[] PROGMEM="           800000000000000000000000000000000000000000000001      PARA MODIFICAR ESTOS  ";
+const char Carpyy8[] PROGMEM="                000000000000000000000000000000000000000000006            UTILICE ESTA   ";
+const char Carpyy9[] PROGMEM="                   10000000000000000000000000000000000000000001              CONSOLA";
+const char Carpyy10[] PROGMEM="                    00000000000000000000000000000000000000000000";
+const char Carpyy11[] PROGMEM="                      90000000000000000000000000000000000000000000";
+const char Carpyy12[] PROGMEM="     1  1             900000000000000000000000000000000000000000000";
+const char Carpyy13[] PROGMEM="      1  1             000000000000000000000000000000000000000000000";
+const char Carpyy14[] PROGMEM="     1  1              900000000000000000000000000000000000000000000";
+const char Carpyy15[] PROGMEM="   00000000037          60000000000000000000000000000000000000000000";
+const char Carpyy16[] PROGMEM="   000000009  9          0000000000000000000000000000000000000000000";
+const char Carpyy17[] PROGMEM="   0000000002            900000000000000000000000000000000000000000";
+const char Carpyy18[] PROGMEM="   000000009             900 00002 50000000000000000000000000000000";
+const char Carpyy19[] PROGMEM="   000000006             900 8006       70000000000000000000000000";
+const char Carpyy20[] PROGMEM="444666666666445         30006000                50000000000000000";
 
 // TEXTO PARA LAS CONFIGURACIONES
 const char MenuConfiguracion0[] PROGMEM=" A-Temperatura Deseada (60-95)*C";
@@ -120,14 +120,14 @@ const char MenuTamagno1[] PROGMEM="W- 20 L";
   | | | | __ _ _ __| |_
   | | | |/ _` | '__| __|
   | |_| | (_| | |  | |_
-  \___/ \__,_|_|   \__|   */
+   \___/ \__,_|_|   \__|   */
   
 #include "UART.h"
 char Buffer[10];
 void uart_init() {
-	// Configurar la velocidad de transmisión a 9600
+	// Configurar la velocidad de transmisión a 57600 baudios,
 	UBRR0H = 0;
-	UBRR0L = 103;
+	UBRR0L = 16;
 
 	// Habilitar el transmisor y el receptor
 	UCSR0B = (1 << TXEN0) | (1 << RXEN0);
