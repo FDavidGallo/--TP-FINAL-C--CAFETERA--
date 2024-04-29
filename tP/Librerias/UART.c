@@ -1,4 +1,5 @@
 #include <avr/pgmspace.h>
+#include "FuncionesEeprom.h"
 /*
     _____               _   __              _            _       _
    / ____|             (_) /_/             | |          | |     | |
@@ -14,7 +15,7 @@
                                                             | |               __/ |
                                                             |_|              |___/
 */  
-const char TextoElegir[] PROGMEM = ">>Seleccione alguna de las siguientes opciones";
+const char TextoElegir[] PROGMEM = ">>Seleccione alguna de las anteriores opciones";
 const char TextoRegresar[] PROGMEM = ">>Aprete X para volver al menu inicial";
 const char TextoExito[] PROGMEM = ">>¡Cambio exitoso!!<<";
 const char TextoFracaso[] PROGMEM = ">>ERROR: LA CANTIDAD PROPUESTA ESTÁ FUERA DE RANGO";
@@ -80,30 +81,66 @@ const char Carpyy19[] PROGMEM="   000000006             900 8006       700000000
 const char Carpyy20[] PROGMEM="444666666666445         30006000                50000000000000000";
 
 // TEXTO PARA LAS CONFIGURACIONES
-const char MenuConfiguracion0[] PROGMEM=" A-Temperatura Deseada (60-95)*C";
-const char MenuConfiguracion1[] PROGMEM=" B-Nombre de la Bebida 1 (10 carácteres)";
-const char MenuConfiguracion2[] PROGMEM=" C-Nombre de la Bebida 2 (10 carácteres)";
-const char MenuConfiguracion3[] PROGMEM=" D-Nombre de la Bebida 3 (10 carácteres)";
-const char MenuConfiguracion4[] PROGMEM=" E-Nombre de la Bebida 4 (10 carácteres)";
-const char MenuConfiguracion5[] PROGMEM=" F-Nombre de la Bebida 1 (10 carácteres)";
+const char MenuConfiguracion0[] PROGMEM=" A-Temperatura Deseada (60-95)*C =";
+const char MenuConfiguracion1[] PROGMEM=" B-Nombre de la Bebida 1 (10 carácteres) =";
+const char MenuConfiguracion2[] PROGMEM=" C-Nombre de la Bebida 2 (10 carácteres) =";
+const char MenuConfiguracion3[] PROGMEM=" D-Nombre de la Bebida 3 (10 carácteres) =";
+const char MenuConfiguracion4[] PROGMEM=" E-Nombre de la Bebida 4 (10 carácteres) =";
+const char MenuConfiguracion5[] PROGMEM=" F-Nombre de la Bebida 1 (10 carácteres) =";
 const char MenuConfiguracion6[] PROGMEM=" G-Constante Proporcional 'Kp':";
-const char MenuConfiguracion7[] PROGMEM=" H-Cantidad de premezcla Bebida 1 (0 a 420 mL)";
-const char MenuConfiguracion8[] PROGMEM=" I-Cantidad de premezcla Bebida 2 (0 a 420 mL)";
-const char MenuConfiguracion9[] PROGMEM=" J-Cantidad de premezcla Bebida 3 (0 a 420 mL)";
-const char MenuConfiguracion10[] PROGMEM=" K-Cantidad de premezcla Bebida 4 (0 a 420 mL)";
-const char MenuConfiguracion11[] PROGMEM=" M-Cantidad de agua Caliente Bebida 1 (150 a 300 mL)";
-const char MenuConfiguracion12[] PROGMEM=" N-Cantidad de agua Caliente Bebida 2 (150 a 300 mL)";
-const char MenuConfiguracion13[] PROGMEM=" O-Cantidad de agua Caliente Bebida 3 (150 a 300 mL)";
-const char MenuConfiguracion14[] PROGMEM=" P-Cantidad de agua Caliente Bebida 4 (150 a 300 mL)";
-const char MenuConfiguracion15[] PROGMEM=" Q-Porcentaje de Tdescarga Bebida 1 (5 a 25%)";
-const char MenuConfiguracion16[] PROGMEM=" R-Porcentaje de Tdescarga Bebida 2 (5 a 25%)";
-const char MenuConfiguracion17[] PROGMEM=" S-Porcentaje de Tdescarga Bebida 3 (5 a 25%)";
-const char MenuConfiguracion18[] PROGMEM=" T-Porcentaje de Tdescarga Bebida 4 (5 a 25%)";
-const char MenuConfiguracion19[] PROGMEM=" U-Tamaño de Bidon (10 L -20 L)";
+const char MenuConfiguracion7[] PROGMEM=" H-Cantidad de premezcla Bebida 1 (0 a 420 mL) =";
+const char MenuConfiguracion8[] PROGMEM=" I-Cantidad de premezcla Bebida 2 (0 a 420 mL) =";
+const char MenuConfiguracion9[] PROGMEM=" J-Cantidad de premezcla Bebida 3 (0 a 420 mL) =";
+const char MenuConfiguracion10[] PROGMEM=" K-Cantidad de premezcla Bebida 4 (0 a 420 mL) =";
+const char MenuConfiguracion11[] PROGMEM=" M-Cantidad de agua Caliente Bebida 1 (150 a 300 mL) =";
+const char MenuConfiguracion12[] PROGMEM=" N-Cantidad de agua Caliente Bebida 2 (150 a 300 mL) =";
+const char MenuConfiguracion13[] PROGMEM=" O-Cantidad de agua Caliente Bebida 3 (150 a 300 mL) =";
+const char MenuConfiguracion14[] PROGMEM=" P-Cantidad de agua Caliente Bebida 4 (150 a 300 mL) =";
+const char MenuConfiguracion15[] PROGMEM=" Q-Porcentaje de Tdescarga Bebida 1 (5 a 25%) =";
+const char MenuConfiguracion16[] PROGMEM=" R-Porcentaje de Tdescarga Bebida 2 (5 a 25%) =";
+const char MenuConfiguracion17[] PROGMEM=" S-Porcentaje de Tdescarga Bebida 3 (5 a 25%) =";
+const char MenuConfiguracion18[] PROGMEM=" T-Porcentaje de Tdescarga Bebida 4 (5 a 25%) =";
+const char MenuConfiguracion19[] PROGMEM=" U-Tamaño de Bidon (10 L -20 L) =";
 // MENU TAMAÑO BIDON
 const char MenuTamagno[] PROGMEM=">>Seleccione el nuevo volumen:";
 const char MenuTamagno0[] PROGMEM="V- 10 L";
 const char MenuTamagno1[] PROGMEM="W- 20 L";
+
+
+/***
+ *                                                                                                                             
+ *     #    #   ##   #####  #   ##   #####  #      ######  ####    ###### #    #     ###### ###### #####  #####   ####  #    # 
+ *     #    #  #  #  #    # #  #  #  #    # #      #      #        #      ##   #     #      #      #    # #    # #    # ##  ## 
+ *     #    # #    # #    # # #    # #####  #      #####   ####    #####  # #  #     #####  #####  #    # #    # #    # # ## # 
+ *     #    # ###### #####  # ###### #    # #      #           #   #      #  # #     #      #      #####  #####  #    # #    # 
+ *      #  #  #    # #   #  # #    # #    # #      #      #    #   #      #   ##     #      #      #      #   #  #    # #    # 
+ *       ##   #    # #    # # #    # #####  ###### ######  ####    ###### #    #     ###### ###### #      #    #  ####  #    # 
+ *                                                                                                                             
+ */ 
+// Atención: B1=Bebida1 ; B2=Bebida2; B3=Bebida3;B 4=Bebida4. CAgua=Cantidad de Agua caliente. 
+//========== PorcDescarga=Porcentaje del tiempo de descarga extra al que es igual al "tiempo de dosificación" (ver documentación para mayor detalle)
+// Si tienen una P al final es porque pertenecen al programa, no a la eprom...
+// Las direcciones son:
+	#define NombreB1 10
+	#define NombreB2 25
+	#define NombreB3 40
+	#define NombreB4 55
+	#define DosificacionB1 280
+	#define DosificacionB2 70
+	#define DosificacionB3 80
+	#define DosificacionB4 90
+    #define CAguaB1 100
+	#define CAguaB2 110
+	#define CAguaB3 120
+	#define CAguaB4 130
+	#define PorcDescargaB1 140
+	#define PorcDescargaB2 145
+	#define PorcDescargaB3 150
+	#define PorcDescargaB4 155
+	#define TamagnoBidon 160
+	#define KpEprom 170
+	#define TemperaturaDeseada 180
+
 
 /*
    ____                _   __              _
@@ -326,45 +363,46 @@ void MenuCambiarVolumenBidon(void) {
 }
 void MenuConfiguraciones(void) {
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion0);
+	MandarStringdesdePrograma(MenuConfiguracion0);EPROM_Read_String(TemperaturaDeseada, Buffer, 10); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion1);
+	MandarStringdesdePrograma(MenuConfiguracion1);EPROM_Read_String(NombreB1, Buffer, 12); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion2);
+	MandarStringdesdePrograma(MenuConfiguracion2);EPROM_Read_String(NombreB2, Buffer, 12); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion3);
+	MandarStringdesdePrograma(MenuConfiguracion3);EPROM_Read_String(NombreB3, Buffer, 10); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion4);
+	MandarStringdesdePrograma(MenuConfiguracion4);EPROM_Read_String(NombreB4, Buffer, 10); uart_send_string(Buffer);
+	//uart_send_newline();
+	//MandarStringdesdePrograma(MenuConfiguracion5);EPROM_Read_String(TemperaturaDeseada, Buffer, 10); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion5);
+	MandarStringdesdePrograma(MenuConfiguracion6);EPROM_Read_String(KpEprom, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion6);
+	MandarStringdesdePrograma(MenuConfiguracion7);EPROM_Read_String(DosificacionB1, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion7);
+	MandarStringdesdePrograma(MenuConfiguracion8);EPROM_Read_String(DosificacionB2, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion8);
+	MandarStringdesdePrograma(MenuConfiguracion9);EPROM_Read_String(DosificacionB3, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion9);
+	MandarStringdesdePrograma(MenuConfiguracion10);EPROM_Read_String(DosificacionB4, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion10);
+	MandarStringdesdePrograma(MenuConfiguracion11);EPROM_Read_String(CAguaB1, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion11);
+	MandarStringdesdePrograma(MenuConfiguracion12);EPROM_Read_String(CAguaB2, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion12);
+	MandarStringdesdePrograma(MenuConfiguracion13);EPROM_Read_String(CAguaB3, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion13);
+	MandarStringdesdePrograma(MenuConfiguracion14);EPROM_Read_String(CAguaB4, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion14);
+	MandarStringdesdePrograma(MenuConfiguracion15);EPROM_Read_String(PorcDescargaB1, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion15);
+	MandarStringdesdePrograma(MenuConfiguracion16);EPROM_Read_String(PorcDescargaB2, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion16);
+	MandarStringdesdePrograma(MenuConfiguracion17);EPROM_Read_String(PorcDescargaB3, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion17);
+	MandarStringdesdePrograma(MenuConfiguracion18);EPROM_Read_String(PorcDescargaB4, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion18);
-	uart_send_newline();
-	MandarStringdesdePrograma(MenuConfiguracion19);
+	MandarStringdesdePrograma(MenuConfiguracion19);EPROM_Read_String(TamagnoBidon, Buffer, 3); uart_send_string(Buffer);
+	uart_send_string("0 Litros");
 	uart_send_newline();
 	MandarStringdesdePrograma(TextoRegresar);
 }

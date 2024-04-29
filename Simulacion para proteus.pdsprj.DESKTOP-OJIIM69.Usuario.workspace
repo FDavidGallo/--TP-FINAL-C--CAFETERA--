@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c0000000200000003000000ffffffffffffffffffffffffffffffffc20300000c00000071070000fb030000</PLACEMENT>
+  <PLACEMENT>2c00000002000000030000000083ffff0083ffffffffffffffffffff44000000f7fffffff4030000bd020000</PLACEMENT>
   <WINDOW type="default" module="ISIS">
-   <editor metric="0" gridmajor="2540000" mode="00000000" zoom="-1" scale="119" flipped="0" gridminor="254000" gridmode="16" snapidx="2" snap="254000" xcursor="32" orgmode="0" snaprange="127000">
+   <editor metric="0" gridmajor="2540000" mode="00000001" zoom="0" scale="119" flipped="0" gridminor="254000" gridmode="16" snapidx="2" snap="254000" xcursor="32" orgmode="0" snaprange="127000">
     <world y1="-8890000" x1="-12700000" y2="8890000" x2="12700000"/>
     <centre x="0" y="0"/>
     <origin x="0" y="0"/>
@@ -19,7 +19,7 @@
   </editor>
  </MODULE>
  <MODULE name="ISIS">
-  <editor metric="0" gridmajor="2540000" mode="00000000" zoom="-1" scale="119" flipped="0" gridminor="254000" gridmode="16" snapidx="2" snap="254000" xcursor="32" orgmode="0" snaprange="127000">
+  <editor metric="0" gridmajor="2540000" mode="00000001" zoom="0" scale="119" flipped="0" gridminor="254000" gridmode="16" snapidx="2" snap="254000" xcursor="32" orgmode="0" snaprange="127000">
    <world y1="-8890000" x1="-12700000" y2="8890000" x2="12700000"/>
    <centre x="0" y="0"/>
    <origin x="0" y="0"/>
@@ -27,7 +27,7 @@
  </MODULE>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="48" flags="00000002" y="160" h="200" pid="0" iid="-1">
+   <POPUP w="800" x="48" flags="00000003" y="160" h="200" pid="0" iid="-1">
     <PROPERTIES>
      <ITEM name="Message Column Width">540</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
@@ -56,7 +56,7 @@
    <POPUP w="1384" x="88" flags="00000000" y="147" h="883" pid="0" iid="34">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="1566" x="192" flags="00000022" y="396" h="786" pid="0" iid="5">
+   <POPUP w="1759" x="127" flags="00000022" y="544" h="426" pid="0" iid="5">
     <PROPERTIES>
      <ITEM name="AutoEcho">0</ITEM>
      <ITEM name="HexMode">0</ITEM>

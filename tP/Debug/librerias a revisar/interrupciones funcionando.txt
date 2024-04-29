@@ -1,40 +1,18 @@
-#include "timer.h"
-#include <avr/io.h>
-#include <avr/interrupt.h>
-#include "UART.h"
-#include "ADC.h"
-#define PD3 3
-#define PD4 4
-
-//volatile uint8_t pinState = 0;
-//volatile uint32_t timerCounter = 0;
-
-// Inicializa Timer0 para interrupción cada 1 ms
-void Timer0_init() {
-	TCCR0A = 0; // Establecer a cero
-	TCCR0B = 0; // Establecer a cero
-	TCNT0 = 0; // Inicializar contador
-
-	// Establecer a CTC (Clear Timer on Compare Match)
-	TCCR0A |= (1 << WGM01);
-
-	// Establecer prescaler a 64 y empezar el timer
-	TCCR0B |= (1 << CS01) | (1 << CS00);
-
-	// Establecer valor de comparación para 1ms
-	OCR0A = 255;
-
-	// Habilitar interrupción de comparación A para Timer0
-	TIMSK0 |= (1 << OCIE0A);
-
-	// Habilitar interrupciones globales
-}
 /*
  * GccApplication1.c
  *
  * Created: 26/4/2024 22:21:09
  * Author : Usuario
  */ 
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include "UART.h"
+#include <avr/io.h>
+#include <avr/interrupt.h>
+#include "pines.h"
+ volatile int myChar =2; // Variable global que será modificada por la interrupción del timer
+ volatile int timerCounter;
+ volatile int pinState;
 
 // Configuración del Timer1 para interrumpir cada cierto intervalo
 void setupTimer1() {
@@ -53,7 +31,7 @@ void setupTimer1() {
 	// Establecer el prescaler a 1024 y arrancar el timer
 	TCCR1B |= (1 << CS12) | (1 << CS10);
 }
- /*
+ 
 // ISR para Timer1 Compare Match
 ISR(TIMER1_COMPA_vect) {
 	cli();
@@ -79,7 +57,6 @@ int main(void) {
 	}
 	
 }
-
 ISR(TIMER0_COMPA_vect) {
 	// Incrementar contador de tiempo
 	cli();
@@ -101,17 +78,32 @@ ISR(TIMER0_COMPA_vect) {
 	}
 }
 
-
+/*
 #include "ADC.h"
 #include "UART.h"
 #include "timer.h"
 #include "pines.h"
 //#include "ADC.h"
+volatile char Pepe;
+int main(void)
+{  uart_init();
+	ConfigurarBotones();
+	ConfigurarPinesSensores();;
+   uart_send_newline();
+   Timer0_init();
+   Timer1_init();
+   
+    /* Replace with your application code 
+    while (1) 
+    {void uart_send_char(Pepe);
+    }
+}
+ISR(TIMER1_COMPA_vect) {
+	// Aquí se coloca el código a ejecutar cada 300 ms
+	// ...
+	uart_send_string(" OwO ");
+	Pepe='A';
+	
+}
+*/
 
-// Interrupción cada 1 ms
-
-
-// Inicializa Timer1 para interrupción cada 300 ms
-
-
-// Interrupción cada 300 m*/

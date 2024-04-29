@@ -49,9 +49,9 @@
 	//Necesarias para los sensores
 		
 		int NivelPolvo1,NivelPolvo2, NivelPolvo3,NivelPolvo4; //Niveles de polvo de premezcla (medidos via adc, estan en porcentaje)
-		int TemperaturaBidon;
-		int PesoBidon;
-		int Auxiliar;
+		volatile int TemperaturaBidon;
+		volatile int PesoBidon;
+		volatile int Auxiliar;
 		uint8_t SensorrTaza = 0; // Estado del sensor de la taza (0 o 1)
 		uint8_t SensorrPuerta = 0; // Estado del sensor de la puerta (0 o 1)
         uint8_t SelectorMenuLCD=0; // Menús de selección de bebidas
@@ -61,6 +61,7 @@
 		volatile uint32_t timerCounter = 0;
         volatile int  Simultaneidad = 0; // ¿Hay simultaneidad de presionamiento de los botones por más de 5 segundos? (0 o 1)
 		volatile char DecisionMenuUart ;
+		volatile int ContadorControlarBotones=0;
 
 /***
  *                                                                                                                             
@@ -130,6 +131,25 @@ void ConfiguracionPredeterminada(void){
 	EPROM_Read_String(NombreB4, Buffer, 10);//
 	uart_send_string(" ->");
 	uart_send_string(Buffer);
+	char BufferAuxiliar5[5]="100"; //Por defecto todas las bebidas dosifican 100 mL
+	EPROM_Write_String(DosificacionB1, BufferAuxiliar5); //
+    EPROM_Write_String(DosificacionB2, BufferAuxiliar5); //
+	EPROM_Write_String(DosificacionB3, BufferAuxiliar5); //
+	EPROM_Write_String(DosificacionB4, BufferAuxiliar5); //
+	char BufferAuxiliar6[5]="200"; //Por defecto todas las se llenan con 200mL
+	EPROM_Write_String(CAguaB1,BufferAuxiliar6); //
+	EPROM_Write_String(CAguaB2,BufferAuxiliar6); //
+	EPROM_Write_String(CAguaB3,BufferAuxiliar6); //
+	EPROM_Write_String(CAguaB4,BufferAuxiliar6); //
+	char BufferAuxiliar7[5]="10"; //Por defecto EL PORCENTAJE DE TIEMPO DE DESCARGA ES DEL 10%
+	EPROM_Write_String(PorcDescargaB1,BufferAuxiliar7); //
+	EPROM_Write_String(PorcDescargaB2,BufferAuxiliar7); //
+	EPROM_Write_String(PorcDescargaB3,BufferAuxiliar7); //
+	EPROM_Write_String(PorcDescargaB4,BufferAuxiliar7); //
+	char BufferAuxiliar8[5]="2"; //Por defecto el tamaño del bidón es de 20 litros
+	EPROM_Write_String(TamagnoBidon,BufferAuxiliar8); //
+	char BufferAuxiliar9[5]="85"; //Por defecto la temperatura deseada es de 85*C
+	EPROM_Write_String(TemperaturaDeseada,BufferAuxiliar9); //
 }
 	
 void ConfiguracionIncialEeprom(void){
@@ -155,15 +175,17 @@ void MedirBidon(void){
 }
 void ControlarTemperatura (void){
 	int Auxiliar=0;
-	while (Auxiliar!=10) // Esto es para tener 10 ciclos de control por cada vez que se lo invoca
-	{   TemperaturaBidon=LeerTemperatura();
+	while (Auxiliar!=5) // Esto es para tener 5 ciclos de control por cada vez que se lo invoca
+	{   MedirBidon(); // Medimos tanto volumen de agua como su temperatura
 		Auxiliar++;
 		int Kp=1;
 		int Error=90-TemperaturaBidon;
-		PWM_update(Kp,Error);
+		if(PesoBidon!=0) // Si no hay agua que no caliente 
+		{
+		PWM_update(Kp,Error);}
+		else{PWM_update(1,0);}} //Si no hay agua hacemos que el error sea 0, tal que no controle la temperatura
 	}
 	
-}
 void MenuNivelesLcd(void){ //Esto se ejecuta só´lo si se han presionado "Seleccionar" y "Aceptar" por más de 5 segundos
 	cli();
 	escribirEnLCD(" Medidas");
@@ -275,20 +297,28 @@ void LeerBotones(void) {
 		 }
 			switch (SelectorMenuLCD) {
 			case 1:
-			escribirEnLCD(" Bebida 1");
+			EPROM_Read_String(NombreB1, Buffer, 10);//
+			escribirEnLCD("-"); // Esto arregla un bug
+			escribirEnLCD(Buffer);
 			break;
 			case 2:
-			escribirEnLCD(" Bebida 2");
+			EPROM_Read_String(NombreB2, Buffer, 10);//
+			escribirEnLCD("-"); // Esto arregla un bug
+			escribirEnLCD(Buffer);
 			break;
 			case 3:
-			escribirEnLCD(" Bebida 3");
+			EPROM_Read_String(NombreB3, Buffer, 10);//
+			escribirEnLCD("-"); // Esto arregla un bug
+			escribirEnLCD(Buffer);
 			break;
 			case 4:
-			escribirEnLCD(" Bebida 4");
+			EPROM_Read_String(NombreB4, Buffer, 10);//
+			escribirEnLCD("-"); // Esto arregla un bug
+			escribirEnLCD(Buffer);
 			break;
 			default:
 			SelectorMenuLCD=1;
-			escribirEnLCD(" Bebida 1");
+			LeerBotones();
 			break;
 			
 		i2c_stop();}
@@ -329,10 +359,8 @@ void ConfiguracionIncial(void){
 	   Timer0_init();
 	   setupTimer1();
    }
-void MenuUart(void) {
-	uart_send_newline();
-	uart_send_string(">>");
-	
+void MenuUart(void) 
+    {DecisionMenuUart=echo_serial(); // se recibe el dato 
 	switch (DecisionMenuUart) {
 		case '1':
 		MenuMediciones(PesoBidon,TemperaturaBidon,NivelPolvo1,NivelPolvo2,NivelPolvo3,NivelPolvo4);
@@ -451,9 +479,9 @@ void MenuUart(void) {
 
    
 int main(void){ 
-	   cli();
+	   cli(); // NOS ASEGURAMOS QUE LAS INTERRUPCIONES ESTEN DESACTIVADAS
 	    char data_to_write[2]="03";
-	   	EPROM_Write_String(TamagnoBidon, data_to_write);
+	   	EPROM_Write_String(TamagnoBidon, data_to_write); // ESTO NO ESTARÁ EN LA VERSIÓN FINAL
 	   ConfiguracionIncial();//Configuramos todo
 	 //  EnviarTextoSeleccionarOpcion();
 	  
@@ -483,25 +511,27 @@ int main(void){
  */
 	
 ISR(TIMER1_COMPA_vect) {
-	 // Esto arregla un buggg
-	// Cambiar el valor de myChar aquí
-	DecisionMenuUart=echo_serial();
-	ControlarTemperatura();
+	 
+	ControlarTemperatura();         // Se controla la temperatura por interrupción
 }
 ISR(TIMER0_COMPA_vect) {
 	// Incrementar contador de tiempo
-	timerCounter++;
+	ContadorControlarBotones++; 
+	if (ContadorControlarBotones==125) // Para que se active por cada 250 ms (velocidad del reflejo humano)
+	{LeerBotones();
+	ContadorControlarBotones=0 //Reiniciamos contador
+	;};
+	// Incrementar contador de tiempo si los dos botones están presionados
+	
 	// Leer estado de los pines PD3 y PD4
 	pinState = PIND & ((1 << PD3) | (1 << PD4));
+	if (pinState != 0){timerCounter++;}
 
 	// Si ambos pines están en bajo y el contador ha alcanzado 2500 (5 segundos)
 	if (pinState != 0 && timerCounter >= 2500) {
-		// Aquí se coloca el código a ejecutar cuando se cumple la condición
-		// ...
 		Simultaneidad=1;
 		// Reiniciar contador
 		timerCounter = 0;
-	}
-	cli();
+	} 
 }
 	
