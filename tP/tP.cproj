@@ -154,6 +154,12 @@
     <Compile Include="Librerias\ADC.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Librerias\FuncionesDerivadas.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Librerias\FuncionesDerivadas.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Librerias\FuncionesEprom.c">
       <SubType>compile</SubType>
     </Compile>

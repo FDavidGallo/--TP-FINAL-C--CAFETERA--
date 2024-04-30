@@ -21,6 +21,9 @@ void MenuMediciones(int PesoBidon,int TemperaturaBidon, int NivelPolvo1,int Nive
 void MenuCambiarVolumenBidon(void);
 void MenuConfiguraciones(void);
 void MandarStringdesdePrograma(const char *str);
+void MenuCambioDeNombre(void);
+void Fracaso(void);
+void CambioDeNumero(void);
 #include <util/delay.h>
 #include <stdio.h>
 

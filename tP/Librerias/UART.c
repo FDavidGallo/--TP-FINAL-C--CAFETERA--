@@ -15,10 +15,10 @@
                                                             | |               __/ |
                                                             |_|              |___/
 */  
-const char TextoElegir[] PROGMEM = ">>Seleccione alguna de las anteriores opciones";
+const char TextoElegir[] PROGMEM = ">>Seleccione alguna de las anteriores opciones ";
 const char TextoRegresar[] PROGMEM = ">>Aprete X para volver al menu inicial";
 const char TextoExito[] PROGMEM = ">>¡Cambio exitoso!!<<";
-const char TextoFracaso[] PROGMEM = ">>ERROR: LA CANTIDAD PROPUESTA ESTÁ FUERA DE RANGO";
+const char TextoFracaso[] PROGMEM = ">>ERROR: LA CANTIDAD PROPUESTA ESTÁ FUERA DE RANGO O EN FORMATO ERRONEO";
 const char TextoFracaso1[] PROGMEM = ">>Por favor, intentelo nuevamente";
 // TEXTOS PARA LAS MEDICIONES
 const char TextoTemperatura[] PROGMEM ="-Temperatura:";
@@ -102,11 +102,25 @@ const char MenuConfiguracion17[] PROGMEM=" S-Porcentaje de Tdescarga Bebida 3 (5
 const char MenuConfiguracion18[] PROGMEM=" T-Porcentaje de Tdescarga Bebida 4 (5 a 25%) =";
 const char MenuConfiguracion19[] PROGMEM=" U-Tamaño de Bidon (10 L -20 L) =";
 // MENU TAMAÑO BIDON
-const char MenuTamagno[] PROGMEM=">>Seleccione el nuevo volumen:";
-const char MenuTamagno0[] PROGMEM="V- 10 L";
-const char MenuTamagno1[] PROGMEM="W- 20 L";
+const char MenuTamagno[] PROGMEM=">>Seleccione el nuevo volumen presionando una de estas letras:";
+const char MenuTamagno0[] PROGMEM=" V- 10 L";
+const char MenuTamagno1[] PROGMEM=" W- 20 L";
 
+const char MenuCambioDeNombre0[] PROGMEM=" Para cambiar de nombre una bebida siga los siguientes pasos:";
+const char MenuCambioDeNombre1[] PROGMEM="1)- Coloque letra por letra el nuevo nombre";
+const char MenuCambioDeNombre2[] PROGMEM="2)- Coloque un guion bajo ('_') al final";
+const char MenuCambioDeNombre3[] PROGMEM="3)- Aprete '2' hasta ver su cambio reflejado";
+const char MenuCambioDeNombre4[] PROGMEM="============================================";
+const char MenuCambioDeNombre5[] PROGMEM="| ¡ATENCION!: 10 CARACTERES, EN MAYUSCULA. |";
+const char MenuCambioDeNombre6[] PROGMEM="============================================";
 
+const char MenuCambioDeNumero0[] PROGMEM=" Para cambiar la variable siga los siguiente pasos:";
+const char MenuCambioDeNumero1[] PROGMEM="1)- Coloque cifra por cifra segun sea el maximo. Por ejemplo:";
+const char MenuCambioDeNumero2[] PROGMEM=" si el numero máximo es 100 y queremos poner 25-> '0' '2' '5' ";
+const char MenuCambioDeNumero3[] PROGMEM="2)- Aprete '2' hasta ver su cambio reflejado";
+const char MenuCambioDeNumero4[] PROGMEM="===========================================================";
+const char MenuCambioDeNumero5[] PROGMEM="|  ¡ATENCION!: COLOQUE NUMEROS DENTRO DEL RANGO PERMITIDO |";
+const char MenuCambioDeNumero6[] PROGMEM="===========================================================";
 /***
  *                                                                                                                             
  *     #    #   ##   #####  #   ##   #####  #      ######  ####    ###### #    #     ###### ###### #####  #####   ####  #    # 
@@ -197,6 +211,9 @@ void uart_send_newline() {
 char uart_receive_char() {
 	while (!(UCSR0A & (1 << RXC0))); // Esperar hasta que se reciba un dato
 	char recibido = UDR0;
+	if (recibido=='_'){ // Si envia un guión bajo devuelve un 0
+		recibido='\0';  // esto es para que se pueda poner fin a un nuevo nombre
+	}																	
 	return recibido;
 }
 
@@ -257,7 +274,7 @@ void Bienvenida(void) {
 	uart_send_newline(); // Espaciado queda más bonito UwU
 }
 
-void Carpy() {
+void Carpy(void) {
 	uart_send_newline();
 	uart_send_newline();
 	MandarStringdesdePrograma(Carpyy);
@@ -304,6 +321,8 @@ void Carpy() {
 	uart_send_newline();
 	MandarStringdesdePrograma(Carpyy20);
 	uart_send_newline();
+	uart_send_newline();
+	MandarStringdesdePrograma(TextoElegir);
 }
 	
 void MenuInicial(void){
@@ -317,6 +336,8 @@ void MenuInicial(void){
 	MandarStringdesdePrograma(Menu0_3);
 	uart_send_newline();
 	MandarStringdesdePrograma(TextoRegresar);
+	uart_send_newline();
+	MandarStringdesdePrograma(TextoElegir);
 }	
 void MenuMediciones(int PesoBidon,int TemperaturaBidon, int NivelPolvo1,int NivelPolvo2,int NivelPolvo3,int NivelPolvo4) {
 	uart_send_newline();
@@ -340,21 +361,21 @@ void MenuMediciones(int PesoBidon,int TemperaturaBidon, int NivelPolvo1,int Nive
 	uart_send_newline();
 	MandarStringdesdePrograma(TextoDosificador);
 	uart_send_newline();
-	uart_send_string("Bebida 1: ");
+	uart_send_string("Bebida 1 ->");EPROM_Read_String(NombreB1, Buffer, 12); uart_send_string(Buffer);uart_send_string(": ");
 	sprintf(Buffer, "%d", NivelPolvo1);
-	uart_send_string(Buffer);
+	uart_send_string(Buffer); uart_send_string("%");
 	uart_send_newline();
-	uart_send_string("Bebida 2: ");
+	uart_send_string("Bebida 2 ->");EPROM_Read_String(NombreB2, Buffer, 12); uart_send_string(Buffer);uart_send_string(": ");
 	sprintf(Buffer, "%d", NivelPolvo2);
-	uart_send_string(Buffer);
+	uart_send_string(Buffer); uart_send_string("%");
 	uart_send_newline();
-	uart_send_string("Bebida 3: ");
+	uart_send_string("Bebida 3 ->");EPROM_Read_String(NombreB3, Buffer, 12); uart_send_string(Buffer);uart_send_string(": ");
 	sprintf(Buffer, "%d", NivelPolvo3);
-	uart_send_string(Buffer);
+	uart_send_string(Buffer); uart_send_string("%");
 	uart_send_newline();
-	uart_send_string("Bebida 4: ");
+	uart_send_string("Bebida 4 ->");EPROM_Read_String(NombreB4, Buffer, 12); uart_send_string(Buffer);uart_send_string(": ");
 	sprintf(Buffer, "%d", NivelPolvo4);
-	uart_send_string(Buffer);
+	uart_send_string(Buffer); uart_send_string("%");
 	uart_send_newline();
 	MandarStringdesdePrograma(TextoRegresar);
 }
@@ -372,8 +393,6 @@ void MenuConfiguraciones(void) {
 	MandarStringdesdePrograma(MenuConfiguracion3);EPROM_Read_String(NombreB3, Buffer, 10); uart_send_string(Buffer);
 	uart_send_newline();
 	MandarStringdesdePrograma(MenuConfiguracion4);EPROM_Read_String(NombreB4, Buffer, 10); uart_send_string(Buffer);
-	//uart_send_newline();
-	//MandarStringdesdePrograma(MenuConfiguracion5);EPROM_Read_String(TemperaturaDeseada, Buffer, 10); uart_send_string(Buffer);
 	uart_send_newline();
 	MandarStringdesdePrograma(MenuConfiguracion6);EPROM_Read_String(KpEprom, Buffer, 3); uart_send_string(Buffer);
 	uart_send_newline();
@@ -405,4 +424,48 @@ void MenuConfiguraciones(void) {
 	uart_send_string("0 Litros");
 	uart_send_newline();
 	MandarStringdesdePrograma(TextoRegresar);
+}
+
+void MenuCambioDeNombre(void){
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNombre0);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNombre1);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNombre2);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNombre3);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNombre4);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNombre5);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNombre6);
+	uart_send_newline();}
+	
+void Fracaso(void){
+	uart_send_newline();
+	MandarStringdesdePrograma(TextoFracaso);
+	uart_send_newline();
+	MandarStringdesdePrograma(TextoFracaso1);
+	uart_send_newline();
+	}
+	
+void CambioDeNumero(void){
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNumero0);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNumero1);
+	uart_send_newline();
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNumero2);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNumero3);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNumero4);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNumero5);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuCambioDeNumero6);
+	uart_send_newline();
 }

@@ -9,7 +9,7 @@
    Basado en: "Free Laundry" de Marwan & Ahmed, dos chicos de Bharat
    
    Ejemplo de uso:
-					char data_to_write[] = "Hello World"; // Creamos un vector con lo que queremos guaradar
+					char data_to_write[] = "Hello World"; // Creamos un vector con lo que queremos guardar
 					char read_data[15];// Creamos un vector con el tamaño de lo que querramos leer
    
 					// Escribir en la EEPROM

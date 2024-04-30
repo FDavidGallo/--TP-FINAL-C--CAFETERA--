@@ -4,6 +4,8 @@
 
 Librerias\ADC.c
 
+Librerias\FuncionesDerivadas.c
+
 Librerias\FuncionesEprom.c
 
 Librerias\i2c.c

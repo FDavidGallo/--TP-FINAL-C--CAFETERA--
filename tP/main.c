@@ -10,6 +10,7 @@
 	#include "Librerias/ADC.h"
 	#include "Librerias/FuncionesEeprom.h"
     #include "Librerias/timer.h"
+	#include "Librerias/FuncionesDerivadas.h"
 	#include <util/delay.h>
 	#include <avr/interrupt.h>
 	#include  <avr/eeprom.h>
@@ -22,9 +23,7 @@
 	#define PD3 3 // Pin 3 (PD3) -- Sensor Taza 
 	#define PD4 4 // Pin 4 (PD4) -- Sensor Puerta 
 	#define MCP3421_ADDRESS 0x68 // Direccion I2C del Mcp3421
-
-	// Configuración de la UART 
-	#define BAUD_RATE 9600
+	
 
 /***
  *                                                                                                                         
@@ -75,27 +74,37 @@
  */ 
 // Atención: B1=Bebida1 ; B2=Bebida2; B3=Bebida3;B 4=Bebida4. CAgua=Cantidad de Agua caliente. 
 //========== PorcDescarga=Porcentaje del tiempo de descarga extra al que es igual al "tiempo de dosificación" (ver documentación para mayor detalle)
-// Si tienen una P al final es porque pertenecen al programa, no a la eprom...
+// Si tienen una P al final es porque pertenecen al programa, no a la eprom... 
+// Algunas tiene un "Tipo", este es un caracter que se le asigna tal que despues podamos definir sus condiciones de entrada de la modificacion
+// de datos vía UART.   ATENCIÓN:
+//
+//   TIPO 'D' --> DOSIFICADORES (CANTIDAD DE PREMEZCLA)--> 0 a 420 mL
+//   TIPO 'A' --> CANTIDAD DE AGUA --> 150 a 300 mL
+//   TIPO 'P' --> PORCENTAJE DE TIEMPO DE DESCARGA --> 5% AL 25%
+//   TIPO 'V' --> TAMAÑO DEL BIDÓN --> 1 A 2 DL (DECALITROS)
+//   TIPO 'K' --> CONSTANTE PROPORCIONAL (KP) --> 0 A 100
+//   TIPO 'T' -->  TEMPERATURA DESEADA --> (60-95)*C
+//
 // Las direcciones son:
 	#define NombreB1 10
 	#define NombreB2 25
 	#define NombreB3 40
 	#define NombreB4 55
-	#define DosificacionB1 280
-	#define DosificacionB2 70
-	#define DosificacionB3 80
-	#define DosificacionB4 90
-    #define CAguaB1 100
-	#define CAguaB2 110
-	#define CAguaB3 120
-	#define CAguaB4 130
-	#define PorcDescargaB1 140
-	#define PorcDescargaB2 145
-	#define PorcDescargaB3 150
-	#define PorcDescargaB4 155
-	#define TamagnoBidon 160
-	#define KpEprom 170
-	#define TemperaturaDeseada 180
+	#define DosificacionB1 280 // TIPO D
+	#define DosificacionB2 70  // TIPO D
+	#define DosificacionB3 80  // TIPO D
+	#define DosificacionB4 90  // TIPO D
+    #define CAguaB1 100        // TIPO A
+	#define CAguaB2 110		   // TIPO A
+	#define CAguaB3 120		   // TIPO A
+	#define CAguaB4 130        // TIPO A
+	#define PorcDescargaB1 140 // TIPO P
+	#define PorcDescargaB2 145 // TIPO P
+	#define PorcDescargaB3 150 // TIPO P
+	#define PorcDescargaB4 155 // TIPO P
+	#define TamagnoBidon 160   // TIPO V
+	#define KpEprom 170        // TIPO K
+	#define TemperaturaDeseada 180 //TIPO T
 
 
 /***
@@ -150,6 +159,8 @@ void ConfiguracionPredeterminada(void){
 	EPROM_Write_String(TamagnoBidon,BufferAuxiliar8); //
 	char BufferAuxiliar9[5]="85"; //Por defecto la temperatura deseada es de 85*C
 	EPROM_Write_String(TemperaturaDeseada,BufferAuxiliar9); //
+	char BufferAuxiliar10[5]="1"; //Por DEFECTO LA CONSTANTE PROPORCIONAL ES 1
+	EPROM_Write_String(KpEprom,BufferAuxiliar10); //
 }
 	
 void ConfiguracionIncialEeprom(void){
@@ -200,7 +211,7 @@ void MenuNivelesLcd(void){ //Esto se ejecuta só´lo si se han presionado "Selecci
 	escribirEnLCD(" ( en %)");
 	_delay_ms(4111);
 	limpiar_LCD();
-	escribirEnLCD(" ");
+	escribirEnLCD(" ");// Este espacio soluciona un bug
 	EPROM_Read_String(NombreB1, Buffer, 10);//
 	escribirEnLCD(Buffer);
 	_delay_ms(4111);
@@ -267,12 +278,7 @@ escribirEnLCD(" ");
 	_delay_ms(4111);
 	limpiar_LCD();
 }
-void IniciarTemporizador(void) {
-	//TCCR1B |= (1 << WGM12); // Modo CTC
-	//OCR1A = 64; // 
-	//TIMSK1 |= (1 << OCIE1A); // Habilitar interrupción por comparación
-	//TCCR1B |= (1 << CS11) | (1 << CS10); // 
-}
+
 // Rutina de servicio de interrupción para EL TEMPORIZADOR
 
 void LeerBotones(void) {
@@ -284,11 +290,6 @@ void LeerBotones(void) {
 			if (SelectorMenuLCD == 5) {
 				SelectorMenuLCD = 1;
 				}
-
-		/*while (BotonSeleccionarr == 1) {  // Para evitar rebotes
-			if (Simultaneidad==0){
-			BotonSeleccionarr = LeerBotonSeleccionar();}  // Esperar a que se suelte el botón
-		}*/
 			lcd_init(); // Inicializar el LCD
 			 
 			 if (Simultaneidad==1){
@@ -346,12 +347,11 @@ void MedirVariables(void){
 		LeerBotones();
 	}
 void ConfiguracionIncial(void){
-	cli();
+	   ApagarTodo();					//Apagamos todo el Pcs8575, que por defecto está todo prendido
 	   iniciar_ADC();					// Inicializamos el ADC
        uart_init();						//Inicializamos la uart
 	   ConfigurarPinesSensores();		//Configuramos los pines de los sensores 
 	   ConfigurarBotones();				//Configuramos los botones.
-	   IniciarTemporizador();           // Configuramos el timer.
 	   PWM_init();                      // Configuramos el PWM
 	   Bienvenida();
 	   ConfiguracionIncialEeprom();     // Verificamos que la configuración inicial esté en la eprom, caso contrario la configuramos
@@ -377,15 +377,21 @@ void MenuUart(void)
 		DecisionMenuUart=",";
 		case '4':
 		uart_send_newline();
-		uart_send_string(">> Del siguiente listado, escoja que configurar:");
+		uart_send_string(">>Del siguiente listado, escoja que configurar:");
 		MenuConfiguraciones();
+		uart_send_newline();
+	    uart_send_string(">>Seleccione una de las anteriores opciones y siga las instrucciones ");
+		uart_send_newline();
 		// Recibir Configuracion
 		DecisionMenuUart=",";
 		break;
 		case 'A':
+		LlenarVectorConDosCaracteres(TemperaturaDeseada);
 		DecisionMenuUart=",";
 		break;
 		case 'B':
+		MenuCambioDeNombre();
+		LlenarVectorConDiezCaracteres(NombreB1);
 		DecisionMenuUart=",";
 		break;
 		case 'C':
@@ -460,7 +466,8 @@ void MenuUart(void)
 		DecisionMenuUart=",";
 		break;
 		default:
-		// Ninguna opción válida, continuar
+		// Ninguna opción válida, mostrar el menú inicial
+		MenuInicial();
 		break;
 	}
 }
@@ -522,9 +529,9 @@ ISR(TIMER0_COMPA_vect) {
 	ContadorControlarBotones=0 //Reiniciamos contador
 	;};
 	// Incrementar contador de tiempo si los dos botones están presionados
-	
+    
 	// Leer estado de los pines PD3 y PD4
-	pinState = PIND & ((1 << PD3) | (1 << PD4));
+	pinState = (BotonAceptarr && BotonSeleccionarr);
 	if (pinState != 0){timerCounter++;}
 
 	// Si ambos pines están en bajo y el contador ha alcanzado 2500 (5 segundos)
