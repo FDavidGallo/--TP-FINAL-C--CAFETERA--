@@ -24,6 +24,9 @@ void MandarStringdesdePrograma(const char *str);
 void MenuCambioDeNombre(void);
 void Fracaso(void);
 void CambioDeNumero(void);
+char uart_receive_charNoBloqueante(void);
+char echo_serialNobloqueante(void);
+void MenuTamanho(void);
 #include <util/delay.h>
 #include <stdio.h>
 

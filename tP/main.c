@@ -46,7 +46,8 @@
 		char str[12];//Buffer auxiliar del mcp3421
 		char Buffer[24]; //Buffer usado para mandar datos por uart y lcd
 	//Necesarias para los sensores
-		
+		int Aux;
+		char VectorTamagnoBidon[2];
 		int NivelPolvo1,NivelPolvo2, NivelPolvo3,NivelPolvo4; //Niveles de polvo de premezcla (medidos via adc, estan en porcentaje)
 		volatile int TemperaturaBidon;
 		volatile int PesoBidon;
@@ -57,10 +58,12 @@
 		uint8_t BotonSeleccionarr = 0; // Estado del sensor de la taza (0 o 1)
 		uint8_t BotonAceptarr = 0; // Estado del sensor de la puerta (0 o 1)
 		volatile uint8_t pinState = 0;
-		volatile uint32_t timerCounter = 0;
+		volatile uint32_t timerCounter = 0; // tiene que llegar a 5 mil, por eso le mando un formato grande, cosa de no quedarme cortp
         volatile int  Simultaneidad = 0; // ¿Hay simultaneidad de presionamiento de los botones por más de 5 segundos? (0 o 1)
 		volatile char DecisionMenuUart ;
 		volatile int ContadorControlarBotones=0;
+		volatile uint8_t BanderaServido=0; //Esta la usaremos para indicar si hay que servir alguna bebidda
+		uint8_t BanderaBienvenida = 0;
 
 /***
  *                                                                                                                             
@@ -117,6 +120,13 @@
  *     #         ####   #    #   ####   #   ####   #    #  ######   ####       #     #  ######   ####   ######   ####   #    #  #    #  #  #    #   ####  
  *                                                                                                                                                        
  */
+void Servido (void){
+	if (BanderaServido==1){
+		uart_send_string("OwO");
+		BanderaServido=0;																																																																				//;main(); // Terminada la operacion de servido, volvamos a la main. 
+	}
+	}
+	
 void ConfiguracionPredeterminada(void){
 	char BufferAuxiliar[10]="2";
 	EPROM_Write_String(TamagnoBidon, BufferAuxiliar); // Por defecto el bidón es de 20 litros
@@ -141,7 +151,7 @@ void ConfiguracionPredeterminada(void){
 	uart_send_string(" ->");
 	uart_send_string(Buffer);
 	char BufferAuxiliar5[5]="100"; //Por defecto todas las bebidas dosifican 100 mL
-	EPROM_Write_String(DosificacionB1, BufferAuxiliar5); //
+	EPROM_Write_String(DosificacionB1, BufferAuxiliar5); // 
     EPROM_Write_String(DosificacionB2, BufferAuxiliar5); //
 	EPROM_Write_String(DosificacionB3, BufferAuxiliar5); //
 	EPROM_Write_String(DosificacionB4, BufferAuxiliar5); //
@@ -189,8 +199,11 @@ void ControlarTemperatura (void){
 	while (Auxiliar!=5) // Esto es para tener 5 ciclos de control por cada vez que se lo invoca
 	{   MedirBidon(); // Medimos tanto volumen de agua como su temperatura
 		Auxiliar++;
-		int Kp=1;
-		int Error=90-TemperaturaBidon;
+		EPROM_Read_String(KpEprom,Buffer,4);
+		int Kp=atoi(Buffer);
+		EPROM_Read_String(TemperaturaDeseada,Buffer,4);
+		int TemperaturaSetpoinr=atoi(Buffer);
+		int Error=TemperaturaSetpoinr-TemperaturaBidon;
 		if(PesoBidon!=0) // Si no hay agua que no caliente 
 		{
 		PWM_update(Kp,Error);}
@@ -284,7 +297,6 @@ escribirEnLCD(" ");
 void LeerBotones(void) {
 	BotonSeleccionarr = LeerBotonSeleccionar();
 	BotonAceptarr = LeerBotonAceptar();
-
 	if (BotonSeleccionarr == 1) {
 		SelectorMenuLCD = SelectorMenuLCD + 1;
 			if (SelectorMenuLCD == 5) {
@@ -353,14 +365,17 @@ void ConfiguracionIncial(void){
 	   ConfigurarPinesSensores();		//Configuramos los pines de los sensores 
 	   ConfigurarBotones();				//Configuramos los botones.
 	   PWM_init();                      // Configuramos el PWM
-	   Bienvenida();
+	   if(BanderaBienvenida==0){        // Primer ejecución del programa
+		    Bienvenida();
+			BanderaBienvenida=1;
+	   } 
 	   ConfiguracionIncialEeprom();     // Verificamos que la configuración inicial esté en la eprom, caso contrario la configuramos
 	   MenuInicial();                   // Menu de inicio owo
 	   Timer0_init();
 	   setupTimer1();
    }
 void MenuUart(void) 
-    {DecisionMenuUart=echo_serial(); // se recibe el dato 
+    {DecisionMenuUart=echo_serialNobloqueante(); // se recibe el dato de forma no bloqueante
 	switch (DecisionMenuUart) {
 		case '1':
 		MenuMediciones(PesoBidon,TemperaturaBidon,NivelPolvo1,NivelPolvo2,NivelPolvo3,NivelPolvo4);
@@ -395,79 +410,103 @@ void MenuUart(void)
 		DecisionMenuUart=",";
 		break;
 		case 'C':
+		MenuCambioDeNombre();
+		LlenarVectorConDiezCaracteres(NombreB2);
 		DecisionMenuUart=",";
 		break;
 		DecisionMenuUart=",";
 		case 'D':
+		MenuCambioDeNombre();
+		LlenarVectorConDiezCaracteres(NombreB3);
 		DecisionMenuUart=",";
 		break;
 		case 'E':
-		Carpy();
+		MenuCambioDeNombre();
+		LlenarVectorConDiezCaracteres(NombreB4);
 		DecisionMenuUart=",";
 		break;
 		case 'F':
 		DecisionMenuUart=",";
 		break;
 		case 'G':
+		LlenarVectorConDosCaracteres(KpEprom);
 		DecisionMenuUart=",";
 		break;
 		DecisionMenuUart=",";
 		case 'H':
+		LlenarVectorConTresCaracteres(DosificacionB1);
 		DecisionMenuUart=",";
 		break;
 		case 'I':
-		Carpy();
+		LlenarVectorConTresCaracteres(DosificacionB2);
 		break;
 		case 'J':
+		LlenarVectorConTresCaracteres(DosificacionB3);
 		DecisionMenuUart=",";
 		break;
 		case 'K':
+		LlenarVectorConTresCaracteres(DosificacionB4);
 		DecisionMenuUart=",";
 		break;
 		DecisionMenuUart=",";
+		LlenarVectorConTresCaracteres(CAguaB1);
 		case 'M':
 		DecisionMenuUart=",";
 		break;
 		case 'L':
-		Carpy();
+		LlenarVectorConTresCaracteres(CAguaB2);
 		DecisionMenuUart=",";
 		break;
 		case 'O':
 		DecisionMenuUart=",";
+		LlenarVectorConTresCaracteres(CAguaB3);
 		break;
 		case 'P':
 		DecisionMenuUart=",";
+		LlenarVectorConTresCaracteres(CAguaB4);
 		break;
 		DecisionMenuUart=",";
 		case 'Q':
 		DecisionMenuUart=",";
+		LlenarVectorConDosCaracteres(PorcDescargaB1);
 		break;
 		case 'R':
 		DecisionMenuUart=",";
+		LlenarVectorConDosCaracteres(PorcDescargaB2);
 		break;
 		case 'S':
 		DecisionMenuUart=",";
+		LlenarVectorConDosCaracteres(PorcDescargaB3);
 		break;
 		DecisionMenuUart=",";
 		case 'T':
 		DecisionMenuUart=",";
+		LlenarVectorConDosCaracteres(PorcDescargaB4);
 		break;
 		case 'U':
+		MenuTamanho();
 		DecisionMenuUart=",";
 		break;
 		case 'V':
-		DecisionMenuUart=",";
+		EPROM_Write_String(TamagnoBidon, "1"); // Guaradamos
+		uart_send_newline();
+		MenuInicial();
+		uart_send_newline();
+		DecisionMenuUart=",";																																														
 		break;
 		case 'W':
-		DecisionMenuUart=",";
+		uart_send_newline();
+		EPROM_Write_String(TamagnoBidon, "2"); // Guaradamos
+		MenuInicial();
+		uart_send_newline();
+		DecisionMenuUart=",";																																														
 		break;
 		case 'X':
 		MenuInicial();
 		DecisionMenuUart=",";
 		break;
 		default:
-		// Ninguna opción válida, mostrar el menú inicial
-		MenuInicial();
+		// Ninguna opción válida, 
 		break;
 	}
 }
@@ -487,17 +526,15 @@ void MenuUart(void)
    
 int main(void){ 
 	   cli(); // NOS ASEGURAMOS QUE LAS INTERRUPCIONES ESTEN DESACTIVADAS
-	    char data_to_write[2]="03";
-	   	EPROM_Write_String(TamagnoBidon, data_to_write); // ESTO NO ESTARÁ EN LA VERSIÓN FINAL
 	   ConfiguracionIncial();//Configuramos todo
 	 //  EnviarTextoSeleccionarOpcion();
-	  
-
-	
+	   MedirVariables(); //Medición inicial
+	    sei(); // Prendendemos las interrupciones
 	while(1){
-	sei();
+	Servido();
 	MedirVariables();	 
 	MenuUart();
+	
 	
    
 	
@@ -540,5 +577,8 @@ ISR(TIMER0_COMPA_vect) {
 		// Reiniciar contador
 		timerCounter = 0;
 	} 
+   if ((BotonAceptarr==1) && (BotonSeleccionarr==0)) // Si se ha prescionado solo el botón de aceptar
+   { BanderaServido=1;
+   }
 }
 	

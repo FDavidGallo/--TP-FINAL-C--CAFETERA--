@@ -113,7 +113,7 @@ void LlenarVectorConDosCaracteres(uint16_t uiAddress) {//le damos -La dirección 
 			}else{Fracaso();}
 			//EPROM_Write_String(uiAddress, Vector); // Guaradamos
 		}
-		if (Tipo=='T')
+		if (Tipo=='P')
 		{if ((atoi(Vector)<=25)&&(atoi(Vector)>=5)){ //Condición el porcentaje del tiempo de descarga
 			EPROM_Write_String(uiAddress, Vector); // Guaradamos ;
 			}else{Fracaso();}
@@ -147,4 +147,27 @@ void LlenarVectorConDiezCaracteres(uint16_t uiAddress) {//le damos -La dirección
 	EPROM_Write_String(uiAddress, Vector); // Guaradamos
 	MandarStringdesdePrograma(TextoExito2);
 	uart_send_newline();
+}
+
+void LlenarVectorConTresCaracteres(uint16_t uiAddress) {//le damos -La dirección de eeprom a la cual guardar ej: TemperaturaDeseada
+	CambioDeNumero();
+	char Vector[4]; // Vector auxiliar para el llenado, con la ultima posición para el caracter nulo
+	Aux=0;
+	Vector[Aux] = echo_serial(); //Primer dígito
+	Aux=1;
+	Vector[Aux] = echo_serial(); //Segundo dígito
+	Aux=2;
+	Vector[Aux] = echo_serial(); //Tercer dígito
+	Vector[3] = '\0';			 //Terminamos el dato con el caracter nulo.
+	char Tipo=DetectarTipo(uiAddress);
+	if (Tipo=='D')
+	{if (((atoi(Vector)<=420)&&(atoi(Vector)>=00))){ //Condición para Dosificacion
+		EPROM_Write_String(uiAddress, Vector); // Guaradamos ;
+		}else{Fracaso();}
+	}
+	if (Tipo=='A')
+	{if (((atoi(Vector)<=300)&&(atoi(Vector)>=150))){ //Condición para la cantidad de Agua caliente
+		EPROM_Write_String(uiAddress, Vector); // Guaradamos ;
+		}else{Fracaso();}
+	}
 }

@@ -19,7 +19,7 @@ const char TextoElegir[] PROGMEM = ">>Seleccione alguna de las anteriores opcion
 const char TextoRegresar[] PROGMEM = ">>Aprete X para volver al menu inicial";
 const char TextoExito[] PROGMEM = ">>¡Cambio exitoso!!<<";
 const char TextoFracaso[] PROGMEM = ">>ERROR: LA CANTIDAD PROPUESTA ESTÁ FUERA DE RANGO O EN FORMATO ERRONEO";
-const char TextoFracaso1[] PROGMEM = ">>Por favor, intentelo nuevamente";
+const char TextoFracaso1[] PROGMEM = ">>Por favor, intentelo nuevamente más tarde. ACEPTAR: Aprete X";
 // TEXTOS PARA LAS MEDICIONES
 const char TextoTemperatura[] PROGMEM ="-Temperatura:";
 const char TextoTemperatura0[] PROGMEM =" *C";
@@ -216,7 +216,20 @@ char uart_receive_char() {
 	}																	
 	return recibido;
 }
-
+char uart_receive_charNoBloqueante(void) {
+	UDR0=0; // Esto borra lo que pudo estar en el buffer, soluciona el error de sobreescritura de palabras previas
+	char recibido = UDR0;
+	if (recibido=='_'){ // Si envia un guión bajo devuelve un 0
+		recibido='\0';  // esto es para que se pueda poner fin a un nuevo nombre
+	}
+	return recibido;
+}
+char echo_serialNobloqueante(void) {
+	char input = uart_receive_char(); // TENGO QUE PREGUNTARLE AL EDU PORQUE SI LLAMO AL NO BLOQUEANTE SE ROMPE TODO
+	uart_send_char(input);
+	char recibido=input;
+	return recibido;
+}
 // Función para el eco serial  y recuperar el dato mandado vía uart
 
 char echo_serial() {
@@ -457,7 +470,6 @@ void CambioDeNumero(void){
 	uart_send_newline();
 	MandarStringdesdePrograma(MenuCambioDeNumero1);
 	uart_send_newline();
-	uart_send_newline();
 	MandarStringdesdePrograma(MenuCambioDeNumero2);
 	uart_send_newline();
 	MandarStringdesdePrograma(MenuCambioDeNumero3);
@@ -467,5 +479,15 @@ void CambioDeNumero(void){
 	MandarStringdesdePrograma(MenuCambioDeNumero5);
 	uart_send_newline();
 	MandarStringdesdePrograma(MenuCambioDeNumero6);
+	uart_send_newline();
+}
+
+void MenuTamanho(void){
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuTamagno);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuTamagno0);
+	uart_send_newline();
+	MandarStringdesdePrograma(MenuTamagno1);
 	uart_send_newline();
 }
