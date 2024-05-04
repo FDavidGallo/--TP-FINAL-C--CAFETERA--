@@ -1,15 +1,18 @@
 <?xml version='1.0' encoding='UTF-8' standalone='yes'?>
 <WORKSPACE>
  <FRAME activewindow="0">
-  <PLACEMENT>2c0000000200000003000000ffffffffffffffffffffffffffffffff44000000f7fffffff4030000bd020000</PLACEMENT>
+  <PLACEMENT>2c00000002000000010000000083ffff0083ffffffffffffffffffff860000002c000000350400001b040000</PLACEMENT>
+  <WINDOW type="default" module="VSMDEBUG"/>
+ </FRAME>
+ <FRAME activewindow="0">
+  <PLACEMENT>2c0000000000000001000000ffffffffffffffffffffffffffffffffc20300000c00000071070000fb030000</PLACEMENT>
   <WINDOW type="default" module="ISIS">
-   <editor metric="0" gridmajor="2540000" mode="00000000" zoom="-1" scale="119" flipped="0" gridminor="254000" gridmode="16" snapidx="2" snap="254000" xcursor="32" orgmode="0" snaprange="127000">
+   <editor metric="0" gridmajor="25400000" mode="00000001" zoom="0" scale="70" flipped="0" gridminor="508000" gridmode="0" snapidx="2" snap="254000" xcursor="32" orgmode="0" snaprange="181428">
     <world y1="-8890000" x1="-12700000" y2="8890000" x2="12700000"/>
     <centre x="0" y="0"/>
     <origin x="0" y="0"/>
    </editor>
   </WINDOW>
-  <WINDOW type="default" module="DXP"/>
  </FRAME>
  <MODULE name="ARES">
   <editor metric="0" gridmajor="0" mode="00000000" zoom="10" scale="10" flipped="0" gridminor="0" gridmode="32" snapidx="3" snap="0" xcursor="0" orgmode="0" snaprange="0">
@@ -18,8 +21,15 @@
    <origin x="0" y="0"/>
   </editor>
  </MODULE>
+ <MODULE name="GVIEW">
+  <editor metric="0" gridmajor="25400000" mode="00000000" zoom="-1" scale="58" flipped="0" gridminor="508000" gridmode="32" snapidx="3" snap="127000" xcursor="0" orgmode="0" snaprange="218965">
+   <world y1="-12700000" x1="-15240000" y2="12700000" x2="15240000"/>
+   <centre x="0" y="0"/>
+   <origin x="0" y="0"/>
+  </editor>
+ </MODULE>
  <MODULE name="ISIS">
-  <editor metric="0" gridmajor="2540000" mode="00000000" zoom="-1" scale="119" flipped="0" gridminor="254000" gridmode="16" snapidx="2" snap="254000" xcursor="32" orgmode="0" snaprange="127000">
+  <editor metric="0" gridmajor="25400000" mode="00000001" zoom="0" scale="70" flipped="0" gridminor="508000" gridmode="0" snapidx="2" snap="254000" xcursor="32" orgmode="0" snaprange="181428">
    <world y1="-8890000" x1="-12700000" y2="8890000" x2="12700000"/>
    <centre x="0" y="0"/>
    <origin x="0" y="0"/>
@@ -27,7 +37,7 @@
  </MODULE>
  <MODULE name="VSMDEBUG">
   <PWI>
-   <POPUP w="800" x="48" flags="00000002" y="160" h="200" pid="0" iid="-1">
+   <POPUP w="800" x="38" flags="00000002" y="105" h="200" pid="0" iid="-1">
     <PROPERTIES>
      <ITEM name="Message Column Width">540</ITEM>
      <ITEM name="ShowGrid">No</ITEM>
@@ -53,10 +63,10 @@
      <ITEM name="nItems">0</ITEM>
     </PROPERTIES>
    </POPUP>
-   <POPUP w="1384" x="88" flags="00000000" y="147" h="883" pid="0" iid="34">
+   <POPUP w="1384" x="273" flags="00000000" y="147" h="883" pid="0" iid="34">
     <PROPERTIES/>
    </POPUP>
-   <POPUP w="1847" x="0" flags="00000022" y="124" h="906" pid="0" iid="5">
+   <POPUP w="1942" x="0" flags="00000022" y="201" h="829" pid="0" iid="5">
     <PROPERTIES>
      <ITEM name="AutoEcho">0</ITEM>
      <ITEM name="HexMode">0</ITEM>

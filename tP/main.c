@@ -1,4 +1,5 @@
 // Inclusión de Librerias necesarias
+
 	#include "Librerias/mcp9800.h"
 	#include "Librerias/MCP3421.h"
 	#include "Librerias/pcf857.h"
@@ -11,12 +12,13 @@
 	#include "Librerias/FuncionesEeprom.h"
     #include "Librerias/timer.h"
 	#include "Librerias/FuncionesDerivadas.h"
+	#include "Librerias/ControlValvulas.h"
 	#include <util/delay.h>
 	#include <avr/interrupt.h>
 	#include  <avr/eeprom.h>
 	#include <avr/io.h>
 	#include <stdlib.h> 
-	//
+	// DEFINICIONES NECESARIAS
 	#define cpu_1600000
 	#define PCA8575_ADDRESS 0x20
 	// Definición de pines para los sensores
@@ -64,6 +66,7 @@
 		volatile int ContadorControlarBotones=0;
 		volatile uint8_t BanderaServido=0; //Esta la usaremos para indicar si hay que servir alguna bebidda
 		uint8_t BanderaBienvenida = 0;
+		volatile uint8_t BanderaError=0;
 
 /***
  *                                                                                                                             
@@ -121,9 +124,19 @@
  *                                                                                                                                                        
  */
 void Servido (void){
-	if (BanderaServido==1){
-		uart_send_string("OwO");
-		BanderaServido=0;																																																																				//;main(); // Terminada la operacion de servido, volvamos a la main. 
+	if (BanderaServido){
+			lcd_init();
+		limpiar_LCD();
+	   uart_send_newline();
+	     uart_send_string("Se inició el servido...");
+		 uart_send_string("Consola bloqueada hasta terminar  el proceso...");
+		escribirEnLCD(" Sirviendo...");
+		_delay_ms(15);
+		SeleccionarMedida(SelectorMenuLCD);
+			lcd_init();
+			limpiar_LCD();
+		BanderaServido=0;	
+		uart_send_string(">>Servido finalizado");																																																																			//;main(); // Terminada la operacion de servido, volvamos a la main. 
 	}
 	}
 	
@@ -340,6 +353,7 @@ void LeerBotones(void) {
 void LeerSensores(void){
 	 SensorrTaza=LeerSensorTaza();
 	 SensorrPuerta=LeerSensorPuerta();
+	 BanderaError=SensorrPuerta||SensorrTaza;
 	 } 
 void MedicionPolvos(void){
 	leer_ADC(0); // Lee el valor del pin PC0
@@ -375,7 +389,7 @@ void ConfiguracionIncial(void){
 	   setupTimer1();
    }
 void MenuUart(void) 
-    {DecisionMenuUart=echo_serialNobloqueante(); // se recibe el dato de forma no bloqueante
+    {DecisionMenuUart=echo_serialNobloqueante(BanderaServido,BanderaError,0); // se recibe el dato de forma no bloqueante
 	switch (DecisionMenuUart) {
 		case '1':
 		MenuMediciones(PesoBidon,TemperaturaBidon,NivelPolvo1,NivelPolvo2,NivelPolvo3,NivelPolvo4);
@@ -505,12 +519,31 @@ void MenuUart(void)
 		MenuInicial();
 		DecisionMenuUart=",";
 		break;
+		case 'Z':
+		ConfiguracionPredeterminada();// Reseteo de fabrica
+		DecisionMenuUart=",";
+		break;
 		default:
 		// Ninguna opción válida, 
 		break;
 	}
 }
-
+void DetectarError(void){
+	if(BanderaError){
+		limpiar_LCD();
+		i2c_init();
+		escribirEnLCD(" ERROR PUERTA ");
+		_delay_ms(711);
+		limpiar_LCD();
+		escribirEnLCD(" ABIERTA O");
+		_delay_ms(711);
+		limpiar_LCD();
+		escribirEnLCD(" TAZA MAL PUESTA");
+		_delay_ms(711);
+		limpiar_LCD();
+		i2c_stop();
+		;
+	}}
 
 /* ===========================================================================================================
  *     #######  #     #  #     #   #####   ###  #######  #     #          #     #     #     ###  #     # 
@@ -527,10 +560,15 @@ void MenuUart(void)
 int main(void){ 
 	   cli(); // NOS ASEGURAMOS QUE LAS INTERRUPCIONES ESTEN DESACTIVADAS
 	   ConfiguracionIncial();//Configuramos todo
+	 
 	 //  EnviarTextoSeleccionarOpcion();
 	   MedirVariables(); //Medición inicial
 	    sei(); // Prendendemos las interrupciones
+		
 	while(1){
+		  sei();
+		  
+	DetectarError();
 	Servido();
 	MedirVariables();	 
 	MenuUart();
@@ -559,10 +597,13 @@ ISR(TIMER1_COMPA_vect) {
 	ControlarTemperatura();         // Se controla la temperatura por interrupción
 }
 ISR(TIMER0_COMPA_vect) {
+	
+	 int BotonAceptarRR = !((PIND & (1 << PPD6)) ? 1 : 0);
 	// Incrementar contador de tiempo
 	ContadorControlarBotones++; 
 	if (ContadorControlarBotones==125) // Para que se active por cada 250 ms (velocidad del reflejo humano)
 	{LeerBotones();
+     LeerSensores();
 	ContadorControlarBotones=0 //Reiniciamos contador
 	;};
 	// Incrementar contador de tiempo si los dos botones están presionados
@@ -570,15 +611,16 @@ ISR(TIMER0_COMPA_vect) {
 	// Leer estado de los pines PD3 y PD4
 	pinState = (BotonAceptarr && BotonSeleccionarr);
 	if (pinState != 0){timerCounter++;}
-
+    else { if ((BotonAceptarRR != 0)&& (BotonSeleccionarr==0)) {BanderaServido=1;																																																																																							Servido();    
+    }
+    }
 	// Si ambos pines están en bajo y el contador ha alcanzado 2500 (5 segundos)
 	if (pinState != 0 && timerCounter >= 2500) {
 		Simultaneidad=1;
 		// Reiniciar contador
 		timerCounter = 0;
 	} 
-   if ((BotonAceptarr==1) && (BotonSeleccionarr==0)) // Si se ha prescionado solo el botón de aceptar
-   { BanderaServido=1;
-   }
+// Leer estado de P6
+
 }
 	

@@ -4,6 +4,8 @@
 
 Librerias\ADC.c
 
+Librerias\ControlValvulas.c
+
 Librerias\FuncionesDerivadas.c
 
 Librerias\FuncionesEprom.c

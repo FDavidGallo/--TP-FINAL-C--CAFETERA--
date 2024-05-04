@@ -5,11 +5,11 @@ c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/mic
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
                               c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o) (__addsf3x)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
-                              Librerias/MCP3421.o (__divsf3)
+                              Librerias/ControlValvulas.o (__divsf3)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
                               c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o) (__divsf3x)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
-                              Librerias/MCP3421.o (__fixsfsi)
+                              Librerias/ControlValvulas.o (__fixsfsi)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
                               c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o) (__fixunssfsi)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
@@ -29,9 +29,11 @@ c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/mic
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
                               c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o) (__fp_zero)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                              Librerias/MCP3421.o (__mulsf3)
+                              Librerias/ControlValvulas.o (__mulsf3)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
                               c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o) (__mulsf3x)
+c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+                              Librerias/ControlValvulas.o (__divmodhi4)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o (exit)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
@@ -39,9 +41,11 @@ c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/mic
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
                               Librerias/i2c.o (__do_copy_data)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                              Librerias/FuncionesDerivadas.o (__do_clear_bss)
+                              Librerias/ControlValvulas.o (__do_clear_bss)
+c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                              c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o) (__udivmodhi4)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(atoi.o)
-                              Librerias/FuncionesDerivadas.o (atoi)
+                              Librerias/ControlValvulas.o (atoi)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(mul10.o)
                               c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(atoi.o) (__mulhi_const_10)
 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
@@ -73,12 +77,17 @@ NivelPolvo3         0x2               main.o
 a1                  0x4               Librerias/MCP3421.o
 NivelPolvo2         0x2               main.o
 a3                  0x4               Librerias/MCP3421.o
+TiempoDeAguaCaliente
+                    0x2               Librerias/ControlValvulas.o
+TiempoDeDosificacion
+                    0x2               Librerias/ControlValvulas.o
 a2                  0x4               Librerias/MCP3421.o
 Buffer              0x18              main.o
 DecisionMenuUart    0x1               main.o
 str                 0xc               Librerias/MCP3421.o
 TemperaturaBidon    0x2               main.o
 a                   0x4               Librerias/MCP3421.o
+TiempoDeDescarga    0x2               Librerias/ControlValvulas.o
 Auxiliar            0x2               main.o
 
 Discarded input sections
@@ -88,6 +97,9 @@ Discarded input sections
  .text          0x00000000        0x0 Librerias/ADC.o
  .data          0x00000000        0x0 Librerias/ADC.o
  .bss           0x00000000        0x0 Librerias/ADC.o
+ .text          0x00000000        0x0 Librerias/ControlValvulas.o
+ .data          0x00000000        0x0 Librerias/ControlValvulas.o
+ .bss           0x00000000        0x0 Librerias/ControlValvulas.o
  .text          0x00000000        0x0 Librerias/FuncionesDerivadas.o
  .data          0x00000000        0x0 Librerias/FuncionesDerivadas.o
  .bss           0x00000000        0x0 Librerias/FuncionesDerivadas.o
@@ -142,7 +154,6 @@ Discarded input sections
  .text          0x00000000        0x0 Librerias/pines.o
  .data          0x00000000        0x0 Librerias/pines.o
  .bss           0x00000000        0x0 Librerias/pines.o
- COMMON         0x00000000        0x0 Librerias/pines.o
  .text          0x00000000        0x0 Librerias/PWM.o
  .data          0x00000000        0x0 Librerias/PWM.o
  .bss           0x00000000        0x0 Librerias/PWM.o
@@ -152,8 +163,6 @@ Discarded input sections
  .text          0x00000000        0x0 Librerias/UART.o
  .data          0x00000000        0x0 Librerias/UART.o
  .bss           0x00000000        0x0 Librerias/UART.o
- .text.uart_receive_charNoBloqueante
-                0x00000000       0x10 Librerias/UART.o
  .text.EnviarTextoSeleccionarOpcion
                 0x00000000        0xe Librerias/UART.o
  .text.MenuCambiarVolumenBidon
@@ -217,6 +226,20 @@ Discarded input sections
  .text          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
  .data          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
  .bss           0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+ .text          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+ .data          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+ .bss           0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc   0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
  .text          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .data          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  .bss           0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -280,6 +303,20 @@ Discarded input sections
                 0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+ .text          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+ .data          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+ .bss           0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc   0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
  .text          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(atoi.o)
  .data          0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(atoi.o)
  .bss           0x00000000        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(atoi.o)
@@ -350,6 +387,7 @@ Linker script and memory map
 Address of section .data set to 0x800100
 LOAD C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
 LOAD Librerias/ADC.o
+LOAD Librerias/ControlValvulas.o
 LOAD Librerias/FuncionesDerivadas.o
 LOAD Librerias/FuncionesEprom.o
 LOAD Librerias/i2c.o
@@ -471,7 +509,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x40ca
+.text           0x00000000     0x487a
  *(.vectors)
  .vectors       0x00000000       0x68 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
                 0x00000000                __vector_default
@@ -479,301 +517,301 @@ END GROUP
  *(.vectors)
  *(.progmem.gcc*)
  .progmem.gcc_sw_table.MenuUart
-                0x00000068       0x50 main.o
-                0x000000b8                . = ALIGN (0x2)
-                0x000000b8                __trampolines_start = .
+                0x00000068       0x54 main.o
+                0x000000bc                . = ALIGN (0x2)
+                0x000000bc                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x000000b8        0x0 linker stubs
+ .trampolines   0x000000bc        0x0 linker stubs
  *(.trampolines*)
-                0x000000b8                __trampolines_end = .
+                0x000000bc                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
  *(.progmem*)
  .progmem.data.TextoExito2
-                0x000000b8       0x16 Librerias/FuncionesDerivadas.o
-                0x000000b8                TextoExito2
+                0x000000bc       0x16 Librerias/FuncionesDerivadas.o
+                0x000000bc                TextoExito2
  .progmem.data.MenuCambioDeNumero6
-                0x000000ce       0x3c Librerias/UART.o
-                0x000000ce                MenuCambioDeNumero6
+                0x000000d2       0x3c Librerias/UART.o
+                0x000000d2                MenuCambioDeNumero6
  .progmem.data.MenuCambioDeNumero5
-                0x0000010a       0x3c Librerias/UART.o
-                0x0000010a                MenuCambioDeNumero5
+                0x0000010e       0x3c Librerias/UART.o
+                0x0000010e                MenuCambioDeNumero5
  .progmem.data.MenuCambioDeNumero4
-                0x00000146       0x3c Librerias/UART.o
-                0x00000146                MenuCambioDeNumero4
+                0x0000014a       0x3c Librerias/UART.o
+                0x0000014a                MenuCambioDeNumero4
  .progmem.data.MenuCambioDeNumero3
-                0x00000182       0x2d Librerias/UART.o
-                0x00000182                MenuCambioDeNumero3
+                0x00000186       0x2d Librerias/UART.o
+                0x00000186                MenuCambioDeNumero3
  .progmem.data.MenuCambioDeNumero2
-                0x000001af       0x3f Librerias/UART.o
-                0x000001af                MenuCambioDeNumero2
+                0x000001b3       0x3f Librerias/UART.o
+                0x000001b3                MenuCambioDeNumero2
  .progmem.data.MenuCambioDeNumero1
-                0x000001ee       0x3e Librerias/UART.o
-                0x000001ee                MenuCambioDeNumero1
+                0x000001f2       0x3e Librerias/UART.o
+                0x000001f2                MenuCambioDeNumero1
  .progmem.data.MenuCambioDeNumero0
-                0x0000022c       0x34 Librerias/UART.o
-                0x0000022c                MenuCambioDeNumero0
+                0x00000230       0x34 Librerias/UART.o
+                0x00000230                MenuCambioDeNumero0
  .progmem.data.MenuCambioDeNombre6
-                0x00000260       0x2d Librerias/UART.o
-                0x00000260                MenuCambioDeNombre6
+                0x00000264       0x2d Librerias/UART.o
+                0x00000264                MenuCambioDeNombre6
  .progmem.data.MenuCambioDeNombre5
-                0x0000028d       0x2d Librerias/UART.o
-                0x0000028d                MenuCambioDeNombre5
+                0x00000291       0x2d Librerias/UART.o
+                0x00000291                MenuCambioDeNombre5
  .progmem.data.MenuCambioDeNombre4
-                0x000002ba       0x2d Librerias/UART.o
-                0x000002ba                MenuCambioDeNombre4
+                0x000002be       0x2d Librerias/UART.o
+                0x000002be                MenuCambioDeNombre4
  .progmem.data.MenuCambioDeNombre3
-                0x000002e7       0x2d Librerias/UART.o
-                0x000002e7                MenuCambioDeNombre3
+                0x000002eb       0x2d Librerias/UART.o
+                0x000002eb                MenuCambioDeNombre3
  .progmem.data.MenuCambioDeNombre2
-                0x00000314       0x29 Librerias/UART.o
-                0x00000314                MenuCambioDeNombre2
+                0x00000318       0x29 Librerias/UART.o
+                0x00000318                MenuCambioDeNombre2
  .progmem.data.MenuCambioDeNombre1
-                0x0000033d       0x2c Librerias/UART.o
-                0x0000033d                MenuCambioDeNombre1
+                0x00000341       0x2c Librerias/UART.o
+                0x00000341                MenuCambioDeNombre1
  .progmem.data.MenuCambioDeNombre0
-                0x00000369       0x3e Librerias/UART.o
-                0x00000369                MenuCambioDeNombre0
+                0x0000036d       0x3e Librerias/UART.o
+                0x0000036d                MenuCambioDeNombre0
  .progmem.data.MenuTamagno1
-                0x000003a7        0x9 Librerias/UART.o
-                0x000003a7                MenuTamagno1
+                0x000003ab        0x9 Librerias/UART.o
+                0x000003ab                MenuTamagno1
  .progmem.data.MenuTamagno0
-                0x000003b0        0x9 Librerias/UART.o
-                0x000003b0                MenuTamagno0
+                0x000003b4        0x9 Librerias/UART.o
+                0x000003b4                MenuTamagno0
  .progmem.data.MenuTamagno
-                0x000003b9       0x3f Librerias/UART.o
-                0x000003b9                MenuTamagno
+                0x000003bd       0x3f Librerias/UART.o
+                0x000003bd                MenuTamagno
  .progmem.data.MenuConfiguracion19
-                0x000003f8       0x22 Librerias/UART.o
-                0x000003f8                MenuConfiguracion19
+                0x000003fc       0x22 Librerias/UART.o
+                0x000003fc                MenuConfiguracion19
  .progmem.data.MenuConfiguracion18
-                0x0000041a       0x30 Librerias/UART.o
-                0x0000041a                MenuConfiguracion18
+                0x0000041e       0x30 Librerias/UART.o
+                0x0000041e                MenuConfiguracion18
  .progmem.data.MenuConfiguracion17
-                0x0000044a       0x30 Librerias/UART.o
-                0x0000044a                MenuConfiguracion17
+                0x0000044e       0x30 Librerias/UART.o
+                0x0000044e                MenuConfiguracion17
  .progmem.data.MenuConfiguracion16
-                0x0000047a       0x30 Librerias/UART.o
-                0x0000047a                MenuConfiguracion16
+                0x0000047e       0x30 Librerias/UART.o
+                0x0000047e                MenuConfiguracion16
  .progmem.data.MenuConfiguracion15
-                0x000004aa       0x30 Librerias/UART.o
-                0x000004aa                MenuConfiguracion15
+                0x000004ae       0x30 Librerias/UART.o
+                0x000004ae                MenuConfiguracion15
  .progmem.data.MenuConfiguracion14
-                0x000004da       0x37 Librerias/UART.o
-                0x000004da                MenuConfiguracion14
+                0x000004de       0x37 Librerias/UART.o
+                0x000004de                MenuConfiguracion14
  .progmem.data.MenuConfiguracion13
-                0x00000511       0x37 Librerias/UART.o
-                0x00000511                MenuConfiguracion13
+                0x00000515       0x37 Librerias/UART.o
+                0x00000515                MenuConfiguracion13
  .progmem.data.MenuConfiguracion12
-                0x00000548       0x37 Librerias/UART.o
-                0x00000548                MenuConfiguracion12
+                0x0000054c       0x37 Librerias/UART.o
+                0x0000054c                MenuConfiguracion12
  .progmem.data.MenuConfiguracion11
-                0x0000057f       0x37 Librerias/UART.o
-                0x0000057f                MenuConfiguracion11
+                0x00000583       0x37 Librerias/UART.o
+                0x00000583                MenuConfiguracion11
  .progmem.data.MenuConfiguracion10
-                0x000005b6       0x31 Librerias/UART.o
-                0x000005b6                MenuConfiguracion10
+                0x000005ba       0x31 Librerias/UART.o
+                0x000005ba                MenuConfiguracion10
  .progmem.data.MenuConfiguracion9
-                0x000005e7       0x31 Librerias/UART.o
-                0x000005e7                MenuConfiguracion9
+                0x000005eb       0x31 Librerias/UART.o
+                0x000005eb                MenuConfiguracion9
  .progmem.data.MenuConfiguracion8
-                0x00000618       0x31 Librerias/UART.o
-                0x00000618                MenuConfiguracion8
+                0x0000061c       0x31 Librerias/UART.o
+                0x0000061c                MenuConfiguracion8
  .progmem.data.MenuConfiguracion7
-                0x00000649       0x31 Librerias/UART.o
-                0x00000649                MenuConfiguracion7
+                0x0000064d       0x31 Librerias/UART.o
+                0x0000064d                MenuConfiguracion7
  .progmem.data.MenuConfiguracion6
-                0x0000067a       0x20 Librerias/UART.o
-                0x0000067a                MenuConfiguracion6
+                0x0000067e       0x20 Librerias/UART.o
+                0x0000067e                MenuConfiguracion6
  .progmem.data.MenuConfiguracion4
-                0x0000069a       0x2b Librerias/UART.o
-                0x0000069a                MenuConfiguracion4
+                0x0000069e       0x2b Librerias/UART.o
+                0x0000069e                MenuConfiguracion4
  .progmem.data.MenuConfiguracion3
-                0x000006c5       0x2b Librerias/UART.o
-                0x000006c5                MenuConfiguracion3
+                0x000006c9       0x2b Librerias/UART.o
+                0x000006c9                MenuConfiguracion3
  .progmem.data.MenuConfiguracion2
-                0x000006f0       0x2b Librerias/UART.o
-                0x000006f0                MenuConfiguracion2
+                0x000006f4       0x2b Librerias/UART.o
+                0x000006f4                MenuConfiguracion2
  .progmem.data.MenuConfiguracion1
-                0x0000071b       0x2b Librerias/UART.o
-                0x0000071b                MenuConfiguracion1
+                0x0000071f       0x2b Librerias/UART.o
+                0x0000071f                MenuConfiguracion1
  .progmem.data.MenuConfiguracion0
-                0x00000746       0x23 Librerias/UART.o
-                0x00000746                MenuConfiguracion0
+                0x0000074a       0x23 Librerias/UART.o
+                0x0000074a                MenuConfiguracion0
  .progmem.data.Carpyy20
-                0x00000769       0x42 Librerias/UART.o
-                0x00000769                Carpyy20
+                0x0000076d       0x42 Librerias/UART.o
+                0x0000076d                Carpyy20
  .progmem.data.Carpyy19
-                0x000007ab       0x43 Librerias/UART.o
-                0x000007ab                Carpyy19
+                0x000007af       0x43 Librerias/UART.o
+                0x000007af                Carpyy19
  .progmem.data.Carpyy18
-                0x000007ee       0x44 Librerias/UART.o
-                0x000007ee                Carpyy18
+                0x000007f2       0x44 Librerias/UART.o
+                0x000007f2                Carpyy18
  .progmem.data.Carpyy17
-                0x00000832       0x44 Librerias/UART.o
-                0x00000832                Carpyy17
+                0x00000836       0x44 Librerias/UART.o
+                0x00000836                Carpyy17
  .progmem.data.Carpyy16
-                0x00000876       0x45 Librerias/UART.o
-                0x00000876                Carpyy16
+                0x0000087a       0x45 Librerias/UART.o
+                0x0000087a                Carpyy16
  .progmem.data.Carpyy15
-                0x000008bb       0x45 Librerias/UART.o
-                0x000008bb                Carpyy15
+                0x000008bf       0x45 Librerias/UART.o
+                0x000008bf                Carpyy15
  .progmem.data.Carpyy14
-                0x00000900       0x45 Librerias/UART.o
-                0x00000900                Carpyy14
+                0x00000904       0x45 Librerias/UART.o
+                0x00000904                Carpyy14
  .progmem.data.Carpyy13
-                0x00000945       0x45 Librerias/UART.o
-                0x00000945                Carpyy13
+                0x00000949       0x45 Librerias/UART.o
+                0x00000949                Carpyy13
  .progmem.data.Carpyy12
-                0x0000098a       0x44 Librerias/UART.o
-                0x0000098a                Carpyy12
+                0x0000098e       0x44 Librerias/UART.o
+                0x0000098e                Carpyy12
  .progmem.data.Carpyy11
-                0x000009ce       0x43 Librerias/UART.o
-                0x000009ce                Carpyy11
+                0x000009d2       0x43 Librerias/UART.o
+                0x000009d2                Carpyy11
  .progmem.data.Carpyy10
-                0x00000a11       0x41 Librerias/UART.o
-                0x00000a11                Carpyy10
+                0x00000a15       0x41 Librerias/UART.o
+                0x00000a15                Carpyy10
  .progmem.data.Carpyy9
-                0x00000a52       0x55 Librerias/UART.o
-                0x00000a52                Carpyy9
+                0x00000a56       0x55 Librerias/UART.o
+                0x00000a56                Carpyy9
  .progmem.data.Carpyy8
-                0x00000aa7       0x59 Librerias/UART.o
-                0x00000aa7                Carpyy8
+                0x00000aab       0x59 Librerias/UART.o
+                0x00000aab                Carpyy8
  .progmem.data.Carpyy7
-                0x00000b00       0x58 Librerias/UART.o
-                0x00000b00                Carpyy7
+                0x00000b04       0x58 Librerias/UART.o
+                0x00000b04                Carpyy7
  .progmem.data.Carpyy6
-                0x00000b58       0x58 Librerias/UART.o
-                0x00000b58                Carpyy6
+                0x00000b5c       0x58 Librerias/UART.o
+                0x00000b5c                Carpyy6
  .progmem.data.Carpyy5
-                0x00000bb0       0x57 Librerias/UART.o
-                0x00000bb0                Carpyy5
+                0x00000bb4       0x57 Librerias/UART.o
+                0x00000bb4                Carpyy5
  .progmem.data.Carpyy4
-                0x00000c07       0x56 Librerias/UART.o
-                0x00000c07                Carpyy4
+                0x00000c0b       0x56 Librerias/UART.o
+                0x00000c0b                Carpyy4
  .progmem.data.Carpyy3
-                0x00000c5d       0x23 Librerias/UART.o
-                0x00000c5d                Carpyy3
+                0x00000c61       0x23 Librerias/UART.o
+                0x00000c61                Carpyy3
  .progmem.data.Carpyy2
-                0x00000c80       0x43 Librerias/UART.o
-                0x00000c80                Carpyy2
+                0x00000c84       0x43 Librerias/UART.o
+                0x00000c84                Carpyy2
  .progmem.data.Carpyy1
-                0x00000cc3       0x51 Librerias/UART.o
-                0x00000cc3                Carpyy1
+                0x00000cc7       0x51 Librerias/UART.o
+                0x00000cc7                Carpyy1
  .progmem.data.Carpyy0
-                0x00000d14       0x52 Librerias/UART.o
-                0x00000d14                Carpyy0
+                0x00000d18       0x52 Librerias/UART.o
+                0x00000d18                Carpyy0
  .progmem.data.Carpyy
-                0x00000d66       0x4a Librerias/UART.o
-                0x00000d66                Carpyy
+                0x00000d6a       0x4a Librerias/UART.o
+                0x00000d6a                Carpyy
  .progmem.data.MenuMediciones2
-                0x00000db0       0x1a Librerias/UART.o
-                0x00000db0                MenuMediciones2
+                0x00000db4       0x1a Librerias/UART.o
+                0x00000db4                MenuMediciones2
  .progmem.data.MenuMediciones1
-                0x00000dca       0x1a Librerias/UART.o
-                0x00000dca                MenuMediciones1
+                0x00000dce       0x1a Librerias/UART.o
+                0x00000dce                MenuMediciones1
  .progmem.data.MenuMediciones0
-                0x00000de4       0x1a Librerias/UART.o
-                0x00000de4                MenuMediciones0
+                0x00000de8       0x1a Librerias/UART.o
+                0x00000de8                MenuMediciones0
  .progmem.data.Menu0_3
-                0x00000dfe       0x10 Librerias/UART.o
-                0x00000dfe                Menu0_3
+                0x00000e02       0x10 Librerias/UART.o
+                0x00000e02                Menu0_3
  .progmem.data.Menu0_2
-                0x00000e0e       0x18 Librerias/UART.o
-                0x00000e0e                Menu0_2
+                0x00000e12       0x18 Librerias/UART.o
+                0x00000e12                Menu0_2
  .progmem.data.Menu0_1
-                0x00000e26       0x19 Librerias/UART.o
-                0x00000e26                Menu0_1
+                0x00000e2a       0x19 Librerias/UART.o
+                0x00000e2a                Menu0_1
  .progmem.data.Menu0_0
-                0x00000e3f       0x14 Librerias/UART.o
-                0x00000e3f                Menu0_0
+                0x00000e43       0x14 Librerias/UART.o
+                0x00000e43                Menu0_0
  .progmem.data.Bienvenida8
-                0x00000e53       0x68 Librerias/UART.o
-                0x00000e53                Bienvenida8
+                0x00000e57       0x68 Librerias/UART.o
+                0x00000e57                Bienvenida8
  .progmem.data.Bienvenida7
-                0x00000ebb       0x68 Librerias/UART.o
-                0x00000ebb                Bienvenida7
+                0x00000ebf       0x68 Librerias/UART.o
+                0x00000ebf                Bienvenida7
  .progmem.data.Bienvenida6
-                0x00000f23       0x68 Librerias/UART.o
-                0x00000f23                Bienvenida6
+                0x00000f27       0x68 Librerias/UART.o
+                0x00000f27                Bienvenida6
  .progmem.data.Bienvenida5
-                0x00000f8b       0x68 Librerias/UART.o
-                0x00000f8b                Bienvenida5
+                0x00000f8f       0x68 Librerias/UART.o
+                0x00000f8f                Bienvenida5
  .progmem.data.Bienvenida4
-                0x00000ff3       0x68 Librerias/UART.o
-                0x00000ff3                Bienvenida4
+                0x00000ff7       0x68 Librerias/UART.o
+                0x00000ff7                Bienvenida4
  .progmem.data.Bienvenida3
-                0x0000105b       0x68 Librerias/UART.o
-                0x0000105b                Bienvenida3
+                0x0000105f       0x68 Librerias/UART.o
+                0x0000105f                Bienvenida3
  .progmem.data.Bienvenida2
-                0x000010c3       0x68 Librerias/UART.o
-                0x000010c3                Bienvenida2
+                0x000010c7       0x68 Librerias/UART.o
+                0x000010c7                Bienvenida2
  .progmem.data.Bienvenida1
-                0x0000112b       0x67 Librerias/UART.o
-                0x0000112b                Bienvenida1
+                0x0000112f       0x67 Librerias/UART.o
+                0x0000112f                Bienvenida1
  .progmem.data.Bienvenida0
-                0x00001192       0x67 Librerias/UART.o
-                0x00001192                Bienvenida0
+                0x00001196       0x67 Librerias/UART.o
+                0x00001196                Bienvenida0
  .progmem.data.TextoDosificador
-                0x000011f9       0x3f Librerias/UART.o
-                0x000011f9                TextoDosificador
+                0x000011fd       0x3f Librerias/UART.o
+                0x000011fd                TextoDosificador
  .progmem.data.TextoBidon
-                0x00001238        0x9 Librerias/UART.o
-                0x00001238                TextoBidon
+                0x0000123c        0x9 Librerias/UART.o
+                0x0000123c                TextoBidon
  .progmem.data.TextoVolumen0
-                0x00001241        0x4 Librerias/UART.o
-                0x00001241                TextoVolumen0
+                0x00001245        0x4 Librerias/UART.o
+                0x00001245                TextoVolumen0
  .progmem.data.TextoVolumen
-                0x00001245        0xa Librerias/UART.o
-                0x00001245                TextoVolumen
+                0x00001249        0xa Librerias/UART.o
+                0x00001249                TextoVolumen
  .progmem.data.TextoTemperatura0
-                0x0000124f        0x4 Librerias/UART.o
-                0x0000124f                TextoTemperatura0
+                0x00001253        0x4 Librerias/UART.o
+                0x00001253                TextoTemperatura0
  .progmem.data.TextoTemperatura
-                0x00001253        0xe Librerias/UART.o
-                0x00001253                TextoTemperatura
+                0x00001257        0xe Librerias/UART.o
+                0x00001257                TextoTemperatura
  .progmem.data.TextoFracaso1
-                0x00001261       0x3f Librerias/UART.o
-                0x00001261                TextoFracaso1
+                0x00001265       0x3f Librerias/UART.o
+                0x00001265                TextoFracaso1
  .progmem.data.TextoFracaso
-                0x000012a0       0x48 Librerias/UART.o
-                0x000012a0                TextoFracaso
+                0x000012a4       0x48 Librerias/UART.o
+                0x000012a4                TextoFracaso
  .progmem.data.TextoRegresar
-                0x000012e8       0x27 Librerias/UART.o
-                0x000012e8                TextoRegresar
+                0x000012ec       0x27 Librerias/UART.o
+                0x000012ec                TextoRegresar
  .progmem.data.TextoElegir
-                0x0000130f       0x30 Librerias/UART.o
-                0x0000130f                TextoElegir
-                0x00001340                . = ALIGN (0x2)
- *fill*         0x0000133f        0x1 
+                0x00001313       0x30 Librerias/UART.o
+                0x00001313                TextoElegir
+                0x00001344                . = ALIGN (0x2)
+ *fill*         0x00001343        0x1 
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x00001340                __ctors_start = .
+                0x00001344                __ctors_start = .
  *(.ctors)
-                0x00001340                __ctors_end = .
-                0x00001340                __dtors_start = .
+                0x00001344                __ctors_end = .
+                0x00001344                __dtors_start = .
  *(.dtors)
-                0x00001340                __dtors_end = .
+                0x00001344                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00001340        0x0 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
-                0x00001340                __init
+ .init0         0x00001344        0x0 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
+                0x00001344                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00001340        0xc C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .init2         0x00001344        0xc C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x0000134c       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                0x0000134c                __do_copy_data
- .init4         0x00001362       0x10 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
-                0x00001362                __do_clear_bss
+ .init4         0x00001350       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
+                0x00001350                __do_copy_data
+ .init4         0x00001366       0x10 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_clear_bss.o)
+                0x00001366                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -784,359 +822,387 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00001372        0x8 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
+ .init9         0x00001376        0x8 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  *(.init9)
  *(.text)
- .text          0x0000137a        0x4 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
-                0x0000137a                __vector_22
-                0x0000137a                __vector_1
-                0x0000137a                __vector_24
-                0x0000137a                __vector_12
-                0x0000137a                __bad_interrupt
-                0x0000137a                __vector_6
-                0x0000137a                __vector_3
-                0x0000137a                __vector_23
-                0x0000137a                __vector_25
-                0x0000137a                __vector_13
-                0x0000137a                __vector_17
-                0x0000137a                __vector_19
-                0x0000137a                __vector_7
-                0x0000137a                __vector_5
-                0x0000137a                __vector_4
-                0x0000137a                __vector_9
-                0x0000137a                __vector_2
-                0x0000137a                __vector_21
-                0x0000137a                __vector_15
-                0x0000137a                __vector_8
-                0x0000137a                __vector_10
-                0x0000137a                __vector_16
-                0x0000137a                __vector_18
-                0x0000137a                __vector_20
-                0x0000137e                . = ALIGN (0x2)
+ .text          0x0000137e        0x4 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
+                0x0000137e                __vector_22
+                0x0000137e                __vector_1
+                0x0000137e                __vector_24
+                0x0000137e                __vector_12
+                0x0000137e                __bad_interrupt
+                0x0000137e                __vector_6
+                0x0000137e                __vector_3
+                0x0000137e                __vector_23
+                0x0000137e                __vector_25
+                0x0000137e                __vector_13
+                0x0000137e                __vector_17
+                0x0000137e                __vector_19
+                0x0000137e                __vector_7
+                0x0000137e                __vector_5
+                0x0000137e                __vector_4
+                0x0000137e                __vector_9
+                0x0000137e                __vector_2
+                0x0000137e                __vector_21
+                0x0000137e                __vector_15
+                0x0000137e                __vector_8
+                0x0000137e                __vector_10
+                0x0000137e                __vector_16
+                0x0000137e                __vector_18
+                0x0000137e                __vector_20
+                0x00001382                . = ALIGN (0x2)
  *(.text.*)
  .text.iniciar_ADC
-                0x0000137e       0x22 Librerias/ADC.o
-                0x0000137e                iniciar_ADC
+                0x00001382       0x22 Librerias/ADC.o
+                0x00001382                iniciar_ADC
  .text.leer_ADC
-                0x000013a0       0x24 Librerias/ADC.o
-                0x000013a0                leer_ADC
+                0x000013a4       0x24 Librerias/ADC.o
+                0x000013a4                leer_ADC
+ .text.RetardoPersonalizadosEnMs
+                0x000013c8       0x16 Librerias/ControlValvulas.o
+                0x000013c8                RetardoPersonalizadosEnMs
+ .text.ServidoBebida1
+                0x000013de      0x17a Librerias/ControlValvulas.o
+                0x000013de                ServidoBebida1
+ .text.ServidoBebida2
+                0x00001558      0x17a Librerias/ControlValvulas.o
+                0x00001558                ServidoBebida2
+ .text.ServidoBebida3
+                0x000016d2      0x17a Librerias/ControlValvulas.o
+                0x000016d2                ServidoBebida3
+ .text.ServidoBebida4
+                0x0000184c      0x17a Librerias/ControlValvulas.o
+                0x0000184c                ServidoBebida4
+ .text.SeleccionarMedida
+                0x000019c6       0x32 Librerias/ControlValvulas.o
+                0x000019c6                SeleccionarMedida
  .text.DetectarTipo
-                0x000013c4       0x9a Librerias/FuncionesDerivadas.o
-                0x000013c4                DetectarTipo
+                0x000019f8       0x9a Librerias/FuncionesDerivadas.o
+                0x000019f8                DetectarTipo
  .text.LlenarVectorConDosCaracteres
-                0x0000145e       0xc6 Librerias/FuncionesDerivadas.o
-                0x0000145e                LlenarVectorConDosCaracteres
+                0x00001a92       0xc6 Librerias/FuncionesDerivadas.o
+                0x00001a92                LlenarVectorConDosCaracteres
  .text.LlenarVectorConDiezCaracteres
-                0x00001524       0xfa Librerias/FuncionesDerivadas.o
-                0x00001524                LlenarVectorConDiezCaracteres
+                0x00001b58       0xfa Librerias/FuncionesDerivadas.o
+                0x00001b58                LlenarVectorConDiezCaracteres
  .text.LlenarVectorConTresCaracteres
-                0x0000161e       0xbe Librerias/FuncionesDerivadas.o
-                0x0000161e                LlenarVectorConTresCaracteres
+                0x00001c52       0xbe Librerias/FuncionesDerivadas.o
+                0x00001c52                LlenarVectorConTresCaracteres
  .text.EPROM_Write
-                0x000016dc       0x1c Librerias/FuncionesEprom.o
-                0x000016dc                EPROM_Write
+                0x00001d10       0x1c Librerias/FuncionesEprom.o
+                0x00001d10                EPROM_Write
  .text.EPROM_Read
-                0x000016f8       0x12 Librerias/FuncionesEprom.o
-                0x000016f8                EPROM_Read
+                0x00001d2c       0x12 Librerias/FuncionesEprom.o
+                0x00001d2c                EPROM_Read
  .text.EPROM_Write_String
-                0x0000170a       0x74 Librerias/FuncionesEprom.o
-                0x0000170a                EPROM_Write_String
+                0x00001d3e       0x74 Librerias/FuncionesEprom.o
+                0x00001d3e                EPROM_Write_String
  .text.EPROM_Read_String
-                0x0000177e       0x5a Librerias/FuncionesEprom.o
-                0x0000177e                EPROM_Read_String
+                0x00001db2       0x5a Librerias/FuncionesEprom.o
+                0x00001db2                EPROM_Read_String
  .text.i2c_init
-                0x000017d8        0xc Librerias/i2c.o
-                0x000017d8                i2c_init
+                0x00001e0c        0xc Librerias/i2c.o
+                0x00001e0c                i2c_init
  .text.i2c_start
-                0x000017e4       0x10 Librerias/i2c.o
-                0x000017e4                i2c_start
+                0x00001e18       0x10 Librerias/i2c.o
+                0x00001e18                i2c_start
  .text.i2c_write
-                0x000017f4       0x14 Librerias/i2c.o
-                0x000017f4                i2c_write
+                0x00001e28       0x14 Librerias/i2c.o
+                0x00001e28                i2c_write
  .text.i2c_stop
-                0x00001808       0x10 Librerias/i2c.o
-                0x00001808                i2c_stop
+                0x00001e3c       0x10 Librerias/i2c.o
+                0x00001e3c                i2c_stop
  .text.enviarPulsoEnable
-                0x00001818       0x3e Librerias/LCD_I2C.o
-                0x00001818                enviarPulsoEnable
+                0x00001e4c       0x3e Librerias/LCD_I2C.o
+                0x00001e4c                enviarPulsoEnable
  .text.enviarComando4Bits
-                0x00001856       0x50 Librerias/LCD_I2C.o
-                0x00001856                enviarComando4Bits
+                0x00001e8a       0x50 Librerias/LCD_I2C.o
+                0x00001e8a                enviarComando4Bits
  .text.enviarComando
-                0x000018a6       0x94 Librerias/LCD_I2C.o
-                0x000018a6                enviarComando
+                0x00001eda       0x94 Librerias/LCD_I2C.o
+                0x00001eda                enviarComando
  .text.escribirDato
-                0x0000193a       0x94 Librerias/LCD_I2C.o
-                0x0000193a                escribirDato
+                0x00001f6e       0x94 Librerias/LCD_I2C.o
+                0x00001f6e                escribirDato
  .text.lcd_init
-                0x000019ce       0x64 Librerias/LCD_I2C.o
-                0x000019ce                lcd_init
+                0x00002002       0x64 Librerias/LCD_I2C.o
+                0x00002002                lcd_init
  .text.escribirEnLCD
-                0x00001a32       0x1a Librerias/LCD_I2C.o
-                0x00001a32                escribirEnLCD
+                0x00002066       0x1a Librerias/LCD_I2C.o
+                0x00002066                escribirEnLCD
  .text.limpiar_LCD
-                0x00001a4c       0x16 Librerias/LCD_I2C.o
-                0x00001a4c                limpiar_LCD
- .text.TWI_ini  0x00001a62        0x8 Librerias/MCP3421.o
-                0x00001a62                TWI_ini
+                0x00002080       0x16 Librerias/LCD_I2C.o
+                0x00002080                limpiar_LCD
+ .text.TWI_ini  0x00002096        0x8 Librerias/MCP3421.o
+                0x00002096                TWI_ini
  .text.TWI_Start
-                0x00001a6a       0x10 Librerias/MCP3421.o
-                0x00001a6a                TWI_Start
+                0x0000209e       0x10 Librerias/MCP3421.o
+                0x0000209e                TWI_Start
  .text.TWI_Sendbyte
-                0x00001a7a       0x14 Librerias/MCP3421.o
-                0x00001a7a                TWI_Sendbyte
+                0x000020ae       0x14 Librerias/MCP3421.o
+                0x000020ae                TWI_Sendbyte
  .text.TWI_Receivebytes
-                0x00001a8e       0x7a Librerias/MCP3421.o
-                0x00001a8e                TWI_Receivebytes
+                0x000020c2       0x7a Librerias/MCP3421.o
+                0x000020c2                TWI_Receivebytes
  .text.TWI_Stop
-                0x00001b08        0x8 Librerias/MCP3421.o
-                0x00001b08                TWI_Stop
+                0x0000213c        0x8 Librerias/MCP3421.o
+                0x0000213c                TWI_Stop
  .text.MCP3421_config
-                0x00001b10       0x16 Librerias/MCP3421.o
-                0x00001b10                MCP3421_config
+                0x00002144       0x16 Librerias/MCP3421.o
+                0x00002144                MCP3421_config
  .text.MCP3421_read
-                0x00001b26       0x66 Librerias/MCP3421.o
-                0x00001b26                MCP3421_read
+                0x0000215a       0x66 Librerias/MCP3421.o
+                0x0000215a                MCP3421_read
  .text.PesarAgua
-                0x00001b8c       0x48 Librerias/MCP3421.o
-                0x00001b8c                PesarAgua
+                0x000021c0       0x48 Librerias/MCP3421.o
+                0x000021c0                PesarAgua
  .text.i2c_read
-                0x00001bd4       0xca Librerias/mcp9800.o
-                0x00001bd4                i2c_read
+                0x00002208       0xca Librerias/mcp9800.o
+                0x00002208                i2c_read
  .text.i2c_wwrite
-                0x00001c9e       0x8e Librerias/mcp9800.o
-                0x00001c9e                i2c_wwrite
+                0x000022d2       0x8e Librerias/mcp9800.o
+                0x000022d2                i2c_wwrite
  .text.mcp_set_adc_resolution
-                0x00001d2c       0x4a Librerias/mcp9800.o
-                0x00001d2c                mcp_set_adc_resolution
+                0x00002360       0x4a Librerias/mcp9800.o
+                0x00002360                mcp_set_adc_resolution
  .text.mcp_set_power_mode
-                0x00001d76       0x40 Librerias/mcp9800.o
-                0x00001d76                mcp_set_power_mode
+                0x000023aa       0x40 Librerias/mcp9800.o
+                0x000023aa                mcp_set_power_mode
  .text.mcp_read_temp_float
-                0x00001db6       0x82 Librerias/mcp9800.o
-                0x00001db6                mcp_read_temp_float
+                0x000023ea       0x82 Librerias/mcp9800.o
+                0x000023ea                mcp_read_temp_float
  .text.LeerTemperatura
-                0x00001e38      0x11e Librerias/mcp9800.o
-                0x00001e38                LeerTemperatura
+                0x0000246c      0x11e Librerias/mcp9800.o
+                0x0000246c                LeerTemperatura
  .text.EscribirPcf8575
-                0x00001f56       0x28 Librerias/pcf8575.o
-                0x00001f56                EscribirPcf8575
+                0x0000258a       0x28 Librerias/pcf8575.o
+                0x0000258a                EscribirPcf8575
  .text.ApagarTodo
-                0x00001f7e        0xa Librerias/pcf8575.o
-                0x00001f7e                ApagarTodo
+                0x000025b2        0xa Librerias/pcf8575.o
+                0x000025b2                ApagarTodo
  .text.ConfigurarPinesSensores
-                0x00001f88       0x1a Librerias/pines.o
-                0x00001f88                ConfigurarPinesSensores
+                0x000025bc       0x1a Librerias/pines.o
+                0x000025bc                ConfigurarPinesSensores
  .text.LeerSensorPuerta
-                0x00001fa2       0x14 Librerias/pines.o
-                0x00001fa2                LeerSensorPuerta
+                0x000025d6       0x14 Librerias/pines.o
+                0x000025d6                LeerSensorPuerta
  .text.LeerSensorTaza
-                0x00001fb6       0x16 Librerias/pines.o
-                0x00001fb6                LeerSensorTaza
+                0x000025ea       0x16 Librerias/pines.o
+                0x000025ea                LeerSensorTaza
  .text.ConfigurarBotones
-                0x00001fcc       0x1a Librerias/pines.o
-                0x00001fcc                ConfigurarBotones
+                0x00002600       0x1a Librerias/pines.o
+                0x00002600                ConfigurarBotones
  .text.LeerBotonSeleccionar
-                0x00001fe6       0x16 Librerias/pines.o
-                0x00001fe6                LeerBotonSeleccionar
+                0x0000261a       0x16 Librerias/pines.o
+                0x0000261a                LeerBotonSeleccionar
  .text.LeerBotonAceptar
-                0x00001ffc       0x18 Librerias/pines.o
-                0x00001ffc                LeerBotonAceptar
+                0x00002630       0x18 Librerias/pines.o
+                0x00002630                LeerBotonAceptar
  .text.PWM_init
-                0x00002014       0x22 Librerias/PWM.o
-                0x00002014                PWM_init
+                0x00002648       0x22 Librerias/PWM.o
+                0x00002648                PWM_init
  .text.PWM_update
-                0x00002036       0x2e Librerias/PWM.o
-                0x00002036                PWM_update
+                0x0000266a       0x2e Librerias/PWM.o
+                0x0000266a                PWM_update
  .text.Timer0_init
-                0x00002064       0x22 Librerias/timer.o
-                0x00002064                Timer0_init
+                0x00002698       0x22 Librerias/timer.o
+                0x00002698                Timer0_init
  .text.setupTimer1
-                0x00002086       0x2e Librerias/timer.o
-                0x00002086                setupTimer1
+                0x000026ba       0x2e Librerias/timer.o
+                0x000026ba                setupTimer1
  .text.uart_init
-                0x000020b4       0x18 Librerias/UART.o
-                0x000020b4                uart_init
+                0x000026e8       0x18 Librerias/UART.o
+                0x000026e8                uart_init
  .text.uart_send_char
-                0x000020cc        0xe Librerias/UART.o
-                0x000020cc                uart_send_char
+                0x00002700        0xe Librerias/UART.o
+                0x00002700                uart_send_char
  .text.uart_send_string
-                0x000020da       0x1a Librerias/UART.o
-                0x000020da                uart_send_string
+                0x0000270e       0x1a Librerias/UART.o
+                0x0000270e                uart_send_string
  .text.uart_send_newline
-                0x000020f4        0xe Librerias/UART.o
-                0x000020f4                uart_send_newline
+                0x00002728        0xe Librerias/UART.o
+                0x00002728                uart_send_newline
  .text.uart_receive_char
-                0x00002102       0x14 Librerias/UART.o
-                0x00002102                uart_receive_char
+                0x00002736       0x14 Librerias/UART.o
+                0x00002736                uart_receive_char
  .text.echo_serialNobloqueante
-                0x00002116       0x12 Librerias/UART.o
-                0x00002116                echo_serialNobloqueante
+                0x0000274a       0x3c Librerias/UART.o
+                0x0000274a                echo_serialNobloqueante
  .text.echo_serial
-                0x00002128       0x16 Librerias/UART.o
-                0x00002128                echo_serial
+                0x00002786       0x16 Librerias/UART.o
+                0x00002786                echo_serial
  .text.MandarStringdesdePrograma
-                0x0000213e       0x1e Librerias/UART.o
-                0x0000213e                MandarStringdesdePrograma
+                0x0000279c       0x1e Librerias/UART.o
+                0x0000279c                MandarStringdesdePrograma
  .text.Bienvenida
-                0x0000215c       0x76 Librerias/UART.o
-                0x0000215c                Bienvenida
- .text.Carpy    0x000021d2      0x11e Librerias/UART.o
-                0x000021d2                Carpy
+                0x000027ba       0x76 Librerias/UART.o
+                0x000027ba                Bienvenida
+ .text.Carpy    0x00002830      0x11e Librerias/UART.o
+                0x00002830                Carpy
  .text.MenuInicial
-                0x000022f0       0x4a Librerias/UART.o
-                0x000022f0                MenuInicial
+                0x0000294e       0x4a Librerias/UART.o
+                0x0000294e                MenuInicial
  .text.MenuMediciones
-                0x0000233a      0x21e Librerias/UART.o
-                0x0000233a                MenuMediciones
+                0x00002998      0x21e Librerias/UART.o
+                0x00002998                MenuMediciones
  .text.MenuConfiguraciones
-                0x00002558      0x2c2 Librerias/UART.o
-                0x00002558                MenuConfiguraciones
+                0x00002bb6      0x2c2 Librerias/UART.o
+                0x00002bb6                MenuConfiguraciones
  .text.MenuCambioDeNombre
-                0x0000281a       0x5a Librerias/UART.o
-                0x0000281a                MenuCambioDeNombre
- .text.Fracaso  0x00002874       0x1e Librerias/UART.o
-                0x00002874                Fracaso
+                0x00002e78       0x5a Librerias/UART.o
+                0x00002e78                MenuCambioDeNombre
+ .text.Fracaso  0x00002ed2       0x1e Librerias/UART.o
+                0x00002ed2                Fracaso
  .text.CambioDeNumero
-                0x00002892       0x5a Librerias/UART.o
-                0x00002892                CambioDeNumero
+                0x00002ef0       0x5a Librerias/UART.o
+                0x00002ef0                CambioDeNumero
  .text.MenuTamanho
-                0x000028ec       0x2a Librerias/UART.o
-                0x000028ec                MenuTamanho
- .text.Servido  0x00002916       0x16 main.o
-                0x00002916                Servido
+                0x00002f4a       0x2a Librerias/UART.o
+                0x00002f4a                MenuTamanho
+ .text.Servido  0x00002f74       0x58 main.o
+                0x00002f74                Servido
  .text.ConfiguracionPredeterminada
-                0x0000292c      0x2e8 main.o
-                0x0000292c                ConfiguracionPredeterminada
+                0x00002fcc      0x2e8 main.o
+                0x00002fcc                ConfiguracionPredeterminada
  .text.ConfiguracionIncialEeprom
-                0x00002c14       0x3e main.o
-                0x00002c14                ConfiguracionIncialEeprom
+                0x000032b4       0x3e main.o
+                0x000032b4                ConfiguracionIncialEeprom
  .text.MedirBidon
-                0x00002c52       0x26 main.o
-                0x00002c52                MedirBidon
+                0x000032f2       0x26 main.o
+                0x000032f2                MedirBidon
  .text.ControlarTemperatura
-                0x00002c78       0x84 main.o
-                0x00002c78                ControlarTemperatura
+                0x00003318       0x84 main.o
+                0x00003318                ControlarTemperatura
  .text.MenuNivelesLcd
-                0x00002cfc      0x36c main.o
-                0x00002cfc                MenuNivelesLcd
+                0x0000339c      0x36c main.o
+                0x0000339c                MenuNivelesLcd
  .text.LeerBotones
-                0x00003068       0xf8 main.o
-                0x00003068                LeerBotones
+                0x00003708       0xf8 main.o
+                0x00003708                LeerBotones
  .text.LeerSensores
-                0x00003160       0x12 main.o
-                0x00003160                LeerSensores
+                0x00003800       0x2c main.o
+                0x00003800                LeerSensores
  .text.MedicionPolvos
-                0x00003172       0xe6 main.o
-                0x00003172                MedicionPolvos
+                0x0000382c       0xe6 main.o
+                0x0000382c                MedicionPolvos
  .text.MedirVariables
-                0x00003258       0x12 main.o
-                0x00003258                MedirVariables
+                0x00003912       0x12 main.o
+                0x00003912                MedirVariables
  .text.ConfiguracionIncial
-                0x0000326a       0x3c main.o
-                0x0000326a                ConfiguracionIncial
+                0x00003924       0x3c main.o
+                0x00003924                ConfiguracionIncial
  .text.MenuUart
-                0x000032a6      0x266 main.o
-                0x000032a6                MenuUart
- .text.main     0x0000350c       0x1a main.o
-                0x0000350c                main
+                0x00003960      0x284 main.o
+                0x00003960                MenuUart
+ .text.DetectarError
+                0x00003be4       0x70 main.o
+                0x00003be4                DetectarError
+ .text.main     0x00003c54       0x20 main.o
+                0x00003c54                main
  .text.__vector_11
-                0x00003526       0x48 main.o
-                0x00003526                __vector_11
+                0x00003c74       0x48 main.o
+                0x00003c74                __vector_11
  .text.__vector_14
-                0x0000356e      0x10c main.o
-                0x0000356e                __vector_14
+                0x00003cbc      0x11e main.o
+                0x00003cbc                __vector_14
  .text.avr-libc.fplib
-                0x0000367a        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                0x0000367a                __subsf3
-                0x0000367c                __addsf3
+                0x00003dda        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3.o)
+                0x00003dda                __subsf3
+                0x00003ddc                __addsf3
  .text.avr-libc.fplib
-                0x00003688       0xcc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
-                0x000036aa                __addsf3x
+                0x00003de8       0xcc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+                0x00003e0a                __addsf3x
  .text.avr-libc.fplib
-                0x00003754        0x8 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
-                0x00003754                __divsf3
+                0x00003eb4        0x8 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3.o)
+                0x00003eb4                __divsf3
  .text.avr-libc.fplib
-                0x0000375c       0xdc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
-                0x0000377c                __divsf3x
-                0x00003782                __divsf3_pse
+                0x00003ebc       0xdc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+                0x00003edc                __divsf3x
+                0x00003ee2                __divsf3_pse
  .text.avr-libc.fplib
-                0x00003838        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
-                0x00003838                __fixsfsi
+                0x00003f98        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
+                0x00003f98                __fixsfsi
  .text.avr-libc.fplib
-                0x00003846       0x5e c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                0x00003846                __fixunssfsi
+                0x00003fa6       0x5e c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+                0x00003fa6                __fixunssfsi
  .text.avr-libc.fplib
-                0x000038a4       0x7a c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x000038a4                __floatunsisf
-                0x000038a8                __floatsisf
+                0x00004004       0x7a c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x00004004                __floatunsisf
+                0x00004008                __floatsisf
  .text.avr-libc.fplib
-                0x0000391e        0xc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x0000391e                __fp_inf
+                0x0000407e        0xc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x0000407e                __fp_inf
  .text.avr-libc.fplib
-                0x0000392a        0x6 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x0000392a                __fp_nan
+                0x0000408a        0x6 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x0000408a                __fp_nan
  .text.avr-libc.fplib
-                0x00003930        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x00003930                __fp_pscA
+                0x00004090        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x00004090                __fp_pscA
  .text.avr-libc.fplib
-                0x0000393e        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x0000393e                __fp_pscB
+                0x0000409e        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x0000409e                __fp_pscB
  .text.avr-libc.fplib
-                0x0000394c       0x22 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x0000394c                __fp_round
+                0x000040ac       0x22 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x000040ac                __fp_round
  .text.avr-libc.fplib
-                0x0000396e       0x44 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x0000396e                __fp_split3
-                0x0000397e                __fp_splitA
+                0x000040ce       0x44 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x000040ce                __fp_split3
+                0x000040de                __fp_splitA
  .text.avr-libc.fplib
-                0x000039b2        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x000039b2                __fp_zero
-                0x000039b4                __fp_szero
+                0x00004112        0xe c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x00004112                __fp_zero
+                0x00004114                __fp_szero
  .text.avr-libc.fplib
-                0x000039c0        0x8 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                0x000039c0                __mulsf3
+                0x00004120        0x8 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+                0x00004120                __mulsf3
  .text.avr-libc.fplib
-                0x000039c8       0xd2 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
-                0x000039e6                __mulsf3x
-                0x000039ec                __mulsf3_pse
- .text.libgcc   0x00003a9a        0xc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
-                0x00003a9a                __tablejump2__
+                0x00004128       0xd2 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+                0x00004146                __mulsf3x
+                0x0000414c                __mulsf3_pse
+ .text.libgcc.div
+                0x000041fa       0x28 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_divmodhi4.o)
+                0x000041fa                _div
+                0x000041fa                __divmodhi4
+ .text.libgcc   0x00004222        0xc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_tablejump2.o)
+                0x00004222                __tablejump2__
+ .text.libgcc.div
+                0x0000422e       0x28 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_udivmodhi4.o)
+                0x0000422e                __udivmodhi4
  .text.avr-libc
-                0x00003aa6       0x3c c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(atoi.o)
-                0x00003aa6                atoi
+                0x00004256       0x3c c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(atoi.o)
+                0x00004256                atoi
  .text.avr-libc
-                0x00003ae2       0x10 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(mul10.o)
-                0x00003ae2                __mulhi_const_10
+                0x00004292       0x10 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(mul10.o)
+                0x00004292                __mulhi_const_10
  .text.avr-libc
-                0x00003af2       0x44 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
-                0x00003af2                sprintf
+                0x000042a2       0x44 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
+                0x000042a2                sprintf
  .text.avr-libc
-                0x00003b36      0x3c2 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
-                0x00003b36                vfprintf
+                0x000042e6      0x3c2 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
+                0x000042e6                vfprintf
  .text.avr-libc
-                0x00003ef8       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
-                0x00003ef8                strnlen_P
+                0x000046a8       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen_P.o)
+                0x000046a8                strnlen_P
  .text.avr-libc
-                0x00003f0e       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
-                0x00003f0e                strnlen
+                0x000046be       0x16 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(strnlen.o)
+                0x000046be                strnlen
  .text.avr-libc
-                0x00003f24       0x78 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
-                0x00003f24                fputc
+                0x000046d4       0x78 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(fputc.o)
+                0x000046d4                fputc
  .text.avr-libc
-                0x00003f9c       0xbc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
-                0x00003f9c                __ultoa_invert
+                0x0000474c       0xbc c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(ultoa_invert.o)
+                0x0000474c                __ultoa_invert
  .text.libgcc.prologue
-                0x00004058       0x38 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
-                0x00004058                __prologue_saves__
+                0x00004808       0x38 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_prologue.o)
+                0x00004808                __prologue_saves__
  .text.libgcc.prologue
-                0x00004090       0x36 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
-                0x00004090                __epilogue_restores__
-                0x000040c6                . = ALIGN (0x2)
+                0x00004840       0x36 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_epilogue.o)
+                0x00004840                __epilogue_restores__
+                0x00004876                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000040c6        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
-                0x000040c6                _exit
-                0x000040c6                exit
+ .fini9         0x00004876        0x0 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+                0x00004876                _exit
+                0x00004876                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -1155,11 +1221,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000040c6        0x4 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
+ .fini0         0x00004876        0x4 c:/users/usuario/desktop/clases/uader/4to cuatrimestre/sistemas digitales iv/microchipstudio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x000040ca                _etext = .
+                0x0000487a                _etext = .
 
-.data           0x00800100      0x194 load address 0x000040ca
+.data           0x00800100      0x226 load address 0x0000487a
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -1174,92 +1240,99 @@ END GROUP
                 0x00800139       0x39 Librerias/UART.o
                                  0x41 (size before relaxing)
  .rodata.str1.1
-                0x00800172      0x121 main.o
-                                0x12c (size before relaxing)
+                0x00800172      0x1b3 main.o
+                                0x1be (size before relaxing)
  *(.gnu.linkonce.r*)
-                0x00800294                . = ALIGN (0x2)
- *fill*         0x00800293        0x1 
-                0x00800294                _edata = .
-                0x00800294                PROVIDE (__data_end, .)
+                0x00800326                . = ALIGN (0x2)
+ *fill*         0x00800325        0x1 
+                0x00800326                _edata = .
+                0x00800326                PROVIDE (__data_end, .)
 
-.bss            0x00800294       0x5c
-                0x00800294                PROVIDE (__bss_start, .)
+.bss            0x00800326       0x63
+                0x00800326                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.Aux       0x00800294        0x2 Librerias/FuncionesDerivadas.o
-                0x00800294                Aux
+ .bss.Aux       0x00800326        0x2 Librerias/FuncionesDerivadas.o
+                0x00800326                Aux
  .bss.BotonAceptar
-                0x00800296        0x1 Librerias/pines.o
-                0x00800296                BotonAceptar
+                0x00800328        0x1 Librerias/pines.o
+                0x00800328                BotonAceptar
  .bss.BotonSeleccionar
-                0x00800297        0x1 Librerias/pines.o
-                0x00800297                BotonSeleccionar
+                0x00800329        0x1 Librerias/pines.o
+                0x00800329                BotonSeleccionar
  .bss.SensorPuerta
-                0x00800298        0x1 Librerias/pines.o
-                0x00800298                SensorPuerta
+                0x0080032a        0x1 Librerias/pines.o
+                0x0080032a                SensorPuerta
  .bss.SensorTaza
-                0x00800299        0x1 Librerias/pines.o
-                0x00800299                SensorTaza
+                0x0080032b        0x1 Librerias/pines.o
+                0x0080032b                SensorTaza
+ .bss.BanderaError
+                0x0080032c        0x1 main.o
+                0x0080032c                BanderaError
  .bss.BanderaBienvenida
-                0x0080029a        0x1 main.o
-                0x0080029a                BanderaBienvenida
+                0x0080032d        0x1 main.o
+                0x0080032d                BanderaBienvenida
  .bss.BanderaServido
-                0x0080029b        0x1 main.o
-                0x0080029b                BanderaServido
+                0x0080032e        0x1 main.o
+                0x0080032e                BanderaServido
  .bss.ContadorControlarBotones
-                0x0080029c        0x2 main.o
-                0x0080029c                ContadorControlarBotones
+                0x0080032f        0x2 main.o
+                0x0080032f                ContadorControlarBotones
  .bss.Simultaneidad
-                0x0080029e        0x2 main.o
-                0x0080029e                Simultaneidad
+                0x00800331        0x2 main.o
+                0x00800331                Simultaneidad
  .bss.timerCounter
-                0x008002a0        0x4 main.o
-                0x008002a0                timerCounter
- .bss.pinState  0x008002a4        0x1 main.o
-                0x008002a4                pinState
+                0x00800333        0x4 main.o
+                0x00800333                timerCounter
+ .bss.pinState  0x00800337        0x1 main.o
+                0x00800337                pinState
  .bss.BotonAceptarr
-                0x008002a5        0x1 main.o
-                0x008002a5                BotonAceptarr
+                0x00800338        0x1 main.o
+                0x00800338                BotonAceptarr
  .bss.BotonSeleccionarr
-                0x008002a6        0x1 main.o
-                0x008002a6                BotonSeleccionarr
+                0x00800339        0x1 main.o
+                0x00800339                BotonSeleccionarr
  .bss.SelectorMenuLCD
-                0x008002a7        0x1 main.o
-                0x008002a7                SelectorMenuLCD
+                0x0080033a        0x1 main.o
+                0x0080033a                SelectorMenuLCD
  .bss.SensorrPuerta
-                0x008002a8        0x1 main.o
-                0x008002a8                SensorrPuerta
+                0x0080033b        0x1 main.o
+                0x0080033b                SensorrPuerta
  .bss.SensorrTaza
-                0x008002a9        0x1 main.o
-                0x008002a9                SensorrTaza
+                0x0080033c        0x1 main.o
+                0x0080033c                SensorrTaza
  *(COMMON)
- COMMON         0x008002aa       0x1d Librerias/MCP3421.o
-                0x008002aa                sign
-                0x008002ab                a1
-                0x008002af                a3
-                0x008002b3                a2
-                0x008002b7                str
-                0x008002c3                a
- COMMON         0x008002c7       0x29 main.o
-                0x008002c7                VectorTamagnoBidon
-                0x008002c9                NivelPolvo1
-                0x008002cb                PesoBidon
-                0x008002cd                NivelPolvo4
-                0x008002cf                NivelPolvo3
-                0x008002d1                NivelPolvo2
-                0x008002d3                Buffer
-                0x008002eb                DecisionMenuUart
-                0x008002ec                TemperaturaBidon
-                0x008002ee                Auxiliar
-                0x008002f0                PROVIDE (__bss_end, .)
-                0x000040ca                __data_load_start = LOADADDR (.data)
-                0x0000425e                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x0080033d        0x6 Librerias/ControlValvulas.o
+                0x0080033d                TiempoDeAguaCaliente
+                0x0080033f                TiempoDeDosificacion
+                0x00800341                TiempoDeDescarga
+ COMMON         0x00800343       0x1d Librerias/MCP3421.o
+                0x00800343                sign
+                0x00800344                a1
+                0x00800348                a3
+                0x0080034c                a2
+                0x00800350                str
+                0x0080035c                a
+ COMMON         0x00800360       0x29 main.o
+                0x00800360                VectorTamagnoBidon
+                0x00800362                NivelPolvo1
+                0x00800364                PesoBidon
+                0x00800366                NivelPolvo4
+                0x00800368                NivelPolvo3
+                0x0080036a                NivelPolvo2
+                0x0080036c                Buffer
+                0x00800384                DecisionMenuUart
+                0x00800385                TemperaturaBidon
+                0x00800387                Auxiliar
+                0x00800389                PROVIDE (__bss_end, .)
+                0x0000487a                __data_load_start = LOADADDR (.data)
+                0x00004aa0                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x008002f0        0x0
+.noinit         0x00800389        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x008002f0                _end = .
+                0x00800389                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -1303,6 +1376,7 @@ END GROUP
  *(.comment)
  .comment       0x00000000       0x30 Librerias/ADC.o
                                  0x31 (size before relaxing)
+ .comment       0x00000030       0x31 Librerias/ControlValvulas.o
  .comment       0x00000030       0x31 Librerias/FuncionesDerivadas.o
  .comment       0x00000030       0x31 Librerias/FuncionesEprom.o
  .comment       0x00000030       0x31 Librerias/i2c.o
@@ -1340,148 +1414,157 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x428
+.debug_aranges  0x00000000      0x470
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x28 Librerias/ADC.o
  .debug_aranges
-                0x00000028       0x38 Librerias/FuncionesDerivadas.o
+                0x00000028       0x48 Librerias/ControlValvulas.o
  .debug_aranges
-                0x00000060       0x38 Librerias/FuncionesEprom.o
+                0x00000070       0x38 Librerias/FuncionesDerivadas.o
  .debug_aranges
-                0x00000098       0x38 Librerias/i2c.o
+                0x000000a8       0x38 Librerias/FuncionesEprom.o
  .debug_aranges
-                0x000000d0       0x58 Librerias/LCD_I2C.o
+                0x000000e0       0x38 Librerias/i2c.o
  .debug_aranges
-                0x00000128       0x58 Librerias/MCP3421.o
+                0x00000118       0x58 Librerias/LCD_I2C.o
  .debug_aranges
-                0x00000180       0x98 Librerias/mcp9800.o
+                0x00000170       0x58 Librerias/MCP3421.o
  .debug_aranges
-                0x00000218       0x30 Librerias/pcf8575.o
+                0x000001c8       0x98 Librerias/mcp9800.o
  .debug_aranges
-                0x00000248       0x48 Librerias/pines.o
+                0x00000260       0x30 Librerias/pcf8575.o
  .debug_aranges
-                0x00000290       0x28 Librerias/PWM.o
+                0x00000290       0x48 Librerias/pines.o
  .debug_aranges
-                0x000002b8       0x28 Librerias/timer.o
+                0x000002d8       0x28 Librerias/PWM.o
  .debug_aranges
-                0x000002e0       0xb8 Librerias/UART.o
+                0x00000300       0x28 Librerias/timer.o
  .debug_aranges
-                0x00000398       0x90 main.o
+                0x00000328       0xb0 Librerias/UART.o
+ .debug_aranges
+                0x000003d8       0x98 main.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x66f5
+.debug_info     0x00000000     0x7152
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x5f4 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_info    0x000005f4       0xb4 Librerias/ADC.o
- .debug_info    0x000006a8      0x4dd Librerias/FuncionesDerivadas.o
- .debug_info    0x00000b85      0x23f Librerias/FuncionesEprom.o
- .debug_info    0x00000dc4       0xed Librerias/i2c.o
- .debug_info    0x00000eb1      0x4fb Librerias/LCD_I2C.o
- .debug_info    0x000013ac      0x287 Librerias/MCP3421.o
- .debug_info    0x00001633      0xa61 Librerias/mcp9800.o
- .debug_info    0x00002094      0x170 Librerias/pcf8575.o
- .debug_info    0x00002204      0x179 Librerias/pines.o
- .debug_info    0x0000237d       0xc9 Librerias/PWM.o
- .debug_info    0x00002446       0xa9 Librerias/timer.o
- .debug_info    0x000024ef     0x24fa Librerias/UART.o
- .debug_info    0x000049e9     0x1d0c main.o
+ .debug_info    0x000006a8      0x795 Librerias/ControlValvulas.o
+ .debug_info    0x00000e3d      0x4dd Librerias/FuncionesDerivadas.o
+ .debug_info    0x0000131a      0x23f Librerias/FuncionesEprom.o
+ .debug_info    0x00001559       0xed Librerias/i2c.o
+ .debug_info    0x00001646      0x4fb Librerias/LCD_I2C.o
+ .debug_info    0x00001b41      0x287 Librerias/MCP3421.o
+ .debug_info    0x00001dc8      0xa61 Librerias/mcp9800.o
+ .debug_info    0x00002829      0x170 Librerias/pcf8575.o
+ .debug_info    0x00002999      0x179 Librerias/pines.o
+ .debug_info    0x00002b12       0xc9 Librerias/PWM.o
+ .debug_info    0x00002bdb       0xa9 Librerias/timer.o
+ .debug_info    0x00002c84     0x2514 Librerias/UART.o
+ .debug_info    0x00005198     0x1fba main.o
 
-.debug_abbrev   0x00000000     0x1483
+.debug_abbrev   0x00000000     0x15b3
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x5a2 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_abbrev  0x000005a2       0x7a Librerias/ADC.o
- .debug_abbrev  0x0000061c      0x12c Librerias/FuncionesDerivadas.o
- .debug_abbrev  0x00000748      0x10d Librerias/FuncionesEprom.o
- .debug_abbrev  0x00000855       0x89 Librerias/i2c.o
- .debug_abbrev  0x000008de      0x19a Librerias/LCD_I2C.o
- .debug_abbrev  0x00000a78      0x128 Librerias/MCP3421.o
- .debug_abbrev  0x00000ba0      0x23e Librerias/mcp9800.o
- .debug_abbrev  0x00000dde       0xbb Librerias/pcf8575.o
- .debug_abbrev  0x00000e99       0x8e Librerias/pines.o
- .debug_abbrev  0x00000f27       0x96 Librerias/PWM.o
- .debug_abbrev  0x00000fbd       0x4f Librerias/timer.o
- .debug_abbrev  0x0000100c      0x246 Librerias/UART.o
- .debug_abbrev  0x00001252      0x231 main.o
+ .debug_abbrev  0x0000061c      0x112 Librerias/ControlValvulas.o
+ .debug_abbrev  0x0000072e      0x12c Librerias/FuncionesDerivadas.o
+ .debug_abbrev  0x0000085a      0x10d Librerias/FuncionesEprom.o
+ .debug_abbrev  0x00000967       0x89 Librerias/i2c.o
+ .debug_abbrev  0x000009f0      0x19a Librerias/LCD_I2C.o
+ .debug_abbrev  0x00000b8a      0x128 Librerias/MCP3421.o
+ .debug_abbrev  0x00000cb2      0x23e Librerias/mcp9800.o
+ .debug_abbrev  0x00000ef0       0xbb Librerias/pcf8575.o
+ .debug_abbrev  0x00000fab       0x8e Librerias/pines.o
+ .debug_abbrev  0x00001039       0x96 Librerias/PWM.o
+ .debug_abbrev  0x000010cf       0x4f Librerias/timer.o
+ .debug_abbrev  0x0000111e      0x242 Librerias/UART.o
+ .debug_abbrev  0x00001360      0x253 main.o
 
-.debug_line     0x00000000     0x2d77
+.debug_line     0x00000000     0x31c5
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x134 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_line    0x00000134      0x123 Librerias/ADC.o
- .debug_line    0x00000257      0x3a6 Librerias/FuncionesDerivadas.o
- .debug_line    0x000005fd      0x1df Librerias/FuncionesEprom.o
- .debug_line    0x000007dc      0x15d Librerias/i2c.o
- .debug_line    0x00000939      0x436 Librerias/LCD_I2C.o
- .debug_line    0x00000d6f      0x22d Librerias/MCP3421.o
- .debug_line    0x00000f9c      0x58e Librerias/mcp9800.o
- .debug_line    0x0000152a      0x138 Librerias/pcf8575.o
- .debug_line    0x00001662      0x18d Librerias/pines.o
- .debug_line    0x000017ef      0x125 Librerias/PWM.o
- .debug_line    0x00001914      0x13b Librerias/timer.o
- .debug_line    0x00001a4f      0x7c7 Librerias/UART.o
- .debug_line    0x00002216      0xb61 main.o
+ .debug_line    0x00000257      0x32f Librerias/ControlValvulas.o
+ .debug_line    0x00000586      0x3a6 Librerias/FuncionesDerivadas.o
+ .debug_line    0x0000092c      0x1df Librerias/FuncionesEprom.o
+ .debug_line    0x00000b0b      0x15d Librerias/i2c.o
+ .debug_line    0x00000c68      0x436 Librerias/LCD_I2C.o
+ .debug_line    0x0000109e      0x22d Librerias/MCP3421.o
+ .debug_line    0x000012cb      0x58e Librerias/mcp9800.o
+ .debug_line    0x00001859      0x138 Librerias/pcf8575.o
+ .debug_line    0x00001991      0x18d Librerias/pines.o
+ .debug_line    0x00001b1e      0x125 Librerias/PWM.o
+ .debug_line    0x00001c43      0x13b Librerias/timer.o
+ .debug_line    0x00001d7e      0x7d0 Librerias/UART.o
+ .debug_line    0x0000254e      0xc77 main.o
 
-.debug_frame    0x00000000      0xb9c
+.debug_frame    0x00000000      0xc94
  *(.debug_frame)
  .debug_frame   0x00000000       0x34 Librerias/ADC.o
- .debug_frame   0x00000034       0xb0 Librerias/FuncionesDerivadas.o
- .debug_frame   0x000000e4       0xbc Librerias/FuncionesEprom.o
- .debug_frame   0x000001a0       0x54 Librerias/i2c.o
- .debug_frame   0x000001f4       0xb0 Librerias/LCD_I2C.o
- .debug_frame   0x000002a4       0xa0 Librerias/MCP3421.o
- .debug_frame   0x00000344      0x27c Librerias/mcp9800.o
- .debug_frame   0x000005c0       0x50 Librerias/pcf8575.o
- .debug_frame   0x00000610       0x74 Librerias/pines.o
- .debug_frame   0x00000684       0x34 Librerias/PWM.o
- .debug_frame   0x000006b8       0x34 Librerias/timer.o
- .debug_frame   0x000006ec      0x234 Librerias/UART.o
- .debug_frame   0x00000920      0x27c main.o
+ .debug_frame   0x00000034       0xf4 Librerias/ControlValvulas.o
+ .debug_frame   0x00000128       0xb0 Librerias/FuncionesDerivadas.o
+ .debug_frame   0x000001d8       0xbc Librerias/FuncionesEprom.o
+ .debug_frame   0x00000294       0x54 Librerias/i2c.o
+ .debug_frame   0x000002e8       0xb0 Librerias/LCD_I2C.o
+ .debug_frame   0x00000398       0xa0 Librerias/MCP3421.o
+ .debug_frame   0x00000438      0x27c Librerias/mcp9800.o
+ .debug_frame   0x000006b4       0x50 Librerias/pcf8575.o
+ .debug_frame   0x00000704       0x74 Librerias/pines.o
+ .debug_frame   0x00000778       0x34 Librerias/PWM.o
+ .debug_frame   0x000007ac       0x34 Librerias/timer.o
+ .debug_frame   0x000007e0      0x224 Librerias/UART.o
+ .debug_frame   0x00000a04      0x290 main.o
 
-.debug_str      0x00000000     0x13b2
+.debug_str      0x00000000     0x14ad
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Users/Usuario/Desktop/clases/UADER/4to cuatrimestre/Sistemas digitales IV/microchipstudio/7.0/Packs/Atmel/ATmega_DFP/2.0.401/gcc/dev/atmega328p/avr5/crtatmega328p.o
  .debug_str     0x00000208      0x15a Librerias/ADC.o
                                 0x193 (size before relaxing)
- .debug_str     0x00000362      0x125 Librerias/FuncionesDerivadas.o
+ .debug_str     0x00000362      0x10d Librerias/ControlValvulas.o
+                                0x26a (size before relaxing)
+ .debug_str     0x0000046f      0x117 Librerias/FuncionesDerivadas.o
                                 0x28f (size before relaxing)
- .debug_str     0x00000487       0x6a Librerias/FuncionesEprom.o
+ .debug_str     0x00000586       0x58 Librerias/FuncionesEprom.o
                                 0x1fc (size before relaxing)
- .debug_str     0x000004f1       0x48 Librerias/i2c.o
+ .debug_str     0x000005de       0x48 Librerias/i2c.o
                                 0x1ad (size before relaxing)
- .debug_str     0x00000539       0xe6 Librerias/LCD_I2C.o
+ .debug_str     0x00000626       0xe6 Librerias/LCD_I2C.o
                                 0x268 (size before relaxing)
- .debug_str     0x0000061f       0x95 Librerias/MCP3421.o
+ .debug_str     0x0000070c       0x95 Librerias/MCP3421.o
                                 0x20e (size before relaxing)
- .debug_str     0x000006b4      0x30d Librerias/mcp9800.o
+ .debug_str     0x000007a1      0x30d Librerias/mcp9800.o
                                 0x506 (size before relaxing)
- .debug_str     0x000009c1       0x43 Librerias/pcf8575.o
+ .debug_str     0x00000aae       0x28 Librerias/pcf8575.o
                                 0x1c6 (size before relaxing)
- .debug_str     0x00000a04       0x8c Librerias/pines.o
+ .debug_str     0x00000ad6       0x85 Librerias/pines.o
                                 0x230 (size before relaxing)
- .debug_str     0x00000a90       0x37 Librerias/PWM.o
+ .debug_str     0x00000b5b       0x31 Librerias/PWM.o
                                 0x197 (size before relaxing)
- .debug_str     0x00000ac7       0x2d Librerias/timer.o
+ .debug_str     0x00000b8c       0x2d Librerias/timer.o
                                 0x19b (size before relaxing)
- .debug_str     0x00000af4      0x634 Librerias/UART.o
-                                0x841 (size before relaxing)
- .debug_str     0x00001128      0x28a main.o
-                                0x711 (size before relaxing)
+ .debug_str     0x00000bb9      0x640 Librerias/UART.o
+                                0x84d (size before relaxing)
+ .debug_str     0x000011f9      0x2b4 main.o
+                                0x75f (size before relaxing)
 
-.debug_loc      0x00000000     0x25f2
+.debug_loc      0x00000000     0x2a87
  *(.debug_loc)
  .debug_loc     0x00000000       0x21 Librerias/ADC.o
- .debug_loc     0x00000021      0x3ef Librerias/FuncionesDerivadas.o
- .debug_loc     0x00000410      0x302 Librerias/FuncionesEprom.o
- .debug_loc     0x00000712       0x2d Librerias/i2c.o
- .debug_loc     0x0000073f      0x2e7 Librerias/LCD_I2C.o
- .debug_loc     0x00000a26       0x9c Librerias/MCP3421.o
- .debug_loc     0x00000ac2      0xa06 Librerias/mcp9800.o
- .debug_loc     0x000014c8       0x55 Librerias/pcf8575.o
- .debug_loc     0x0000151d       0x60 Librerias/PWM.o
- .debug_loc     0x0000157d      0x590 Librerias/UART.o
- .debug_loc     0x00001b0d      0xae5 main.o
+ .debug_loc     0x00000021      0x234 Librerias/ControlValvulas.o
+ .debug_loc     0x00000255      0x3ef Librerias/FuncionesDerivadas.o
+ .debug_loc     0x00000644      0x302 Librerias/FuncionesEprom.o
+ .debug_loc     0x00000946       0x2d Librerias/i2c.o
+ .debug_loc     0x00000973      0x2e7 Librerias/LCD_I2C.o
+ .debug_loc     0x00000c5a       0x9c Librerias/MCP3421.o
+ .debug_loc     0x00000cf6      0xa06 Librerias/mcp9800.o
+ .debug_loc     0x000016fc       0x55 Librerias/pcf8575.o
+ .debug_loc     0x00001751       0x60 Librerias/PWM.o
+ .debug_loc     0x000017b1      0x6aa Librerias/UART.o
+ .debug_loc     0x00001e5b      0xc2c main.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -1501,21 +1584,22 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x358
+.debug_ranges   0x00000000      0x390
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x18 Librerias/ADC.o
- .debug_ranges  0x00000018       0x28 Librerias/FuncionesDerivadas.o
- .debug_ranges  0x00000040       0x28 Librerias/FuncionesEprom.o
- .debug_ranges  0x00000068       0x28 Librerias/i2c.o
- .debug_ranges  0x00000090       0x48 Librerias/LCD_I2C.o
- .debug_ranges  0x000000d8       0x48 Librerias/MCP3421.o
- .debug_ranges  0x00000120       0x88 Librerias/mcp9800.o
- .debug_ranges  0x000001a8       0x20 Librerias/pcf8575.o
- .debug_ranges  0x000001c8       0x38 Librerias/pines.o
- .debug_ranges  0x00000200       0x18 Librerias/PWM.o
- .debug_ranges  0x00000218       0x18 Librerias/timer.o
- .debug_ranges  0x00000230       0xa8 Librerias/UART.o
- .debug_ranges  0x000002d8       0x80 main.o
+ .debug_ranges  0x00000018       0x38 Librerias/ControlValvulas.o
+ .debug_ranges  0x00000050       0x28 Librerias/FuncionesDerivadas.o
+ .debug_ranges  0x00000078       0x28 Librerias/FuncionesEprom.o
+ .debug_ranges  0x000000a0       0x28 Librerias/i2c.o
+ .debug_ranges  0x000000c8       0x48 Librerias/LCD_I2C.o
+ .debug_ranges  0x00000110       0x48 Librerias/MCP3421.o
+ .debug_ranges  0x00000158       0x88 Librerias/mcp9800.o
+ .debug_ranges  0x000001e0       0x20 Librerias/pcf8575.o
+ .debug_ranges  0x00000200       0x38 Librerias/pines.o
+ .debug_ranges  0x00000238       0x18 Librerias/PWM.o
+ .debug_ranges  0x00000250       0x18 Librerias/timer.o
+ .debug_ranges  0x00000268       0xa0 Librerias/UART.o
+ .debug_ranges  0x00000308       0x88 main.o
 
 .debug_macro
  *(.debug_macro)

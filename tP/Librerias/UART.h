@@ -25,7 +25,7 @@ void MenuCambioDeNombre(void);
 void Fracaso(void);
 void CambioDeNumero(void);
 char uart_receive_charNoBloqueante(void);
-char echo_serialNobloqueante(void);
+char echo_serialNobloqueante(int Bandera1,int Bandera3,int Bandera2);
 void MenuTamanho(void);
 #include <util/delay.h>
 #include <stdio.h>

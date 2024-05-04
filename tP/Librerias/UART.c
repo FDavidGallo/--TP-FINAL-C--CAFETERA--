@@ -216,19 +216,18 @@ char uart_receive_char() {
 	}																	
 	return recibido;
 }
-char uart_receive_charNoBloqueante(void) {
-	UDR0=0; // Esto borra lo que pudo estar en el buffer, soluciona el error de sobreescritura de palabras previas
-	char recibido = UDR0;
-	if (recibido=='_'){ // Si envia un guión bajo devuelve un 0
-		recibido='\0';  // esto es para que se pueda poner fin a un nuevo nombre
-	}
-	return recibido;
-}
-char echo_serialNobloqueante(void) {
+
+char echo_serialNobloqueante(int Bandera1,int Bandera3,int Bandera2) {// Lo que lo gace no bloqueante es que si alguna de las banderas está
+	char recibido;													  // en alto, no se espera que se reciba un dato
+	int BanderaBloqueo=((Bandera1)||(Bandera2)||(Bandera3));
+	if (BanderaBloqueo){                                              // En C, todo valor distinto de 0 es verdadero
+		recibido=';';
+		return recibido;
+	}else {
 	char input = uart_receive_char(); // TENGO QUE PREGUNTARLE AL EDU PORQUE SI LLAMO AL NO BLOQUEANTE SE ROMPE TODO
 	uart_send_char(input);
-	char recibido=input;
-	return recibido;
+	recibido=input;
+	return recibido;}
 }
 // Función para el eco serial  y recuperar el dato mandado vía uart
 
