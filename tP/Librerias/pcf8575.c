@@ -3,6 +3,7 @@ Libreria por David Gallo
 ACA SE USA SOLO EL PCF8575 COMO SALIDAS DIGITALES
 */
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <util/delay.h>
 #include "pcf857.h"
 
@@ -22,11 +23,13 @@ ACA SE USA SOLO EL PCF8575 COMO SALIDAS DIGITALES
 // 0xFFFF >>TODO PRENDIDO 0X0000 >> TODO APAGADO
 
 void EscribirPcf8575(uint16_t data) {
+	cli();
 	i2c_start();
 	i2c_write(PCF8575_ADDRESS << 1); // Dirección del dispositivo I2C
 	i2c_write(data & 0xFF); // Enviar byte bajo
 	i2c_write(data >> 8); // Enviar byte alto
 	i2c_stop();
+	sei();
 }
 //Las siguientes son funciones propias de mis proyecto, pero siguen la estructura de mandarle un dato predeterminado a la anterior
 void PrenderTodo() {

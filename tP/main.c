@@ -123,8 +123,28 @@
  *     #         ####   #    #   ####   #   ####   #    #  ######   ####       #     #  ######   ####   ######   ####   #    #  #    #  #  #    #   ####  
  *                                                                                                                                                        
  */
+void DetectarError(void){
+	if(BanderaError){
+		limpiar_LCD();
+		lcd_init();
+		escribirEnLCD(" ERROR PUERTA ");
+		_delay_ms(711);
+		limpiar_LCD();
+		escribirEnLCD(" ABIERTA O");
+		_delay_ms(711);
+		limpiar_LCD();
+		escribirEnLCD(" TAZA MAL PUESTA");
+		_delay_ms(711);
+		limpiar_LCD();
+		i2c_stop();
+		uart_send_newline();
+		uart_send_string(">>ERROR: Cierre la puerta o coloque bien la taza para continuar...")
+		;
+		BanderaError=0; //Bajamos la bandera error
+	}}
 void Servido (void){
-	if (BanderaServido){
+	DetectarError();
+	if ((BanderaServido!=0)&&(BanderaError==0)){
 			lcd_init();
 		limpiar_LCD();
 	   uart_send_newline();
@@ -137,9 +157,9 @@ void Servido (void){
 			limpiar_LCD();
 		BanderaServido=0;	
 		uart_send_string(">>Servido finalizado");																																																																			//;main(); // Terminada la operacion de servido, volvamos a la main. 
-	}
-	}
+	}else{DetectarError();}
 	
+}
 void ConfiguracionPredeterminada(void){
 	char BufferAuxiliar[10]="2";
 	EPROM_Write_String(TamagnoBidon, BufferAuxiliar); // Por defecto el bidón es de 20 litros
@@ -462,24 +482,26 @@ void MenuUart(void)
 		LlenarVectorConTresCaracteres(DosificacionB4);
 		DecisionMenuUart=",";
 		break;
-		DecisionMenuUart=",";
-		LlenarVectorConTresCaracteres(CAguaB1);
+	
 		case 'M':
+		LlenarVectorConTresCaracteres(CAguaB1);
+		DecisionMenuUart=",";
 		DecisionMenuUart=",";
 		break;
 		case 'L':
-		LlenarVectorConTresCaracteres(CAguaB2);
 		DecisionMenuUart=",";
+		LlenarVectorConTresCaracteres(CAguaB2);
 		break;
 		case 'O':
 		DecisionMenuUart=",";
 		LlenarVectorConTresCaracteres(CAguaB3);
 		break;
+		
 		case 'P':
 		DecisionMenuUart=",";
 		LlenarVectorConTresCaracteres(CAguaB4);
-		break;
 		DecisionMenuUart=",";
+		break;
 		case 'Q':
 		DecisionMenuUart=",";
 		LlenarVectorConDosCaracteres(PorcDescargaB1);
@@ -528,22 +550,7 @@ void MenuUart(void)
 		break;
 	}
 }
-void DetectarError(void){
-	if(BanderaError){
-		limpiar_LCD();
-		i2c_init();
-		escribirEnLCD(" ERROR PUERTA ");
-		_delay_ms(711);
-		limpiar_LCD();
-		escribirEnLCD(" ABIERTA O");
-		_delay_ms(711);
-		limpiar_LCD();
-		escribirEnLCD(" TAZA MAL PUESTA");
-		_delay_ms(711);
-		limpiar_LCD();
-		i2c_stop();
-		;
-	}}
+
 
 /* ===========================================================================================================
  *     #######  #     #  #     #   #####   ###  #######  #     #          #     #     #     ###  #     # 
@@ -560,11 +567,11 @@ void DetectarError(void){
 int main(void){ 
 	   cli(); // NOS ASEGURAMOS QUE LAS INTERRUPCIONES ESTEN DESACTIVADAS
 	   ConfiguracionIncial();//Configuramos todo
-	 
+	    
 	 //  EnviarTextoSeleccionarOpcion();
 	   MedirVariables(); //Medición inicial
 	    sei(); // Prendendemos las interrupciones
-		
+		DetectarError();// Por si llegare a iniciarse con algo mal
 	while(1){
 		  sei();
 		  
@@ -604,6 +611,7 @@ ISR(TIMER0_COMPA_vect) {
 	if (ContadorControlarBotones==125) // Para que se active por cada 250 ms (velocidad del reflejo humano)
 	{LeerBotones();
      LeerSensores();
+
 	ContadorControlarBotones=0 //Reiniciamos contador
 	;};
 	// Incrementar contador de tiempo si los dos botones están presionados
@@ -611,7 +619,7 @@ ISR(TIMER0_COMPA_vect) {
 	// Leer estado de los pines PD3 y PD4
 	pinState = (BotonAceptarr && BotonSeleccionarr);
 	if (pinState != 0){timerCounter++;}
-    else { if ((BotonAceptarRR != 0)&& (BotonSeleccionarr==0)) {BanderaServido=1;																																																																																							Servido();    
+    else { if ((BotonAceptarRR != 0)&& (BotonSeleccionarr==0)) {BanderaServido=1;																																																																																							   
     }
     }
 	// Si ambos pines están en bajo y el contador ha alcanzado 2500 (5 segundos)
