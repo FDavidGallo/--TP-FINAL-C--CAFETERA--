@@ -1,4 +1,5 @@
 #include <avr/pgmspace.h>
+#include <avr/interrupt.h>
 #include "FuncionesEeprom.h"
 /*
     _____               _   __              _            _       _
@@ -208,15 +209,14 @@ void uart_send_newline() {
 }
 
 // Recibir un carácter desde la UART
-char uart_receive_char() {
+char uart_receive_char()  {
 	while (!(UCSR0A & (1 << RXC0))); // Esperar hasta que se reciba un dato
 	char recibido = UDR0;
-	if (recibido=='_'){ // Si envia un guión bajo devuelve un 0
+	if (recibido=='_'){ // Si envia un gui?n bajo devuelve un 0
 		recibido='\0';  // esto es para que se pueda poner fin a un nuevo nombre
-	}																	
+	}
 	return recibido;
 }
-
 char echo_serialNobloqueante(int Bandera1,int Bandera3,int Bandera2) {// Lo que lo gace no bloqueante es que si alguna de las banderas está
 	char recibido;													  // en alto, no se espera que se reciba un dato
 	int BanderaBloqueo=((Bandera1)||(Bandera2)||(Bandera3));
@@ -488,5 +488,14 @@ void MenuTamanho(void){
 	MandarStringdesdePrograma(MenuTamagno0);
 	uart_send_newline();
 	MandarStringdesdePrograma(MenuTamagno1);
-	uart_send_newline();
+	uart_send_newline();}
+
+unsigned char UART_receive_non_blocking() {
+	// Si hay datos disponibles para leer
+	if (UCSR0A && (1<<RXC0)) {
+		char Chaar=UDR0;; // Lee el dato del registro UDR0
+		return Chaar;
+		} else {
+		return ';'; // No hay datos disponibles
+	}
 }

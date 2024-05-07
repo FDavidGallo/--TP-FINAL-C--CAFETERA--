@@ -6,6 +6,7 @@
 #include <avr/io.h>
 ;;;;;;;
 void USART_Transmit(uint8_t data);
+unsigned char UART_receive_non_blocking();
 //void MenuUart();
 void uart_init(void);
 void uart_send_char(char c);

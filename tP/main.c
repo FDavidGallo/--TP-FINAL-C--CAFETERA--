@@ -67,7 +67,7 @@
 		volatile uint8_t BanderaServido=0; //Esta la usaremos para indicar si hay que servir alguna bebidda
 		uint8_t BanderaBienvenida = 0;
 		volatile uint8_t BanderaError=0;
-
+          volatile  char received_data;
 /***
  *                                                                                                                             
  *     #    #   ##   #####  #   ##   #####  #      ######  ####    ###### #    #     ###### ###### #####  #####   ####  #    # 
@@ -124,7 +124,11 @@
  *                                                                                                                                                        
  */
 void DetectarError(void){
-	if(BanderaError){
+	 SensorrTaza=LeerSensorTaza();
+	 SensorrPuerta=LeerSensorPuerta();
+	 BanderaError=SensorrPuerta||SensorrTaza;
+	if(BanderaError!=0){
+		lcd_init();
 		limpiar_LCD();
 		lcd_init();
 		escribirEnLCD(" ERROR PUERTA ");
@@ -136,11 +140,10 @@ void DetectarError(void){
 		escribirEnLCD(" TAZA MAL PUESTA");
 		_delay_ms(711);
 		limpiar_LCD();
-		i2c_stop();
 		uart_send_newline();
 		uart_send_string(">>ERROR: Cierre la puerta o coloque bien la taza para continuar...")
 		;
-		BanderaError=0; //Bajamos la bandera error
+	
 	}}
 void Servido (void){
 	DetectarError();
@@ -330,6 +333,7 @@ escribirEnLCD(" ");
 void LeerBotones(void) {
 	BotonSeleccionarr = LeerBotonSeleccionar();
 	BotonAceptarr = LeerBotonAceptar();
+	if (BanderaServido==0){
 	if (BotonSeleccionarr == 1) {
 		SelectorMenuLCD = SelectorMenuLCD + 1;
 			if (SelectorMenuLCD == 5) {
@@ -369,11 +373,12 @@ void LeerBotones(void) {
 			
 		i2c_stop();}
 	}
-}
+	}}
 void LeerSensores(void){
 	 SensorrTaza=LeerSensorTaza();
 	 SensorrPuerta=LeerSensorPuerta();
 	 BanderaError=SensorrPuerta||SensorrTaza;
+	 if(BanderaError!=0){DetectarError();}
 	 } 
 void MedicionPolvos(void){
 	leer_ADC(0); // Lee el valor del pin PC0
@@ -402,6 +407,9 @@ void ConfiguracionIncial(void){
 	   if(BanderaBienvenida==0){        // Primer ejecución del programa
 		    Bienvenida();
 			BanderaBienvenida=1;
+			lcd_init();
+			escribirEnLCD(" Bienvenido UwU");
+			i2c_stop();
 	   } 
 	   ConfiguracionIncialEeprom();     // Verificamos que la configuración inicial esté en la eprom, caso contrario la configuramos
 	   MenuInicial();                   // Menu de inicio owo
@@ -409,7 +417,8 @@ void ConfiguracionIncial(void){
 	   setupTimer1();
    }
 void MenuUart(void) 
-    {DecisionMenuUart=echo_serialNobloqueante(BanderaServido,BanderaError,0); // se recibe el dato de forma no bloqueante
+    {; // se recibe el dato de forma no bloqueante
+		DecisionMenuUart=UART_receive_non_blocking();
 	switch (DecisionMenuUart) {
 		case '1':
 		MenuMediciones(PesoBidon,TemperaturaBidon,NivelPolvo1,NivelPolvo2,NivelPolvo3,NivelPolvo4);
@@ -569,7 +578,9 @@ int main(void){
 	   ConfiguracionIncial();//Configuramos todo
 	    
 	 //  EnviarTextoSeleccionarOpcion();
-	   MedirVariables(); //Medición inicial
+	 for (int i = 0; i < 6; i++) // Hay que medir varias veces, porque las primeras mediciones pueden ser erradas
+	 {MedirVariables(); //Medición inicial
+	 }
 	    sei(); // Prendendemos las interrupciones
 		DetectarError();// Por si llegare a iniciarse con algo mal
 	while(1){
@@ -604,7 +615,6 @@ ISR(TIMER1_COMPA_vect) {
 	ControlarTemperatura();         // Se controla la temperatura por interrupción
 }
 ISR(TIMER0_COMPA_vect) {
-	
 	 int BotonAceptarRR = !((PIND & (1 << PPD6)) ? 1 : 0);
 	// Incrementar contador de tiempo
 	ContadorControlarBotones++; 
@@ -631,4 +641,8 @@ ISR(TIMER0_COMPA_vect) {
 // Leer estado de P6
 
 }
+	
+//ISR(USART_RX_vect) {
+	//received_data = UDR0; // Lee el dato recibido y lo guarda en una variable global
+//}
 	
