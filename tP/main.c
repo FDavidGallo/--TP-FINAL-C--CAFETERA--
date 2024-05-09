@@ -143,6 +143,8 @@ void DetectarError(void){
 		uart_send_newline();
 		uart_send_string(">>ERROR: Cierre la puerta o coloque bien la taza para continuar...")
 		;
+		ApagarTodo(); // Por las dudas
+		asm volatile ("jmp 0"); // Reiniciamos el micro
 	
 	}}
 void Servido (void){
@@ -404,7 +406,7 @@ void ConfiguracionIncial(void){
 	   ConfigurarPinesSensores();		//Configuramos los pines de los sensores 
 	   ConfigurarBotones();				//Configuramos los botones.
 	   PWM_init();                      // Configuramos el PWM
-	   if(BanderaBienvenida==0){        // Primer ejecución del programa
+	   if((BanderaBienvenida==0)&&(BanderaError==0)){        // Primer ejecución del programa
 		    Bienvenida();
 			BanderaBienvenida=1;
 			lcd_init();
@@ -618,7 +620,7 @@ ISR(TIMER0_COMPA_vect) {
 	 int BotonAceptarRR = !((PIND & (1 << PPD6)) ? 1 : 0);
 	// Incrementar contador de tiempo
 	ContadorControlarBotones++; 
-	if (ContadorControlarBotones==125) // Para que se active por cada 250 ms (velocidad del reflejo humano)
+	if (ContadorControlarBotones==55) // Para que se active por cada 250 ms (velocidad del reflejo humano)
 	{LeerBotones();
      LeerSensores();
 

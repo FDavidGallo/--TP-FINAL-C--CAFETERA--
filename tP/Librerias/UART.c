@@ -489,12 +489,11 @@ void MenuTamanho(void){
 	uart_send_newline();
 	MandarStringdesdePrograma(MenuTamagno1);
 	uart_send_newline();}
-
 unsigned char UART_receive_non_blocking() {
 	// Si hay datos disponibles para leer
-	if (UCSR0A && (1<<RXC0)) {
-		char Chaar=UDR0;; // Lee el dato del registro UDR0
-		return Chaar;
+	if (UCSR0A & (1<<RXC0)) {
+		unsigned char Char = UDR0; // Lee el dato del registro UDR0
+		return Char;
 		} else {
 		return ';'; // No hay datos disponibles
 	}
