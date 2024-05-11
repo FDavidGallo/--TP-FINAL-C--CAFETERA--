@@ -17,8 +17,6 @@ Librerias/timer.d Librerias/timer.o: ../Librerias/timer.c \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
- c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  ../Librerias/ADC.h
 
 ../Librerias/timer.h:
@@ -56,9 +54,5 @@ c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
-
-c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
-
-c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 ../Librerias/ADC.h:

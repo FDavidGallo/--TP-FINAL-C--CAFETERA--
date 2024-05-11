@@ -11,13 +11,13 @@ Librerias/MCP3421.d Librerias/MCP3421.o: ../Librerias/MCP3421.c \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\version.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
+ ../Librerias/FuncionesEeprom.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
- c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h
+ c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h
 
 ../Librerias/MCP3421.h:
 
@@ -43,6 +43,8 @@ c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h:
 
+../Librerias/FuncionesEeprom.h:
+
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h:
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
@@ -54,5 +56,3 @@ c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
-
-c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:

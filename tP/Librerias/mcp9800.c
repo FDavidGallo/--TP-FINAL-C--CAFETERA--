@@ -313,10 +313,6 @@ for (i=1; i<=250; i++)
 	uart_send_string("");
 }
 uart_send_string("");
-//uart_send_string("Temperatura: ");
-//uart_send_string(buf);
-//uart_send_newline();
-// Convert the formatted string to an integer
 int MedicionTemperatura = atoi(buf);
 char buffer[10]; // Espacio para la cadena de caracteres
 sprintf(buffer, "%d", MedicionTemperatura); // Convierte el entero a una cadena

@@ -334,7 +334,7 @@ escribirEnLCD(" ");
 	limpiar_LCD();
 }
 
-// Rutina de servicio de interrupción para EL TEMPORIZADOR
+
 
 void LeerBotones(void) {
 	BotonSeleccionarr = LeerBotonSeleccionar();
@@ -596,7 +596,7 @@ int main(void){
 	Servido();
 		 
 	MenuUart();
-	
+	//fin
 	
    
 	
@@ -616,20 +616,18 @@ int main(void){
  *                                                                                                                          
  */
 	
-ISR(TIMER1_COMPA_vect) {
+ISR(TIMER1_COMPA_vect) {// Esto se ejecuta cada 1 segundo
 	 MedirVariables();
 	ControlarTemperatura();         // Se controla la temperatura por interrupción
 	
-}
+}//Fin
 ISR(TIMER0_COMPA_vect) {
-	 int BotonAceptarRR = !((PIND & (1 << PPD6)) ? 1 : 0);
+	 int BotonAceptarRR = !((PIND & (1 << PPD6)) ? 1 : 0); // lee el botón aceptar
 	// Incrementar contador de tiempo
 	ContadorControlarBotones++; 
-	if (ContadorControlarBotones==55) // Para que se active por cada 250 ms (velocidad del reflejo humano)
+	if (ContadorControlarBotones==55) // Para que se active por cada 56 ms
 	{LeerBotones();
      LeerSensores();
-	 
-
 	ContadorControlarBotones=0 //Reiniciamos contador
 	;};
 	// Incrementar contador de tiempo si los dos botones están presionados
@@ -637,7 +635,8 @@ ISR(TIMER0_COMPA_vect) {
 	// Leer estado de los pines PD3 y PD4
 	pinState = (BotonAceptarr && BotonSeleccionarr);
 	if (pinState != 0){timerCounter++;}
-    else { if ((BotonAceptarRR != 0)&& (BotonSeleccionarr==0)) {BanderaServido=1;																																																																																							   
+    else { if ((BotonAceptarRR != 0)&& (BotonSeleccionarr==0))  //Se activa si sólo se presionó el botón Seleccionar
+	{BanderaServido=1;	 																																																																																						   
     }
     }
 	// Si ambos pines están en bajo y el contador ha alcanzado 2500 (5 segundos)
@@ -646,9 +645,7 @@ ISR(TIMER0_COMPA_vect) {
 		// Reiniciar contador
 		timerCounter = 0;
 	} 
-// Leer estado de P6
-
-}
+} //Fin
 	
 //ISR(USART_RX_vect) {
 	//received_data = UDR0; // Lee el dato recibido y lo guarda en una variable global
