@@ -233,9 +233,10 @@ void MedirBidon(void){
 	TemperaturaBidon=LeerTemperatura();
 }
 void ControlarTemperatura (void){
+	MedirBidon(); // Medimos tanto volumen de agua como su temperatura
 	int Auxiliar=0;
 	while (Auxiliar!=5) // Esto es para tener 5 ciclos de control por cada vez que se lo invoca
-	{   MedirBidon(); // Medimos tanto volumen de agua como su temperatura
+	{   
 		Auxiliar++;
 		EPROM_Read_String(KpEprom,Buffer,4);
 		int Kp=atoi(Buffer);
@@ -250,6 +251,9 @@ void ControlarTemperatura (void){
 	
 void MenuNivelesLcd(void){ //Esto se ejecuta só´lo si se han presionado "Seleccionar" y "Aceptar" por más de 5 segundos
 	cli();
+	i2c_stop();
+	i2c_init();
+	lcd_init();
 	escribirEnLCD(" Medidas");
 	_delay_ms(2111);
 	limpiar_LCD();
@@ -590,7 +594,7 @@ int main(void){
 		  
 	DetectarError();
 	Servido();
-	MedirVariables();	 
+		 
 	MenuUart();
 	
 	
@@ -613,8 +617,9 @@ int main(void){
  */
 	
 ISR(TIMER1_COMPA_vect) {
-	 
+	 MedirVariables();
 	ControlarTemperatura();         // Se controla la temperatura por interrupción
+	
 }
 ISR(TIMER0_COMPA_vect) {
 	 int BotonAceptarRR = !((PIND & (1 << PPD6)) ? 1 : 0);
@@ -623,6 +628,7 @@ ISR(TIMER0_COMPA_vect) {
 	if (ContadorControlarBotones==55) // Para que se active por cada 250 ms (velocidad del reflejo humano)
 	{LeerBotones();
      LeerSensores();
+	 
 
 	ContadorControlarBotones=0 //Reiniciamos contador
 	;};

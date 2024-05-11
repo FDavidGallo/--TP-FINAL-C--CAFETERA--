@@ -296,8 +296,11 @@ char buf[32];
 uart_init();
 //init MCP9800 sensor
 mcp_init();
+_delay_ms(15);
 mcp_set_adc_resolution(MCP_ADC_RES_12);
+_delay_ms(15);
 mcp_set_power_mode(MCP_POWER_UP);
+_delay_ms(15);
 for (i=1; i<=250; i++)
 {
 	float temp = mcp_read_temp_float();
@@ -318,5 +321,6 @@ int MedicionTemperatura = atoi(buf);
 char buffer[10]; // Espacio para la cadena de caracteres
 sprintf(buffer, "%d", MedicionTemperatura); // Convierte el entero a una cadena
 MedicionTemperatura = atoi(buffer);
+i2c_stop();
     return MedicionTemperatura;}
 	
