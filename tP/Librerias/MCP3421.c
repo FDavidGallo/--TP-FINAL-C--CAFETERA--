@@ -114,7 +114,7 @@ int PesarAgua(void){
 int valorLeido = MCP3421_read();
 char Buffer[3];
 EPROM_Read_String(TamagnoBidon,Buffer,2);
-int Tbidon=(atoi(Buffer)*10);
-int Peso = ((((float)valorLeido + 2)*1000) / 2047 )* Tbidon; //esto da en cm3 o ml, cambiese el numero luego por TamañoBidon (10 l o 20 l).
+int Tbidon=(atoi(Buffer)*10); // Recuperamos el tamaño del bidón en  Decalitros de la memoria Eeprom
+int Peso = ((((float)valorLeido + 2)*1000) / 2047 )* Tbidon; //esto da en cm3 o ml, (Tbidon = 10 l o 20 l).
 return Peso;}
 //???????? ?????????

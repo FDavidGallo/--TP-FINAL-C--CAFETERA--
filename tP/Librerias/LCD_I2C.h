@@ -10,6 +10,8 @@ void escribirDato(char);
 void escribirEnLCD(char *c);
 void limpiar_LCD();
 void SiguienteTextoLCD(void);
+void escribirSegundaLinea(char *c);
+
 
 extern int ejecucionUnica;
 #endif

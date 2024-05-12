@@ -415,6 +415,7 @@ void ConfiguracionIncial(void){
 			BanderaBienvenida=1;
 			lcd_init();
 			escribirEnLCD(" Bienvenido UwU");
+			escribirSegundaLinea(">______________<");
 			i2c_stop();
 	   } 
 	   ConfiguracionIncialEeprom();     // Verificamos que la configuración inicial esté en la eprom, caso contrario la configuramos

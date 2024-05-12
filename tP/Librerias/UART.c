@@ -245,12 +245,21 @@ void MandarStringdesdePrograma(const char *str) {
 		uart_send_char(c); // Enviamos un caracter
 	}
 }
-
+unsigned char UART_receive_non_blocking() {
+	// Si hay datos disponibles para leer
+	if (UCSR0A & (1<<RXC0)) {
+		unsigned char Char = UDR0; // Lee el dato del registro UDR0
+		return Char;
+		} else {
+		return ';'; // No hay datos disponibles
+	}
+}
 void EnviarTextoSeleccionarOpcion(){
 	uart_send_newline();
 	MandarStringdesdePrograma(TextoElegir);
 	
 }
+
 
 /*  ____                _   __              _
    / ___|  ___  ___ ___(_) /_/  _ __     __| | ___             /////    Las siguientes funciones sson solo menús
@@ -489,12 +498,4 @@ void MenuTamanho(void){
 	uart_send_newline();
 	MandarStringdesdePrograma(MenuTamagno1);
 	uart_send_newline();}
-unsigned char UART_receive_non_blocking() {
-	// Si hay datos disponibles para leer
-	if (UCSR0A & (1<<RXC0)) {
-		unsigned char Char = UDR0; // Lee el dato del registro UDR0
-		return Char;
-		} else {
-		return ';'; // No hay datos disponibles
-	}
-}
+

@@ -4,7 +4,7 @@
 #include "i2c.h"
 #include "LCD_I2C.h"
 #include <util/delay.h>
-
+#define direccionLcd 0x40
 void enviarPulsoEnable()
 {
 TWDR |= 0x02;					//---PIN En la pantalla LCD en = 1; -----Enclavar datos en el registro de datos LCD usando una señal de alta a baja
@@ -78,7 +78,7 @@ enviarPulsoEnable();
 void lcd_init() {
 i2c_init(); //inciamos la comunicación i2c
 i2c_start(); //Iniciamos el i2c
-i2c_write(0x40); //Dirección del PCF8574
+i2c_write(direccionLcd); //Dirección del PCF8574 0x40
 // Inicialización del LCD de 20x4 en modo 4 bits.
 _delay_ms(5);
 enviarComando4Bits(0x30); // 3 veces
@@ -100,6 +100,13 @@ void escribirEnLCD(char *c)
 while(*c != 0)			//----Espere hasta que todas las cadenas pasen a la pantalla LCD.
 escribirDato(*c++);		//----Enviar la cadena a la pantalla LCD
 }
+void escribirSegundaLinea(char *c) { // Siempre va luego de "escribir lcd"
+	enviarComando(0xC0); // Mover el cursor a la primera posición de la segunda línea
+	while(*c != 0) { // Recorrer la cadena y enviar cada carácter a la LCD
+		escribirDato(*c++);
+	}
+}
+
 
 void limpiar_LCD()
 {
