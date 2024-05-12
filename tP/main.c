@@ -348,9 +348,8 @@ void LeerBotones(void) {
 			lcd_init(); // Inicializar el LCD
 			 
 			 if (Simultaneidad==1){
-				MenuNivelesLcd();
-			 Simultaneidad=0;
-		 }
+				 uart_send_string(" ");
+		 }else{
 			switch (SelectorMenuLCD) {
 			case 1:
 			EPROM_Read_String(NombreB1, Buffer, 10);//
@@ -376,7 +375,7 @@ void LeerBotones(void) {
 			SelectorMenuLCD=1;
 			LeerBotones();
 			break;
-			
+			}
 		i2c_stop();}
 	}
 	}}
@@ -398,6 +397,7 @@ void MedicionPolvos(void){
 	};	
 
 void MedirVariables(void){
+	
 		MedicionPolvos();
 		MedirBidon();
         LeerSensores();
@@ -592,7 +592,10 @@ int main(void){
 		DetectarError();// Por si llegare a iniciarse con algo mal
 	while(1){
 		  sei();
-		  
+		if (Simultaneidad==1){
+			MenuNivelesLcd();
+			Simultaneidad=0;
+		}  
 	DetectarError();
 	Servido();
 		 
