@@ -111,7 +111,7 @@
 	  int  TiempoDeDescarga;
 	
 	// Función para crear un retardo en milisegundos con una variable
-void RetardoPersonalizadosEnMs(int i){
+void RetardoPersonalizadosEnMs(int i){  // Este es un delay no bloqueante
 	// Assembly code auto-generated
 	// by utility from Bret Mulvey
 	// Delay 16 000 cycles

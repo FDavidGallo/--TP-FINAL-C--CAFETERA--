@@ -1,10 +1,21 @@
-// Inclusión de Librerias necesarias
 
-	#include "Librerias/mcp9800.h"
+/*
+ *      ____   _                                 _      _              __ __ __   
+ *     |  _ \ (_)                               (_)    | |             \ \\ \\ \     El código de aquí en adelante está estructurado de la siguiente forma:
+ *     | |_) | _   ___  _ __ __   __ ___  _ __   _   __| |  ___   ___   \ \\ \\ \    -Preliminares (inclusión de librerías y variables necesarias para el funcionamiento)
+ *     |  _ < | | / _ \| '_ \\ \ / // _ \| '_ \ | | / _` | / _ \ / __|   > >> >> >   -Funciones Necesarias
+ *     | |_) || ||  __/| | | |\ V /|  __/| | | || || (_| || (_) |\__ \  / // // /    -Función Main (puedes venir acá para comprender mejor el programa)
+ *     |____/ |_| \___||_| |_| \_/  \___||_| |_||_| \__,_| \___/ |___/ /_//_//_/     -Interrupciones
+ *                                                                                
+ *                                                                                
+ */
+
+// Inclusión de Librerias necesarias
+	#include "Librerias/mcp9800.h" 
 	#include "Librerias/MCP3421.h"
 	#include "Librerias/pcf857.h"
-	#include "Librerias/LCD_I2C.h"
 	#include "Librerias/i2c.h"
+	#include "Librerias/LCD_I2C.h" // no mover
 	#include "Librerias/UART.h"
 	#include "Librerias/pines.h"
 	#include "Librerias/PWM.h"
@@ -91,7 +102,7 @@
 //   TIPO 'K' --> CONSTANTE PROPORCIONAL (KP) --> 0 A 100
 //   TIPO 'T' -->  TEMPERATURA DESEADA --> (60-95)*C
 //
-// Las direcciones son:
+// Las direcciones de dichas variables de la Eeprom son:
 	#define NombreB1 10
 	#define NombreB2 25
 	#define NombreB3 40
@@ -121,24 +132,24 @@
  *     #        #    #  #  # #  #       #  #    #  #  # #  #            #      #   # #  #       #       #            #  ######  #####   #  ######       # 
  *     #        #    #  #   ##  #    #  #  #    #  #   ##  #       #    #      #    ##  #       #    #  #       #    #  #    #  #   #   #  #    #  #    # 
  *     #         ####   #    #   ####   #   ####   #    #  ######   ####       #     #  ######   ####   ######   ####   #    #  #    #  #  #    #   ####  
- *                                                                                                                                                        
+ *    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                     >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>                            
  */
 void DetectarError(void){
 	 SensorrTaza=LeerSensorTaza();
 	 SensorrPuerta=LeerSensorPuerta();
-	 BanderaError=SensorrPuerta||SensorrTaza;
+	 BanderaError=SensorrPuerta||SensorrTaza; // Existe un error si la puerta está abierta o la taza no está bien puesta
 	if(BanderaError!=0){
 		lcd_init();
 		limpiar_LCD();
 		lcd_init();
 		escribirEnLCD(" ERROR PUERTA ");
-		_delay_ms(711);
+		RetardoPersonalizadosEnMs(452);
 		limpiar_LCD();
 		escribirEnLCD(" ABIERTA O");
-		_delay_ms(711);
+		RetardoPersonalizadosEnMs(452);
 		limpiar_LCD();
 		escribirEnLCD(" TAZA MAL PUESTA");
-		_delay_ms(711);
+		RetardoPersonalizadosEnMs(452);
 		limpiar_LCD();
 		uart_send_newline();
 		uart_send_string(">>ERROR: Cierre la puerta o coloque bien la taza para continuar...")
@@ -249,89 +260,87 @@ void ControlarTemperatura (void){
 		else{PWM_update(1,0);}} //Si no hay agua hacemos que el error sea 0, tal que no controle la temperatura
 	}
 	
-void MenuNivelesLcd(void){ //Esto se ejecuta só´lo si se han presionado "Seleccionar" y "Aceptar" por más de 5 segundos
-	cli();
-	i2c_stop();
-	i2c_init();
+void MenuNivelesLcd(void){ //Esto se ejecuta sólo si se han presionado "Seleccionar" y "Aceptar" por más de 5 segundos
+	i2c_stop();																																																																																																																																																																																																																																																																																									cli();
 	lcd_init();
 	escribirEnLCD(" Medidas");
-	_delay_ms(2111);
+	RetardoPersonalizadosEnMs(315);
 	limpiar_LCD();
 	escribirEnLCD(" Niveles de");
-	_delay_ms(2111);
+	RetardoPersonalizadosEnMs(315);
 	limpiar_LCD();
 	escribirEnLCD(" Polvos %");
-	_delay_ms(2111);
+	RetardoPersonalizadosEnMs(315);
 	limpiar_LCD();
 	escribirEnLCD(" ( en %)");
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(315);
 	limpiar_LCD();
 	escribirEnLCD(" ");// Este espacio soluciona un bug
 	EPROM_Read_String(NombreB1, Buffer, 10);//
 	escribirEnLCD(Buffer);
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(315);
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	 sprintf(Buffer, "%d", NivelPolvo1);
 	escribirEnLCD(Buffer);
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(315);;
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	EPROM_Read_String(NombreB2, Buffer, 10);//
 	escribirEnLCD(Buffer);
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(315);
 	limpiar_LCD();
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	sprintf(Buffer, "%d", NivelPolvo2);
 	escribirEnLCD(Buffer);
-_delay_ms(4111);
-limpiar_LCD();
-escribirEnLCD(" ");
-EPROM_Read_String(NombreB3, Buffer, 10);//
-escribirEnLCD(Buffer);
-_delay_ms(4111);
-limpiar_LCD();
-escribirEnLCD(" ");
+	RetardoPersonalizadosEnMs(315);
+	limpiar_LCD();
+	escribirEnLCD(" ");
+	EPROM_Read_String(NombreB3, Buffer, 10);//
+	escribirEnLCD(Buffer);
+	RetardoPersonalizadosEnMs(315);
+	limpiar_LCD();
+	escribirEnLCD(" ");
 	sprintf(Buffer, "%d", NivelPolvo3);
 	escribirEnLCD(Buffer);
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(515);
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	EPROM_Read_String(NombreB4, Buffer, 10);//
 	escribirEnLCD(Buffer);
-	_delay_ms(4111);
+    RetardoPersonalizadosEnMs(315);
 	limpiar_LCD();
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	sprintf(Buffer, "%d", NivelPolvo4);
 	escribirEnLCD(Buffer);
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(315);
 	limpiar_LCD();
 	escribirEnLCD(" Bidon:");
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(415);
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	escribirEnLCD(">Temperatura");
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(215);
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	sprintf(Buffer, "%d", TemperaturaBidon);
 	escribirEnLCD(Buffer);
 	escribirEnLCD("*C");
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(415);
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	escribirEnLCD(">Volumen");
-	_delay_ms(4111);
+	RetardoPersonalizadosEnMs(415);
 	limpiar_LCD();
 	escribirEnLCD(" ");
 	sprintf(Buffer, "%d", PesoBidon);
 	escribirEnLCD(Buffer);
 	escribirEnLCD("ml");
-	_delay_ms(1212);
-	_delay_ms(4111);
-	limpiar_LCD();
+	RetardoPersonalizadosEnMs(455);
+	RetardoPersonalizadosEnMs(415);
+	limpiar_LCD();																																																																																																																																																																																																																																																																																																																																						sei();
 }
 
 
@@ -512,7 +521,6 @@ void MenuUart(void)
 		DecisionMenuUart=",";
 		LlenarVectorConTresCaracteres(CAguaB3);
 		break;
-		
 		case 'P':
 		DecisionMenuUart=",";
 		LlenarVectorConTresCaracteres(CAguaB4);
@@ -581,29 +589,23 @@ void MenuUart(void)
 
    
 int main(void){ 
-	   cli(); // NOS ASEGURAMOS QUE LAS INTERRUPCIONES ESTEN DESACTIVADAS
+	   cli(); // NOS ASEGURAMOS QUE LAS INTERRUPCIONES ESTEN DESACTIVADAS, POR BUENA PRACTICA
 	   ConfiguracionIncial();//Configuramos todo
-	    
-	 //  EnviarTextoSeleccionarOpcion();
 	 for (int i = 0; i < 6; i++) // Hay que medir varias veces, porque las primeras mediciones pueden ser erradas
 	 {MedirVariables(); //Medición inicial
 	 }
 	    sei(); // Prendendemos las interrupciones
 		DetectarError();// Por si llegare a iniciarse con algo mal
 	while(1){
-		  sei();
+		  sei(); // NOS ASEGURAMOS QUE ESTEN ACTIVADAS
 		if (Simultaneidad==1){
 			MenuNivelesLcd();
 			Simultaneidad=0;
 		}  
-	DetectarError();
-	Servido();
-		 
-	MenuUart();
-	//fin
-	
-   
-	
+		DetectarError();
+		Servido(); 
+		MenuUart();
+		//fin
 	}
 	return 0;
 } 

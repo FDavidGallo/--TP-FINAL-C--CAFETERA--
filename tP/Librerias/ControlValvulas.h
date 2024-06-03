@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "pcf857.h"
-void ServidoBebida1(void);
+void RetardoPersonalizadosEnMs(int i);
+// El resto sólo se llaman internamente, por lo que no hace falta ponerlas acá
 
 #endif
