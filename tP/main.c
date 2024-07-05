@@ -11,6 +11,7 @@
  */
 
 // Inclusión de Librerias necesarias
+#include <stdio.h>
 	#include "Librerias/mcp9800.h" 
 	#include "Librerias/MCP3421.h"
 	#include "Librerias/pcf857.h"
@@ -633,7 +634,7 @@ ISR(TIMER0_COMPA_vect) {
 	ContadorControlarBotones++; 
 	if (ContadorControlarBotones==55) // Para que se active por cada 56 ms
 	{LeerBotones();
-     LeerSensores();
+    // LeerSensores();
 	ContadorControlarBotones=0 //Reiniciamos contador
 	;};
 	// Incrementar contador de tiempo si los dos botones están presionados
@@ -645,8 +646,8 @@ ISR(TIMER0_COMPA_vect) {
 	{BanderaServido=1;	 																																																																																						   
     }
     }
-	// Si ambos pines están en bajo y el contador ha alcanzado 2500 (5 segundos)
-	if (pinState != 0 && timerCounter >= 2500) {
+	// Si ambos pines están en bajo y el contador ha alcanzado mas o menos (5 segundos)
+	if (pinState != 0 && timerCounter >= 3700) {
 		Simultaneidad=1;
 		// Reiniciar contador
 		timerCounter = 0;

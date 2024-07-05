@@ -66,7 +66,7 @@ TWCR = (1<<TWINT) | (1<<TWEN);	//Habilita I2C y borra la interrupción
 while  (!(TWCR &(1<<TWINT)));
 enviarPulsoEnable();
 	
-TWDR &= 0x0F;					//----borrando los 4 bits superiores
+TWDR &= 0x0F;					//----borrando los 4 bits inferiores
 TWCR = (1<<TWINT) | (1<<TWEN);	//Habilita I2C y borra la interrupción
 while  (!(TWCR &(1<<TWINT)));
 TWDR |= ((v3 & 0x0F)<<4);		//----Enmascaramiento de 4 bits inferiores y envío a LCD

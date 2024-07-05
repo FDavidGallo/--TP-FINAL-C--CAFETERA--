@@ -1,6 +1,6 @@
 
 #include "i2c.h"
-int ejecucionUnica = 1;
+
 
 void i2c_init() { //Se encarga de inicializar el bus I2C en modo maestro con una velocidad de transmisión de 100 kHz
 	TWBR = 25; // Frecuencia de reloj de 16MHz / (16 + 2 * TWBR * 1) = 100 kHz {con 25242kHz}

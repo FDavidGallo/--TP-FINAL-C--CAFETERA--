@@ -143,7 +143,7 @@ void ServidoBebida1(void){
 	// Lo mismo con lo de descarga
 	EPROM_Read_String(PorcDescargaB1,Buffer,4);
 	Aux=atoi(Buffer);
-	TiempoDeDescarga = ((float)TiempoDeAguaCaliente * (1 + (float)(Aux / 100))) * 1000;
+	TiempoDeDescarga = ((float)TiempoDeAguaCaliente * (1 + ((float)Aux / 100)));
 	EscribirPcf8575(VALVULADESCARGA1); // SE DESCARGA LA BEBIDA
 	RetardoPersonalizadosEnMs(TiempoDeDescarga);
 	ApagarTodo();
@@ -164,7 +164,7 @@ void ServidoBebida2(void){
 	// Lo mismo con lo de descarga
 	EPROM_Read_String(PorcDescargaB2,Buffer,4);
 	Aux=atoi(Buffer);
-	TiempoDeDescarga = ((float)TiempoDeAguaCaliente * (1 + (float)(Aux / 100))) * 1000;
+	TiempoDeDescarga = ((float)TiempoDeAguaCaliente * (1 + ((float)Aux / 100))) * 1;
 	EscribirPcf8575(VALVULADESCARGA2); // SE DESCARGA LA BEBIDA
 	RetardoPersonalizadosEnMs(TiempoDeDescarga);
 	ApagarTodo();
@@ -185,7 +185,7 @@ void ServidoBebida3(void){
 	// Lo mismo con lo de descarga
 	EPROM_Read_String(PorcDescargaB3,Buffer,4);
 	Aux=atoi(Buffer);
-	TiempoDeDescarga = ((float)TiempoDeAguaCaliente * (1 + (float)(Aux / 100))) * 1000;
+	TiempoDeDescarga = ((float)TiempoDeAguaCaliente * (1 + ((float)Aux / 100)));
 	EscribirPcf8575(VALVULADESCARGA3); // SE DESCARGA LA BEBIDA
 	RetardoPersonalizadosEnMs(TiempoDeDescarga);
 	ApagarTodo();
@@ -206,7 +206,7 @@ void ServidoBebida4(void){
 	// Lo mismo con lo de descarga
 	EPROM_Read_String(PorcDescargaB4,Buffer,4);
 	Aux=atoi(Buffer);
-	TiempoDeDescarga = ((float)TiempoDeAguaCaliente * (1 + (float)(Aux / 100))) * 1000;
+	TiempoDeDescarga = ((float)TiempoDeAguaCaliente * (1 + ((float)Aux / 100)));
 	EscribirPcf8575(VALVULADESCARGA4); // SE DESCARGA LA BEBIDA
 	RetardoPersonalizadosEnMs(TiempoDeDescarga);
 	ApagarTodo();

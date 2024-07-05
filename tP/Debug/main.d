@@ -1,4 +1,6 @@
-main.d main.o: .././main.c .././Librerias/mcp9800.h \
+main.d main.o: .././main.c \
+ c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
+ .././Librerias/mcp9800.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  .././Librerias/MCP3421.h \
@@ -18,7 +20,6 @@ main.d main.o: .././main.c .././Librerias/mcp9800.h \
  .././Librerias/i2c.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  .././Librerias/i2c.h .././Librerias/LCD_I2C.h .././Librerias/UART.h \
  .././Librerias/pines.h .././Librerias/PWM.h .././Librerias/ADC.h \
  .././Librerias/FuncionesEeprom.h .././Librerias/timer.h \
@@ -27,6 +28,8 @@ main.d main.o: .././main.c .././Librerias/mcp9800.h \
  .././Librerias/ControlValvulas.h .././Librerias/pcf857.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h
+
+c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 
 .././Librerias/mcp9800.h:
 
@@ -67,8 +70,6 @@ c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
 c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
-
-c:\users\usuario\desktop\clases\uader\4to\ cuatrimestre\sistemas\ digitales\ iv\microchipstudio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 
 .././Librerias/i2c.h:
 
